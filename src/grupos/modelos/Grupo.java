@@ -9,6 +9,11 @@ public class Grupo {
     private String nombre;
     private String descripcion;
 
+    public Grupo(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
     public String verNombre() {
         return nombre;
     }

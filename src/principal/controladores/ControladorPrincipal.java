@@ -25,44 +25,19 @@ public class ControladorPrincipal {
         ArrayList<Grupo> arrayGrupo = new ArrayList<>();
         
         //Instanciar Alumnos y agregarlos al ArrayList
-        Alumno alumno1 = new Alumno();
-        alumno1.asignarDni(1);
-        alumno1.asignarApellidos("A");
-        alumno1.asignarNombres("a");
-        alumno1.asignarCx("1-1");
-        alumno1.asignarClave("C1");
+        Alumno alumno1 = new Alumno(1, "A", "a", "1-1", "C1");
         arrayAlumno.add(alumno1);
         
-        Alumno alumno2 = new Alumno();
-        alumno2.asignarDni(2);
-        alumno2.asignarApellidos("B");
-        alumno2.asignarNombres("b");
-        alumno2.asignarCx("1-2");
-        alumno2.asignarClave("C2");
+        Alumno alumno2 = new Alumno(2, "B", "b", "1-2", "C2");
         arrayAlumno.add(alumno2);
         
-        Alumno alumno3 = new Alumno();
-        alumno3.asignarDni(2);
-        alumno3.asignarApellidos("C");
-        alumno3.asignarNombres("c");
-        alumno3.asignarCx("1-3");
-        alumno3.asignarClave("C3");
+        Alumno alumno3 = new Alumno(3, "C", "c", "1-3", "C3");
         arrayAlumno.add(alumno3);
         
-        Alumno alumno4 = new Alumno();
-        alumno4.asignarDni(4);
-        alumno4.asignarApellidos("D");
-        alumno4.asignarNombres("d");
-        alumno4.asignarCx("1-4");
-        alumno4.asignarClave("C4");
+        Alumno alumno4 = new Alumno(4, "D", "d", "1-4", "C4");
         arrayAlumno.add(alumno4);
         
-        Alumno alumno5 = new Alumno();
-        alumno5.asignarDni(5);
-        alumno5.asignarApellidos("E");
-        alumno5.asignarNombres("e");
-        alumno5.asignarCx("1-5");
-        alumno5.asignarClave("C5");
+        Alumno alumno5 = new Alumno(5, "D", "d", "1-5", "C5");
         arrayAlumno.add(alumno5);
         
         for(Alumno a: arrayAlumno){
@@ -70,45 +45,19 @@ public class ControladorPrincipal {
         }
         
         //Instanciar Profesor y agregarlos al ArrayList
-        Profesor profesor1 = new Profesor();
-        profesor1.asignarApellidos("F");
-        profesor1.asignarNombres("f");
-        profesor1.asignarDni(6);
-        profesor1.asignarCargo("FF");
-        profesor1.asignarClave("C6");
+        Profesor profesor1 = new Profesor(6, "F", "f", "C6", "FF");
         arrayProfesor.add(profesor1);
        
-        
-        Profesor profesor2 = new Profesor();
-        profesor2.asignarApellidos("G");
-        profesor2.asignarNombres("g");
-        profesor2.asignarDni(7);
-        profesor2.asignarCargo("GG");
-        profesor2.asignarClave("C7");
+        Profesor profesor2 = new Profesor(7, "G", "g", "C7", "GG");
         arrayProfesor.add(profesor2);
         
-        Profesor profesor3 = new Profesor();
-        profesor3.asignarApellidos("H");
-        profesor3.asignarNombres("h");
-        profesor3.asignarDni(8);
-        profesor3.asignarCargo("HH");
-        profesor3.asignarClave("C8");
+        Profesor profesor3 = new Profesor(8, "H", "h", "C8", "HH");
         arrayProfesor.add(profesor3);
         
-        Profesor profesor4 = new Profesor();
-        profesor4.asignarApellidos("I");
-        profesor4.asignarNombres("i");
-        profesor4.asignarDni(9);
-        profesor4.asignarCargo("II");
-        profesor4.asignarClave("C9");
+        Profesor profesor4 = new Profesor(9, "I", "i", "C9", "II");
         arrayProfesor.add(profesor4);
         
-        Profesor profesor5 = new Profesor();
-        profesor5.asignarApellidos("J");
-        profesor5.asignarNombres("j");
-        profesor5.asignarDni(10);
-        profesor5.asignarCargo("JJ");
-        profesor5.asignarClave("C10");
+        Profesor profesor5 = new Profesor(10, "J", "j", "C10", "JJ");
         arrayProfesor.add(profesor5);
         
         for(Profesor p: arrayProfesor){
@@ -164,29 +113,19 @@ public class ControladorPrincipal {
         arrayTipo.add(tipo5);
         
         //Instanciar Grupo y agregarlos al ArrayList
-        Grupo grupo1 = new Grupo();
-        grupo1.asignarNombre("G1");
-        grupo1.asignarDescripcion("g1");
+        Grupo grupo1 = new Grupo("G1", "g1");
         arrayGrupo.add(grupo1);
         
-        Grupo grupo2 = new Grupo();
-        grupo2.asignarNombre("G2");
-        grupo2.asignarDescripcion("g2");
+        Grupo grupo2 = new Grupo("G2", "g2");
         arrayGrupo.add(grupo2);
         
-        Grupo grupo3 = new Grupo();
-        grupo3.asignarNombre("G3");
-        grupo3.asignarDescripcion("g3");
+        Grupo grupo3 = new Grupo("G3", "g3");
         arrayGrupo.add(grupo3);
         
-        Grupo grupo4 = new Grupo();
-        grupo4.asignarNombre("G4");
-        grupo4.asignarDescripcion("g4");
+        Grupo grupo4 = new Grupo("G4", "g4");
         arrayGrupo.add(grupo4);
         
-        Grupo grupo5 = new Grupo();
-        grupo5.asignarNombre("G5");
-        grupo5.asignarDescripcion("g5");
+        Grupo grupo5 = new Grupo("G5", "g5");
         arrayGrupo.add(grupo5);
         
         for(Grupo g: arrayGrupo){

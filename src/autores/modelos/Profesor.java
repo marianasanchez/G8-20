@@ -12,6 +12,16 @@ public class Profesor {
     private String clave;
     private String cargo;
 
+    public Profesor(int dni, String apellidos, String nombres, String clave, String cargo) {
+        this.dni = dni;
+        this.apellidos = apellidos;
+        this.nombres = nombres;
+        this.clave = clave;
+        this.cargo = cargo;
+    }
+
+    
+    
     public int verDni() {
         return dni;
     }
