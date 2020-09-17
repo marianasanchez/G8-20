@@ -7,6 +7,10 @@ package idiomas.modelos;
 
 public class Idioma {
     private String nombre;
+
+    public Idioma(String nombre) {
+        this.nombre = nombre;
+    }
     
     public String verNombre() {
         return nombre;
@@ -17,7 +21,10 @@ public class Idioma {
     }
     
     public String toString() {
-        //TODO: Definir método
-        return "c";
+        return "Lugar: " + this.nombre;
+    }
+    
+    public void Mostrar() {
+        System.out.println(this.toString());
     }
 }

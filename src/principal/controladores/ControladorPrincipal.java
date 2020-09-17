@@ -65,51 +65,51 @@ public class ControladorPrincipal {
         }
         
         //Instanciar Idioma y agregarlos al ArrayList
-        Idioma idioma1 = new Idioma();
+        Idioma idioma1 = new Idioma("Español");
         arrayIdioma.add(idioma1);
-        Idioma idioma2 = new Idioma();
+        Idioma idioma2 = new Idioma("Inglés");
         arrayIdioma.add(idioma2);
-        Idioma idioma3 = new Idioma();
+        Idioma idioma3 = new Idioma("Alemán");
         arrayIdioma.add(idioma3);
-        Idioma idioma4 = new Idioma();
+        Idioma idioma4 = new Idioma("Francés");
         arrayIdioma.add(idioma4);
-        Idioma idioma5 = new Idioma();
+        Idioma idioma5 = new Idioma("Italiano");
         arrayIdioma.add(idioma5);
         
         //Instanciar Lugar y agregarlos al ArrayList
-        Lugar lugar1 = new Lugar();
+        Lugar lugar1 = new Lugar("A1");
         arrayLugar.add(lugar1);
-        Lugar lugar2 = new Lugar();
+        Lugar lugar2 = new Lugar("A2");
         arrayLugar.add(lugar2);
-        Lugar lugar3 = new Lugar();
+        Lugar lugar3 = new Lugar("A3");
         arrayLugar.add(lugar3);
-        Lugar lugar4 = new Lugar();
+        Lugar lugar4 = new Lugar("A4");
         arrayLugar.add(lugar4);
-        Lugar lugar5 = new Lugar();
+        Lugar lugar5 = new Lugar("B1");
         arrayLugar.add(lugar5);
         
         //Instanciar PalabraClave y agregarlos al ArrayList
-        PalabraClave palabraClave1 = new PalabraClave();
+        PalabraClave palabraClave1 = new PalabraClave("Clave 1");
         arrayPalabraClave.add(palabraClave1);
-        PalabraClave palabraClave2 = new PalabraClave();
+        PalabraClave palabraClave2 = new PalabraClave("Clave 2");
         arrayPalabraClave.add(palabraClave2);
-        PalabraClave palabraClave3 = new PalabraClave();
+        PalabraClave palabraClave3 = new PalabraClave("Clave 3");
         arrayPalabraClave.add(palabraClave3);
-        PalabraClave palabraClave4 = new PalabraClave();
+        PalabraClave palabraClave4 = new PalabraClave("Clave 4");
         arrayPalabraClave.add(palabraClave4);
-        PalabraClave palabraClave5 = new PalabraClave();
+        PalabraClave palabraClave5 = new PalabraClave("Clave 5");
         arrayPalabraClave.add(palabraClave5);
         
         //Instanciar Tipo y agregarlos al ArrayList
-        Tipo tipo1 = new Tipo();
+        Tipo tipo1 = new Tipo("Anfiteatro");
         arrayTipo.add(tipo1);
-        Tipo tipo2 = new Tipo();
+        Tipo tipo2 = new Tipo("Aula");
         arrayTipo.add(tipo2);
-        Tipo tipo3 = new Tipo();
+        Tipo tipo3 = new Tipo("Sala");
         arrayTipo.add(tipo3);
-        Tipo tipo4 = new Tipo();
+        Tipo tipo4 = new Tipo("Oficina");
         arrayTipo.add(tipo4);
-        Tipo tipo5 = new Tipo();
+        Tipo tipo5 = new Tipo("Laboratorio");
         arrayTipo.add(tipo5);
         
         //Instanciar Grupo y agregarlos al ArrayList

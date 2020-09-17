@@ -8,6 +8,10 @@ package lugares.modelos;
 public class Lugar {
     private String nombre;
 
+    public Lugar(String nombre) {
+        this.nombre = nombre;
+    }
+    
     public String verNombre() {
         return nombre;
     }
@@ -17,7 +21,10 @@ public class Lugar {
     }
     
     public String toString() {
-        //TODO: Definir método
-        return "c";
+        return "Lugar: " + this.nombre;
+    }
+    
+    public void Mostrar() {
+        System.out.println(this.toString());
     }
 }

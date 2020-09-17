@@ -8,6 +8,10 @@ package tipos.modelos;
 public class Tipo {
     private String nombre;
 
+    public Tipo(String nombre) {
+        this.nombre = nombre;
+    }
+    
     public String verNombre() {
         return nombre;
     }
@@ -17,7 +21,10 @@ public class Tipo {
     }
     
     public String toString() {
-        //TODO: Definir método
-        return "c";
+        return "Tipo: " + this.nombre;
+    }
+    
+    public void Mostrar() {
+        System.out.println(this.toString());
     }
 }

@@ -8,6 +8,10 @@ package palabrasclaves.modelos;
 public class PalabraClave {
     private String nombre;
 
+    public PalabraClave(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String verNombre() {
         return nombre;
     }
@@ -17,7 +21,10 @@ public class PalabraClave {
     }
     
     public String toString() {
-        //TODO: Definir método
-        return "c";
+        return "Palabra Clave: " + this.nombre;
+    }
+    
+    public void Mostrar() {
+        System.out.println(this.toString());
     }
 }
