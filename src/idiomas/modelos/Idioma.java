@@ -21,7 +21,7 @@ public class Idioma {
     }
     
     public String toString() {
-        return "Lugar: " + this.nombre;
+        return "Idioma: " + this.nombre;
     }
     
     public void Mostrar() {

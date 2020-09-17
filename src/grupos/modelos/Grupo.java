@@ -31,6 +31,7 @@ public class Grupo {
     }
     
     public void mostrar () {
-        System.out.println("Grupo: " + this.verNombre() + "; " + this.verDescripcion() + "\n");
+        System.out.println("Grupo: " + this.verNombre());
+        System.out.println("Descripción " + this.verDescripcion() + "\n");
     }
 }

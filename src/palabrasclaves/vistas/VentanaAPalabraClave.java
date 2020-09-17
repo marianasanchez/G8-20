@@ -20,6 +20,7 @@ public class VentanaAPalabraClave extends JDialog {
     public VentanaAPalabraClave(Dialog ventanaPadre) {
         super(ventanaPadre, true);
         initComponents();
+        this.setVisible(true);
     }
  
     
@@ -85,7 +86,11 @@ public class VentanaAPalabraClave extends JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClic
-        
+        PalabraClave palabraClave = new PalabraClave(txtNombre.getText().trim());
+        this.palabrasClaves.add(palabraClave);
+        for(PalabraClave pc : palabrasClaves){
+            pc.Mostrar();
+        }
     }//GEN-LAST:event_btnGuardarClic
 
 

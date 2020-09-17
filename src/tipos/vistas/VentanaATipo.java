@@ -20,6 +20,7 @@ public class VentanaATipo extends JDialog {
     public VentanaATipo(Dialog ventanaPadre) {
         super(ventanaPadre, true);
         initComponents();
+        this.setVisible(true);
     }
     
 
@@ -86,7 +87,11 @@ public class VentanaATipo extends JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClic
-        
+        Tipo tipo = new Tipo(txtNombre.getText().trim());
+        this.tipos.add(tipo);
+        for(Tipo t : tipos){
+            t.Mostrar();
+        }
     }//GEN-LAST:event_btnGuardarClic
 
 

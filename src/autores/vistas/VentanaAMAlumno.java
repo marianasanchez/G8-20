@@ -20,6 +20,7 @@ public class VentanaAMAlumno extends JDialog {
     public VentanaAMAlumno(Dialog ventanaPadre) {
         super(ventanaPadre, true);
         initComponents();
+        this.setVisible(true);
     }
       
     /**
@@ -46,6 +47,7 @@ public class VentanaAMAlumno extends JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Alumnos");
         setResizable(false);
+        setSize(new java.awt.Dimension(300, 300));
 
         jLabel1.setText("Apellidos:");
 
