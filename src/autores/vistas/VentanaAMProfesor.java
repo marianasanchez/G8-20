@@ -5,6 +5,7 @@
  */
 package autores.vistas;
 
+import autores.modelos.Cargo;
 import autores.modelos.Profesor;
 import java.awt.Dialog;
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class VentanaAMProfesor extends JDialog {
         txtDNI = new javax.swing.JTextField();
         passClave = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        txtCargo = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Profesores");
@@ -73,7 +74,7 @@ public class VentanaAMProfesor extends JDialog {
 
         jLabel6.setText("Clave:");
 
-        txtCargo.setToolTipText("Nombres del profesor");
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TITULAR", "ASOCIADO", "ADJUNTO", "JTP", "ADG" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,7 +96,7 @@ public class VentanaAMProfesor extends JDialog {
                             .addComponent(txtDNI)
                             .addComponent(txtApellidos)
                             .addComponent(passClave)
-                            .addComponent(txtCargo)))
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnGuardar)))
@@ -119,7 +120,7 @@ public class VentanaAMProfesor extends JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,7 +139,8 @@ public class VentanaAMProfesor extends JDialog {
             dni = Integer.parseInt(this.txtDNI.getText().trim());
         String apellidos = this.txtApellidos.getText().trim();
         String nombres = this.txtNombres.getText().trim();
-        String cargo = this.txtCargo.getText().trim();
+        //Por qué necesito que sea static el método toCargo?
+        Cargo cargo = Cargo.toCargo(this.jComboBox1.getSelectedItem().toString());
         String clave = new String(this.passClave.getPassword());
         Profesor profesor = new Profesor(dni, apellidos, nombres, clave, cargo);
         this.profesores.add(profesor);
@@ -149,6 +151,7 @@ public class VentanaAMProfesor extends JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -156,7 +159,6 @@ public class VentanaAMProfesor extends JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPasswordField passClave;
     private javax.swing.JTextField txtApellidos;
-    private javax.swing.JTextField txtCargo;
     private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtNombres;
     // End of variables declaration//GEN-END:variables
