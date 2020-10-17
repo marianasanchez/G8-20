@@ -35,18 +35,12 @@ public class ControladorPrincipal {
         Grupo grupo5 = new Grupo("Grupo 5", "Descripción 5");
         Grupo grupo6 = new Grupo("Grupo 3", "Descripción 5");
         
-        if (!grupos.contains(grupo1))
-            grupos.add(grupo1);
-        if (!grupos.contains(grupo2))
-            grupos.add(grupo2);
-        if (!grupos.contains(grupo3))
-            grupos.add(grupo3);
-        if (!grupos.contains(grupo4))
-            grupos.add(grupo4);
-        if (!grupos.contains(grupo5))
-            grupos.add(grupo5);
-        if (!grupos.contains(grupo6))
-            grupos.add(grupo6);
+        if (!grupos.contains(grupo1)) grupos.add(grupo1);
+        if (!grupos.contains(grupo2)) grupos.add(grupo2);
+        if (!grupos.contains(grupo3)) grupos.add(grupo3);
+        if (!grupos.contains(grupo4)) grupos.add(grupo4);
+        if (!grupos.contains(grupo5)) grupos.add(grupo5);
+        if (!grupos.contains(grupo6)) grupos.add(grupo6);
         
         System.out.println("----Grupos----");
         for(Grupo g : grupos)
@@ -59,12 +53,14 @@ public class ControladorPrincipal {
         Alumno alumno3 = new Alumno(3, "Apellido3", "Nombre3", "Clave3", "3");
         Alumno alumno4 = new Alumno(4, "Apellido4", "Nombre4", "Clave4", "4");
         Alumno alumno5 = new Alumno(5, "Apellido5", "Nombre5", "Clave5", "5");
+        Alumno alumno6 = new Alumno(5, "Apellido5", "Nombre5", "Clave5", "5");
 
-        alumnos.add(alumno1);
-        alumnos.add(alumno2);
-        alumnos.add(alumno3);
-        alumnos.add(alumno4);
-        alumnos.add(alumno5);
+        if (!alumnos.contains(alumno1)) alumnos.add(alumno1);
+        if (!alumnos.contains(alumno2)) alumnos.add(alumno2);
+        if (!alumnos.contains(alumno3)) alumnos.add(alumno3);
+        if (!alumnos.contains(alumno4)) alumnos.add(alumno4);
+        if (!alumnos.contains(alumno5)) alumnos.add(alumno5);
+        if (!alumnos.contains(alumno6)) alumnos.add(alumno6);
         
         System.out.println("\n----Alumnos----\n");
         for(Alumno a : alumnos)
@@ -76,13 +72,14 @@ public class ControladorPrincipal {
         Profesor profesor3 = new Profesor(30, "Apellido30", "Nombre30", "Clave30", Cargo.ADJUNTO);
         Profesor profesor4 = new Profesor(40, "Apellido40", "Nombre40", "Clave40", Cargo.JTP);
         Profesor profesor5 = new Profesor(50, "Apellido50", "Nombre50", "Clave50", Cargo.ADG);
-
-
-        profesores.add(profesor1);
-        profesores.add(profesor2);
-        profesores.add(profesor3);
-        profesores.add(profesor4);
-        profesores.add(profesor5);
+        Profesor profesor6 = new Profesor(50, "asdasdasd", "Nombre40", "Clave40", Cargo.JTP);
+        
+        if (!profesores.contains(profesor1)) profesores.add(profesor1);
+        if (!profesores.contains(profesor2)) profesores.add(profesor2);
+        if (!profesores.contains(profesor3)) profesores.add(profesor3);
+        if (!profesores.contains(profesor4)) profesores.add(profesor4);
+        if (!profesores.contains(profesor5)) profesores.add(profesor5);
+        if (!profesores.contains(profesor6)) profesores.add(profesor6);
         
         System.out.println("\n----Profesores----\n");
         for(Profesor p : profesores)
@@ -216,11 +213,11 @@ public class ControladorPrincipal {
         Publicacion publicacion5 = new Publicacion("Título 5", mg5, fecha5, tipos.get(4), idiomas.get(2), lugares.get(4), palabras5, "Enlace 5", "Resumen 5");
         //PUBLICACION 5
         
-        publicaciones.add(publicacion1);
-        publicaciones.add(publicacion2);
-        publicaciones.add(publicacion3);
-        publicaciones.add(publicacion4);
-        publicaciones.add(publicacion5);
+        if (!publicaciones.contains(publicacion1)) publicaciones.add(publicacion1);
+        if (!publicaciones.contains(publicacion2)) publicaciones.add(publicacion2);
+        if (!publicaciones.contains(publicacion3)) publicaciones.add(publicacion3);
+        if (!publicaciones.contains(publicacion4)) publicaciones.add(publicacion4);
+        if (!publicaciones.contains(publicacion5)) publicaciones.add(publicacion5);
       
         for(Publicacion p : publicaciones) {
             p.mostrar();

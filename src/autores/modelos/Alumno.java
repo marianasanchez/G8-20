@@ -61,6 +61,31 @@ public class Alumno {
     public void asignarCx(String cx) {
         this.cx = cx;
     }
+
+//    @Override
+//    public int hashCode() {
+//        int hash = 7;
+//        hash = 97 * hash + this.dni;
+//        return hash;
+//    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Alumno other = (Alumno) obj;
+        if (this.dni != other.dni) {
+            return false;
+        }
+        return true;
+    }
     
     public void mostrar() {
         System.out.println("Alumno: " + this.verApellidos() + ", " + this.verNombres());
