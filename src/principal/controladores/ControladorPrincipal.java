@@ -3,23 +3,16 @@ package principal.controladores;
 import autores.modelos.Alumno;
 import autores.modelos.Cargo;
 import autores.modelos.Profesor;
-import autores.vistas.VentanaAMAlumno;
-import autores.vistas.VentanaAMProfesor;
 import grupos.modelos.Grupo;
 import grupos.modelos.MiembroEnGrupo;
 import grupos.modelos.Rol;
-import grupos.vistas.VentanaAMGrupo;
 import idiomas.modelos.Idioma;
-import idiomas.vistas.VentanaAIdioma;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import lugares.modelos.Lugar;
-import lugares.vistas.VentanaALugar;
 import palabrasclaves.modelos.PalabraClave;
-import palabrasclaves.vistas.VentanaAPalabraClave;
 import publicaciones.modelos.Publicacion;
 import tipos.modelos.Tipo;
-import tipos.vistas.VentanaATipo;
 
 public class ControladorPrincipal {
     public static void main(String[] args) {
@@ -40,17 +33,26 @@ public class ControladorPrincipal {
         Grupo grupo3 = new Grupo("Grupo 3", "Descripción 3");
         Grupo grupo4 = new Grupo("Grupo 4", "Descripción 4");
         Grupo grupo5 = new Grupo("Grupo 5", "Descripción 5");
+        Grupo grupo6 = new Grupo("Grupo 3", "Descripción 5");
         
-        grupos.add(grupo1);
-        grupos.add(grupo2);
-        grupos.add(grupo3);
-        grupos.add(grupo4);
-        grupos.add(grupo5);
-      
+        if (!grupos.contains(grupo1))
+            grupos.add(grupo1);
+        if (!grupos.contains(grupo2))
+            grupos.add(grupo2);
+        if (!grupos.contains(grupo3))
+            grupos.add(grupo3);
+        if (!grupos.contains(grupo4))
+            grupos.add(grupo4);
+        if (!grupos.contains(grupo5))
+            grupos.add(grupo5);
+        if (!grupos.contains(grupo6))
+            grupos.add(grupo6);
+        
         System.out.println("----Grupos----");
         for(Grupo g : grupos)
             g.mostrar();
         //GRUPOS
+        
         //ALUMNOS
         Alumno alumno1 = new Alumno(1, "Apellido1", "Nombre1", "Clave1", "1");
         Alumno alumno2 = new Alumno(2, "Apellido2", "Nombre2", "Clave2", "2");
@@ -93,12 +95,12 @@ public class ControladorPrincipal {
         Tipo tipo3 = new Tipo("Tipo 3");
         Tipo tipo4 = new Tipo("Tipo 4");
         Tipo tipo5 = new Tipo("Tipo 5");
-
-        tipos.add(tipo1);
-        tipos.add(tipo2);
-        tipos.add(tipo3);
-        tipos.add(tipo4);
-        tipos.add(tipo5);
+        
+        if (!tipos.contains(tipo1)) tipos.add(tipo1);
+        if (!tipos.contains(tipo2)) tipos.add(tipo2);
+        if (!tipos.contains(tipo3)) tipos.add(tipo3);
+        if (!tipos.contains(tipo4)) tipos.add(tipo4);
+        if (!tipos.contains(tipo5)) tipos.add(tipo5);
 
         for(Tipo t : tipos)
             System.out.println(t);
@@ -111,11 +113,11 @@ public class ControladorPrincipal {
         Lugar lugar4 = new Lugar("Lugar 4");
         Lugar lugar5 = new Lugar("Lugar 5");
 
-        lugares.add(lugar1);
-        lugares.add(lugar2);
-        lugares.add(lugar3);
-        lugares.add(lugar4);
-        lugares.add(lugar5);
+        if (!lugares.contains(lugar1)) lugares.add(lugar1);
+        if (!lugares.contains(lugar2)) lugares.add(lugar2);
+        if (!lugares.contains(lugar3)) lugares.add(lugar3);
+        if (!lugares.contains(lugar4)) lugares.add(lugar4);
+        if (!lugares.contains(lugar5)) lugares.add(lugar5);
 
         for(Lugar l : lugares)
             System.out.println(l);
@@ -129,11 +131,11 @@ public class ControladorPrincipal {
         Idioma idioma4 = new Idioma("Idioma 4");
         Idioma idioma5 = new Idioma("Idioma 5");
 
-        idiomas.add(idioma1);
-        idiomas.add(idioma2);
-        idiomas.add(idioma3);
-        idiomas.add(idioma4);
-        idiomas.add(idioma5);
+        if (!idiomas.contains(idioma1)) idiomas.add(idioma1);
+        if (!idiomas.contains(idioma2)) idiomas.add(idioma2);
+        if (!idiomas.contains(idioma3)) idiomas.add(idioma3);
+        if (!idiomas.contains(idioma4)) idiomas.add(idioma4);
+        if (!idiomas.contains(idioma5)) idiomas.add(idioma5);
 
         for(Idioma i : idiomas)
             System.out.println(i);        
@@ -146,11 +148,11 @@ public class ControladorPrincipal {
         PalabraClave palabraClave4 = new PalabraClave("PalabraClave4");
         PalabraClave palabraClave5 = new PalabraClave("PalabraClave5");
 
-        palabrasClaves.add(palabraClave1);
-        palabrasClaves.add(palabraClave2);
-        palabrasClaves.add(palabraClave3);
-        palabrasClaves.add(palabraClave4);
-        palabrasClaves.add(palabraClave5);
+        if (!palabrasClaves.contains(palabraClave1)) palabrasClaves.add(palabraClave1);
+        if (!palabrasClaves.contains(palabraClave2)) palabrasClaves.add(palabraClave2);
+        if (!palabrasClaves.contains(palabraClave3)) palabrasClaves.add(palabraClave3);
+        if (!palabrasClaves.contains(palabraClave4)) palabrasClaves.add(palabraClave4);
+        if (!palabrasClaves.contains(palabraClave5)) palabrasClaves.add(palabraClave5);
 
         for(PalabraClave pc : palabrasClaves)
             System.out.println(pc); 
