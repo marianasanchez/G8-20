@@ -28,7 +28,7 @@ public class Publicacion {
     private MiembroEnGrupo miembroEnGrupo;
     private ArrayList<PalabraClave> palabrasClaves;
 
-    public Publicacion(String titulo, LocalDate fechaPublicacion, String enlace, String resumen, Tipo tipo, Idioma idioma, Lugar lugar, MiembroEnGrupo miembroEnGrupo, ArrayList<PalabraClave> palabrasClaves) {
+    public Publicacion(String titulo, MiembroEnGrupo miembroEnGrupo, LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, ArrayList<PalabraClave> palabrasClaves, String enlace, String resumen) {
         this.titulo = titulo;
         this.fechaPublicacion = fechaPublicacion;
         this.enlace = enlace;

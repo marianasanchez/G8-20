@@ -20,7 +20,6 @@ public class VentanaAIdioma extends JDialog {
     public VentanaAIdioma(Dialog ventanaPadre) {
         super(ventanaPadre, true);
         initComponents();
-        this.setVisible(true);
     }
     
     

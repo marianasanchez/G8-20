@@ -20,7 +20,6 @@ public class VentanaALugar extends JDialog {
     public VentanaALugar(Dialog ventanaPadre) {
         super(ventanaPadre, true);
         initComponents();
-        this.setVisible(true);
     }
     
     
