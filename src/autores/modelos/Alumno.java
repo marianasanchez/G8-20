@@ -5,24 +5,25 @@
  */
 package autores.modelos;
 
-public class Alumno {
-    private int dni;
-    private String apellidos;
-    private String nombres;
-    private String clave;
+public class Alumno extends Autor  {
+   // private int dni;
+   // private String apellidos;
+   // private String nombres;
+   // private String clave;
     private String cx;
 
     public Alumno(int dni, String apellidos, String nombres, String clave, String cx) {
-        this.dni = dni;
-        this.apellidos = apellidos;
-        this.nombres = nombres;
-        this.clave = clave;
+        super(dni, apellidos, nombres, clave);
+//        this.dni = dni;
+//        this.apellidos = apellidos;
+//        this.nombres = nombres;
+//        this.clave = clave;
         this.cx = cx;
     }
     
     
 
-    public int verDni() {
+   /* public int verDni() {
         return dni;
     }
 
@@ -53,7 +54,7 @@ public class Alumno {
     public void asignarClave(String clave) {
         this.clave = clave;
     }
-
+    */
     public String verCx() {
         return cx;
     }
@@ -81,16 +82,17 @@ public class Alumno {
             return false;
         }
         final Alumno other = (Alumno) obj;
-        if (this.dni != other.dni) {
+        if (this.cx != other.cx) {
             return false;
         }
         return true;
     }
     
     public void mostrar() {
-        System.out.println("Alumno: " + this.verApellidos() + ", " + this.verNombres());
-        System.out.println("DNI: " + this.verDni());
-        System.out.println("CX: " + this.verCx());
-        System.out.println("Clave: " + this.verClave() + "\n");
+//        System.out.println("Alumno: " + this.verApellidos() + ", " + this.verNombres());
+//        System.out.println("DNI: " + this.verDni());
+//        System.out.println("CX: " + this.verCx());
+        System.out.println("[" + this.verDni()+"] "+ this.verApellidos() +", "+this.verNombres()+ "\n");
+        System.out.println("CX: " + this.verCx() + "\n");
     }
 }

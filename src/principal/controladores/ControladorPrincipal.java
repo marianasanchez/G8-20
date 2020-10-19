@@ -1,6 +1,7 @@
 package principal.controladores;
 
 import autores.modelos.Alumno;
+import autores.modelos.Autor;
 import autores.modelos.Cargo;
 import autores.modelos.Profesor;
 import grupos.modelos.Grupo;
@@ -21,6 +22,7 @@ public class ControladorPrincipal {
         ArrayList<Grupo> grupos = new ArrayList<>();
         ArrayList<Alumno> alumnos = new ArrayList<>();
         ArrayList<Profesor> profesores = new ArrayList<>();
+        ArrayList<Autor> autores = new ArrayList<>();
         ArrayList<Tipo> tipos = new ArrayList<>();
         ArrayList<Lugar> lugares = new ArrayList<>();
         ArrayList<Idioma> idiomas = new ArrayList<>();
@@ -33,7 +35,7 @@ public class ControladorPrincipal {
         Grupo grupo3 = new Grupo("Grupo 3", "Descripción 3");
         Grupo grupo4 = new Grupo("Grupo 4", "Descripción 4");
         Grupo grupo5 = new Grupo("Grupo 5", "Descripción 5");
-        Grupo grupo6 = new Grupo("Grupo 3", "Descripción 5");
+        Grupo grupo6 = new Grupo("Grupo 6", "Descripción 6");
         
         if (!grupos.contains(grupo1)) grupos.add(grupo1);
         if (!grupos.contains(grupo2)) grupos.add(grupo2);
@@ -144,13 +146,15 @@ public class ControladorPrincipal {
         PalabraClave palabraClave3 = new PalabraClave("PalabraClave3");
         PalabraClave palabraClave4 = new PalabraClave("PalabraClave4");
         PalabraClave palabraClave5 = new PalabraClave("PalabraClave5");
-
+        PalabraClave palabraClave6 = new PalabraClave("PalabraClave6");
+        
         if (!palabrasClaves.contains(palabraClave1)) palabrasClaves.add(palabraClave1);
         if (!palabrasClaves.contains(palabraClave2)) palabrasClaves.add(palabraClave2);
         if (!palabrasClaves.contains(palabraClave3)) palabrasClaves.add(palabraClave3);
         if (!palabrasClaves.contains(palabraClave4)) palabrasClaves.add(palabraClave4);
         if (!palabrasClaves.contains(palabraClave5)) palabrasClaves.add(palabraClave5);
-
+        if (!palabrasClaves.contains(palabraClave6)) palabrasClaves.add(palabraClave6);
+        
         for(PalabraClave pc : palabrasClaves)
             System.out.println(pc); 
         //PALABRASCLAVE
@@ -167,8 +171,25 @@ public class ControladorPrincipal {
         Enlace
         Resumen
         */
+        //AUTORES
+        if (!autores.contains(profesor1)) autores.add(profesor1);
+        if (!autores.contains(profesor2)) autores.add(profesor2);
+        if (!autores.contains(profesor3)) autores.add(profesor3);
+        if (!autores.contains(profesor4)) autores.add(profesor4);
+        if (!autores.contains(profesor5)) autores.add(profesor5);
+        if (!autores.contains(profesor6)) autores.add(profesor6);
+        if (!autores.contains(alumno1)) autores.add(alumno1);
+        if (!autores.contains(alumno2)) autores.add(alumno2);
+        if (!autores.contains(alumno3)) autores.add(alumno3);
+        if (!autores.contains(alumno4)) autores.add(alumno4);
+        if (!autores.contains(alumno5)) autores.add(alumno5);
+        if (!autores.contains(alumno6)) autores.add(alumno6);
+        
+          System.out.println("\n----Autores----\n");
+        for(Autor a : autores)
+            a.mostrar();
         //PUBLICACION 1
-        MiembroEnGrupo mg1=new MiembroEnGrupo(profesores.get(0), grupos.get(0), Rol.ADMINISTRADOR);
+        MiembroEnGrupo mg1=new MiembroEnGrupo(autores.get(0), grupos.get(0), Rol.ADMINISTRADOR);
         LocalDate fecha1= LocalDate.of(2020, 06, 24);
         ArrayList<PalabraClave> palabras1 =new ArrayList<>();
         palabras1.add(palabraClave1);
@@ -213,17 +234,28 @@ public class ControladorPrincipal {
         Publicacion publicacion5 = new Publicacion("Título 5", mg5, fecha5, tipos.get(4), idiomas.get(2), lugares.get(4), palabras5, "Enlace 5", "Resumen 5");
         //PUBLICACION 5
         
+         //PUBLICACION 6 Autor:Alumno
+        MiembroEnGrupo mg6 = new MiembroEnGrupo(alumno1, grupos.get(5), Rol.COLABORADOR);
+        LocalDate fecha6= LocalDate.of(2020, 8, 22);
+        ArrayList<PalabraClave> palabras6=new ArrayList<>();
+        palabras6.add(palabrasClaves.get(2));
+        palabras6.add(palabrasClaves.get(3));
+        palabras6.add(palabrasClaves.get(4));     
+        Publicacion publicacion6 = new Publicacion("Título 5", mg6, fecha6, tipos.get(2), idiomas.get(2), lugares.get(4), palabras6, "Enlace 6", "Resumen 6");
+        //PUBLICACION 6 Autor:Alumno
+        
         if (!publicaciones.contains(publicacion1)) publicaciones.add(publicacion1);
         if (!publicaciones.contains(publicacion2)) publicaciones.add(publicacion2);
         if (!publicaciones.contains(publicacion3)) publicaciones.add(publicacion3);
         if (!publicaciones.contains(publicacion4)) publicaciones.add(publicacion4);
         if (!publicaciones.contains(publicacion5)) publicaciones.add(publicacion5);
-      
+       if (!publicaciones.contains(publicacion6)) publicaciones.add(publicacion6);
         for(Publicacion p : publicaciones) {
             p.mostrar();
             System.out.println();
         }
-
+        
+        //PROFESORES
       //</editor-fold>   
      //<editor-fold defaultstate="collapsed" desc="Intefaz gráfica"> 
 //        VentanaAMGrupo ventanaGrupo = new VentanaAMGrupo(null); //se instancia la ventana

@@ -5,24 +5,25 @@
  */
 package autores.modelos;
 
-public class Profesor {
-    private int dni;
-    private String apellidos;
-    private String nombres;
-    private String clave;
+public class Profesor extends Autor{
+   // private int dni;
+    //private String apellidos;
+    //private String nombres;
+    //private String clave;
     private Cargo cargo;
 
     public Profesor(int dni, String apellidos, String nombres, String clave, Cargo cargo) {
-        this.dni = dni;
-        this.apellidos = apellidos;
-        this.nombres = nombres;
-        this.clave = clave;
+        super(dni, apellidos, nombres, clave);
+        //this.dni = dni;
+        //this.apellidos = apellidos;
+        //this.nombres = nombres;
+        //this.clave = clave;
         this.cargo = cargo;
     }
 
     
     
-    public int verDni() {
+   /* public int verDni() {
         return dni;
     }
 
@@ -53,7 +54,7 @@ public class Profesor {
     public void asignarClave(String clave) {
         this.clave = clave;
     }
-
+    */
     public Cargo verCargo() {
         return cargo;
     }
@@ -69,28 +70,30 @@ public class Profesor {
 //        return hash;
 //    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Profesor other = (Profesor) obj;
-        if (this.dni != other.dni) {
-            return false;
-        }
-        return true;
-    }
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (this == obj) {
+//            return true;
+//        }
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//            return false;
+//        }
+//        final Profesor other = (Profesor) obj;
+//        if (this.dni != other.dni) {
+//            return false;
+//        }
+//        return true;
+//    }
     
     public void mostrar() {
-        System.out.println("Profesor: " + this.verApellidos() + ", " + this.verNombres());
+       /* System.out.println("Profesor: " + this.verApellidos() + ", " + this.verNombres());
         System.out.println("DNI: " + this.verDni());
         System.out.println("Cargo: " + this.verCargo());
-        System.out.println("Clave: " + this.verClave() + "\n");
+        System.out.println("Clave: " + this.verClave() + "\n");*/
+        System.out.println("[" + this.verDni()+"] "+ this.verApellidos() +", "+this.verNombres()+ "\n");
+        System.out.println("Cargo: " + this.verCargo()+ "\n");
     }
 }

@@ -5,19 +5,22 @@
  */
 package grupos.modelos;
 
-import autores.modelos.Profesor;
+import autores.modelos.Autor;
 
+import java.util.Objects;
 /**
  *
  * @author rodrigo
  */
 public class MiembroEnGrupo {
-    private Profesor profesor;
+    //private Profesor profesor;
+    private Autor autor;
     private Grupo grupo;
     private Rol rol;
 
-    public MiembroEnGrupo(Profesor profesor, Grupo grupo, Rol rol) {
-        this.profesor = profesor;
+    public MiembroEnGrupo(Autor autor, Grupo grupo, Rol rol) {
+        //this.profesor = profesor;
+        this.autor = autor;
         this.grupo = grupo;
         this.rol = rol;
     }
@@ -30,12 +33,20 @@ public class MiembroEnGrupo {
         this.rol = rol;
     }
 
-    public Profesor verProfesor() {
-        return profesor;
+//    public Profesor verProfesor() {
+//        return profesor;
+//    }
+//
+//    public void asignarProfesor(Profesor profesor) {
+//        this.profesor = profesor;
+//    }
+    
+     public Autor verAutor() {
+        return autor;
     }
 
-    public void asignarProfesor(Profesor profesor) {
-        this.profesor = profesor;
+    public void asignarAutor(Autor autor) {
+        this.autor = autor;
     }
 
     public Grupo verGrupo() {
@@ -45,6 +56,35 @@ public class MiembroEnGrupo {
     public void asignarGrupo(Grupo grupo) {
         this.grupo = grupo;
     }
+
+//    @Override
+//    public int hashCode() {
+//        int hash = 3;
+//        hash = 59 * hash + Objects.hashCode(this.autor);
+//        return hash;
+//    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MiembroEnGrupo other = (MiembroEnGrupo) obj;
+        if (!Objects.equals(this.autor, other.autor)) {
+            return false;
+        }
+        return true;
+    }
+
+
+
+
     
     
 }
