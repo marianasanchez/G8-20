@@ -88,12 +88,14 @@ public class Profesor extends Autor{
 //        return true;
 //    }
     
+    @Override
     public void mostrar() {
        /* System.out.println("Profesor: " + this.verApellidos() + ", " + this.verNombres());
         System.out.println("DNI: " + this.verDni());
         System.out.println("Cargo: " + this.verCargo());
         System.out.println("Clave: " + this.verClave() + "\n");*/
-        System.out.println("[" + this.verDni()+"] "+ this.verApellidos() +", "+this.verNombres()+ "\n");
+        //System.out.println("[" + this.verDni()+"] "+ this.verApellidos() +", "+this.verNombres()+ "\n");
+        super.mostrar();
         System.out.println("Cargo: " + this.verCargo()+ "\n");
     }
 }

@@ -140,9 +140,9 @@ public class Publicacion {
     
     public void mostrar() {
         System.out.println("Título: " + this.titulo);
-        System.out.println("Autor: ");
-        System.out.println("Grupo: " + miembroEnGrupo.verGrupo().verNombre());
-        System.out.println("Rol: " + miembroEnGrupo.verRol().name());
+        System.out.println("Autor: " + this.miembroEnGrupo.verAutor().verApellidos() + ", " + this.miembroEnGrupo.verAutor().verNombres());
+        System.out.println("Grupo: " + this.miembroEnGrupo.verGrupo().verNombre());
+        System.out.println("Rol: " + this.miembroEnGrupo.verRol().name());
         System.out.println("Fecha de publicación: " + this.fechaPublicacion);
         System.out.println("Tipo: " + this.tipo);
         System.out.println("Idioma: " + this.idioma);

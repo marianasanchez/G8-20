@@ -21,7 +21,19 @@ public class MiembroEnGrupo {
     public MiembroEnGrupo(Autor autor, Grupo grupo, Rol rol) {
         //this.profesor = profesor;
         this.autor = autor;
+        this.rol = rol;
         this.grupo = grupo;
+    }
+    
+    public MiembroEnGrupo(Grupo grupo, Rol rol) {
+        //this.profesor = profesor;
+        this.rol = rol;
+        this.grupo = grupo;
+    }
+    
+    public MiembroEnGrupo(Autor autor, Rol rol) {
+        //this.profesor = profesor;
+        this.autor = autor;
         this.rol = rol;
     }
 
@@ -57,12 +69,12 @@ public class MiembroEnGrupo {
         this.grupo = grupo;
     }
 
-//    @Override
-//    public int hashCode() {
-//        int hash = 3;
-//        hash = 59 * hash + Objects.hashCode(this.autor);
-//        return hash;
-//    }
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.autor);
+        return hash;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -81,10 +93,4 @@ public class MiembroEnGrupo {
         }
         return true;
     }
-
-
-
-
-    
-    
 }

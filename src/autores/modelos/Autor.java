@@ -5,6 +5,11 @@
  */
 package autores.modelos;
 
+import grupos.modelos.Grupo;
+import grupos.modelos.MiembroEnGrupo;
+import grupos.modelos.Rol;
+import java.util.ArrayList;
+
 /**
  *
  * @author Carlos
@@ -14,6 +19,7 @@ public abstract class Autor {
     private String apellidos;
     private String nombres;
     private String clave;
+    private ArrayList<MiembroEnGrupo> miembroEnGrupos = new ArrayList<>();
 
     public Autor(int dni, String apellidos, String nombres, String clave) {
         this.dni = dni;
@@ -53,6 +59,12 @@ public abstract class Autor {
     public void asignarClave(String clave) {
         this.clave = clave;
     }
+
+//    public void asignarMiembrosEnGrupo(ArrayList<MiembroEnGrupo> miembroEnGrupos) {
+//        this.miembroEnGrupos = miembroEnGrupos;
+//    }
+    
+    
     
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -70,10 +82,44 @@ public abstract class Autor {
         }
         return true;
     }
-    
-     public void mostrar() {
 
-        System.out.println("[" + this.verDni()+"] "+ this.verApellidos() +", "+this.verNombres());
-        }
+//    public void verGrupos() {
+//        for (MiembroEnGrupo g : miembroEnGrupos) {
+//            System.out.println(g.verAutor());
+//            System.out.println(g.verGrupo());
+//            System.out.println(g.verRol());
+//        }
+//    }
     
+    public void agregarGrupo (Grupo grupo, Rol rol) {
+        MiembroEnGrupo nuevoGrupo = new MiembroEnGrupo(this, grupo, rol);
+//        for(MiembroEnGrupo meg : miembroEnGrupos) {
+//            if (meg.verGrupo().equals(grupo)) {
+//                System.out.println("YA EXISTE");
+//            }
+//            else {
+//                System.out.println("NO EXISTE");
+//            }
+//        }
+       if(!miembroEnGrupos.contains(nuevoGrupo)){
+            miembroEnGrupos.add(nuevoGrupo);
+            grupo.agregarMiembro(this, rol);
+        }
+        else {
+            System.out.println("YA EXISTE");
+        }
+    }
+    
+    public void verGrupos () {
+        System.out.println("Grupos:");
+        for (MiembroEnGrupo meg : miembroEnGrupos) {
+            System.out.println(meg.verGrupo().verNombre() + ", " +meg.verGrupo().verDescripcion());
+            System.out.println(meg.verRol());
+        }
+    }
+    
+    public void mostrar() {
+        System.out.println("[" + this.verDni()+"] "+ this.verApellidos() +", "+this.verNombres());
+        this.verGrupos();
+    }
 }

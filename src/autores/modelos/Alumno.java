@@ -88,11 +88,13 @@ public class Alumno extends Autor  {
         return true;
     }
     
+    @Override
     public void mostrar() {
 //        System.out.println("Alumno: " + this.verApellidos() + ", " + this.verNombres());
 //        System.out.println("DNI: " + this.verDni());
 //        System.out.println("CX: " + this.verCx());
-        System.out.println("[" + this.verDni()+"] "+ this.verApellidos() +", "+this.verNombres()+ "\n");
+        //System.out.println("[" + this.verDni()+"] "+ this.verApellidos() +", "+this.verNombres()+ "\n");
+        super.mostrar();
         System.out.println("CX: " + this.verCx() + "\n");
     }
 }
