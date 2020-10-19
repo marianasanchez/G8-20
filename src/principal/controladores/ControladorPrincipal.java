@@ -15,7 +15,6 @@ import grupos.modelos.Rol;
 import idiomas.modelos.Idioma;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import lugares.modelos.Lugar;
 import palabrasclaves.modelos.PalabraClave;
 import publicaciones.modelos.Publicacion;
@@ -125,7 +124,7 @@ public class ControladorPrincipal {
         for(Autor a : autores)
             a.mostrar();
       
-        System.out.println("------------------METODOS VARIOS------------------");
+        System.out.println("------------------METODOS VARIOS------------------\n\n");
         /*Main parte 3*/
         /*Luego de crear grupos y autores, tomar 1 grupo y agregarle 2 autores 
         como miembros. Mostrar el grupo verificando que tenga los miembros 
@@ -137,7 +136,6 @@ public class ControladorPrincipal {
         grupo1.agregarMiembro(alumno1, Rol.COLABORADOR);
         grupo1.agregarMiembro(alumno2, Rol.COLABORADOR);
         grupo1.mostrar();
-        System.out.println("\n----------FUNCIONA----------\n");
         
         /*Tomar 1 de los 2 autores que se asignó al grupo anterior y 
         agregarlo a otro grupo distinto. 
@@ -164,6 +162,10 @@ public class ControladorPrincipal {
         grupo1.quitarMiembro(profesor1);
         grupo1.mostrar();
 
+        System.out.println("\n\n----------FUNCIONA----------\n\n");
+        
+        profesor1.mostrar();
+        
         /*
         Crear un nuevo grupo para los super administradores. 
         Este grupo DEBE llevar por nombre "Super Administradores". 
@@ -182,193 +184,193 @@ public class ControladorPrincipal {
         y cualquiera de los otros grupos no 
         (usar el método esSuperAdministradores() definido en la clase Grupo).
         */
-//        System.out.println(grupo7.esSuperAdministradores());
-//        System.out.println(grupo1.esSuperAdministradores());
+        System.out.println(grupo7.esSuperAdministradores());
+        System.out.println(grupo1.esSuperAdministradores());
         
         /*Tomar el autor que se agregó al grupo de super administradores, 
         verificar que el mismo es super administrador 
         y los otros autores no (usar el método esSuperAdministrador() 
         definido en la clase Autor).*/
-//        System.out.println(profesor1.esSuperAdministrador());
-//        System.out.println(alumno1.esSuperAdministrador());
+        System.out.println(profesor1.esSuperAdministrador());
+        System.out.println(alumno1.esSuperAdministrador());
 
         /*Main parte 3*/
-//        System.out.println("------------------TIPOS------------------");
-//        
-//        Tipo tipo1 = new Tipo("Tipo 1");
-//        Tipo tipo2 = new Tipo("Tipo 2");
-//        Tipo tipo3 = new Tipo("Tipo 3");
-//        Tipo tipo4 = new Tipo("Tipo 4");
-//        Tipo tipo5 = new Tipo("Tipo 5");
-//        Tipo tipo6 = new Tipo("Tipo 1"); //nombre repetido
-//        
-//        if (!tipos.contains(tipo1))
-//            tipos.add(tipo1);
-//        if (!tipos.contains(tipo2))
-//            tipos.add(tipo2);
-//        if (!tipos.contains(tipo3))
-//            tipos.add(tipo3);
-//        if (!tipos.contains(tipo4))
-//            tipos.add(tipo4);
-//        if (!tipos.contains(tipo5))
-//            tipos.add(tipo5);
-//        if (!tipos.contains(tipo6))
-//            tipos.add(tipo6);
-//        
-//        for(Tipo t : tipos)
-//            System.out.println(t);
-//        
-//        System.out.println("------------------LUGARES------------------");
-//        Lugar lugar1 = new Lugar("Lugar 1");
-//        Lugar lugar2 = new Lugar("Lugar 2");
-//        Lugar lugar3 = new Lugar("Lugar 3");
-//        Lugar lugar4 = new Lugar("Lugar 4");
-//        Lugar lugar5 = new Lugar("Lugar 5");
-//        Lugar lugar6 = new Lugar("Lugar 1"); //nombre repetido
-//        
-//        if (!lugares.contains(lugar1))
-//            lugares.add(lugar1);
-//        if (!lugares.contains(lugar2))
-//            lugares.add(lugar2);
-//        if (!lugares.contains(lugar3))
-//            lugares.add(lugar3);
-//        if (!lugares.contains(lugar4))
-//            lugares.add(lugar4);
-//        if (!lugares.contains(lugar5))
-//            lugares.add(lugar5);
-//        if (!lugares.contains(lugar6))
-//            lugares.add(lugar6);
-//        
-//        for(Lugar l : lugares)
-//            System.out.println(l);
-//        
-//        System.out.println("------------------IDIOMAS------------------");
-//        Idioma idioma1 = new Idioma("Idioma 1");
-//        Idioma idioma2 = new Idioma("Idioma 2");
-//        Idioma idioma3 = new Idioma("Idioma 3");
-//        Idioma idioma4 = new Idioma("Idioma 4");
-//        Idioma idioma5 = new Idioma("Idioma 5");
-//        Idioma idioma6 = new Idioma("Idioma 1"); //nombre repetido
-//        
-//        if (!idiomas.contains(idioma1))
-//            idiomas.add(idioma1);
-//        if (!idiomas.contains(idioma2))
-//            idiomas.add(idioma2);
-//        if (!idiomas.contains(idioma3))
-//            idiomas.add(idioma3);
-//        if (!idiomas.contains(idioma4))
-//            idiomas.add(idioma4);
-//        if (!idiomas.contains(idioma5))
-//            idiomas.add(idioma5);
-//        if (!idiomas.contains(idioma6))
-//            idiomas.add(idioma6);
-//        
-//        for(Idioma i : idiomas)
-//            System.out.println(i);        
-//       
-//        System.out.println("------------------PALABRAS CLAVE------------------");
-//        PalabraClave palabraClave1 = new PalabraClave("PalabraClave1");
-//        PalabraClave palabraClave2 = new PalabraClave("PalabraClave2");
-//        PalabraClave palabraClave3 = new PalabraClave("PalabraClave3");
-//        PalabraClave palabraClave4 = new PalabraClave("PalabraClave4");
-//        PalabraClave palabraClave5 = new PalabraClave("PalabraClave5");
-//        PalabraClave palabraClave6 = new PalabraClave("PalabraClave1"); //nombre repetido
-//        
-//        if (!palabrasClaves.contains(palabraClave1))
-//            palabrasClaves.add(palabraClave1);
-//        if (!palabrasClaves.contains(palabraClave2))
-//            palabrasClaves.add(palabraClave2);
-//        if (!palabrasClaves.contains(palabraClave3))
-//            palabrasClaves.add(palabraClave3);
-//        if (!palabrasClaves.contains(palabraClave4))
-//            palabrasClaves.add(palabraClave4);
-//        if (!palabrasClaves.contains(palabraClave5))
-//            palabrasClaves.add(palabraClave5);
-//        if (!palabrasClaves.contains(palabraClave6))
-//            palabrasClaves.add(palabraClave6);
-//        
-//        for(PalabraClave pc : palabrasClaves)
-//            System.out.println(pc);  
-//        
-//        System.out.println("------------------PUBLICACIONES------------------");
-//          //PUBLICACION 1
-//        MiembroEnGrupo mg1=new MiembroEnGrupo(autores.get(0), grupos.get(0), Rol.ADMINISTRADOR);
-//        LocalDate fecha1= LocalDate.of(2020, 06, 24);
-//        ArrayList<PalabraClave> palabras1 =new ArrayList<>();
-//        palabras1.add(palabraClave1);
-//        palabras1.add(palabraClave2);
-//        palabras1.add(palabraClave3);
-//        Publicacion publicacion1 = new Publicacion("Título 1",mg1, fecha1, tipos.get(0), idiomas.get(0), lugares.get(0), palabras1, "Enlace 1", "Resumen 1");
-//        //PUBLICACION 1
-//        
-//        //PUBLICACION 2
-//        MiembroEnGrupo mg2=new MiembroEnGrupo(autores.get(1), grupos.get(0), Rol.ADMINISTRADOR);
-//        LocalDate fecha2= LocalDate.of(2020, 06, 24);
-//        ArrayList<PalabraClave> palabras2=new ArrayList<>();
-//        palabras2.add(palabraClave4);
-//        palabras2.add(palabraClave5);
-//        palabras2.add(palabraClave1);
-//             
-//        Publicacion publicacion2 = new Publicacion("Título 2", mg2, fecha2, tipos.get(1), idiomas.get(1), lugares.get(1), palabras2, "Enlace 2", "Resumen 2");
-//        //PUBLICACION 2
-//
-//        //PUBLICACION 3
-//        MiembroEnGrupo mg3 = new MiembroEnGrupo(autores.get(2), grupo2, Rol.COLABORADOR);
-//        LocalDate fecha3= LocalDate.of(2020, 06, 24);
-//        PalabraClave [] listaPalabras3 =new PalabraClave []{palabrasClaves.get(1), palabrasClaves.get(3), palabrasClaves.get(4)};
-//        ArrayList<PalabraClave> palabras3=new ArrayList<>();
-//        palabras3.add(palabrasClaves.get(1));
-//        palabras3.add(palabrasClaves.get(3));
-//        palabras3.add(palabrasClaves.get(4));
-//        
-//        Publicacion publicacion3 = new Publicacion("Título 3",mg3, fecha3 , tipos.get(0), idiomas.get(1), lugares.get(1), palabras3, "Enlace 3", "Resumen 3");
-//        //PUBLICACION 3
-//        
-//        //PUBLICACION 4
-//        MiembroEnGrupo mg4 = new MiembroEnGrupo(autores.get(3), grupos.get(3), Rol.COLABORADOR);
-//        LocalDate fecha4= LocalDate.of(2020, 03, 15);
-//        ArrayList<PalabraClave> palabras4=new ArrayList<>();
-//        palabras4.add(palabrasClaves.get(1));
-//        
-//        Publicacion publicacion4 = new Publicacion("Título 4", mg4, fecha4, tipos.get(4), idiomas.get(2), lugares.get(4),palabras4, "Enlace 4", "Resumen 4");
-//        //PUBLICACION 4
-//        //PUBLICACION 5
-//        MiembroEnGrupo mg5 = new MiembroEnGrupo(autores.get(5), grupos.get(4), Rol.COLABORADOR);
-//        LocalDate fecha5= LocalDate.of(2020, 8, 15);
-//        ArrayList<PalabraClave> palabras5=new ArrayList<>();
-//        palabras5.add(palabrasClaves.get(2));
-//        palabras5.add(palabrasClaves.get(3));
-//        palabras5.add(palabrasClaves.get(4));
-//                
-//        Publicacion publicacion5 = new Publicacion("Título 5", mg5, fecha5, tipos.get(4), idiomas.get(2), lugares.get(4), palabras5, "Enlace 5", "Resumen 5");
-//        //PUBLICACION 5
-//        //PUBLICACION 6
-//        MiembroEnGrupo mg6 = new MiembroEnGrupo(autores.get(5), grupos.get(4), Rol.COLABORADOR);
-//        LocalDate fecha6= LocalDate.of(2020, 8, 18);
-//        ArrayList<PalabraClave> palabras6=new ArrayList<>();
-//        palabras6.add(palabrasClaves.get(2));
-//        palabras6.add(palabrasClaves.get(4));
-//                
-//        Publicacion publicacion6 = new Publicacion("Título 1", mg6, fecha6, tipos.get(4), idiomas.get(3), lugares.get(3), palabras6, "Enlace 5", "Resumen 5"); //título repetido
-//        //PUBLICACION 6
-//        
-//        if (!publicaciones.contains(publicacion1))
-//            publicaciones.add(publicacion1);
-//        if (!publicaciones.contains(publicacion2))
-//            publicaciones.add(publicacion2);
-//        if (!publicaciones.contains(publicacion3))
-//            publicaciones.add(publicacion3);
-//        if (!publicaciones.contains(publicacion4))
-//            publicaciones.add(publicacion4);
-//        if (!publicaciones.contains(publicacion5))
-//            publicaciones.add(publicacion5);
-//        if (!publicaciones.contains(publicacion6))
-//            publicaciones.add(publicacion6);
-//      
-//        for(Publicacion p : publicaciones) {
-//            p.mostrar();
-//            System.out.println();
-//        }
+        System.out.println("------------------TIPOS------------------");
+        
+        Tipo tipo1 = new Tipo("Tipo 1");
+        Tipo tipo2 = new Tipo("Tipo 2");
+        Tipo tipo3 = new Tipo("Tipo 3");
+        Tipo tipo4 = new Tipo("Tipo 4");
+        Tipo tipo5 = new Tipo("Tipo 5");
+        Tipo tipo6 = new Tipo("Tipo 1"); //nombre repetido
+        
+        if (!tipos.contains(tipo1))
+            tipos.add(tipo1);
+        if (!tipos.contains(tipo2))
+            tipos.add(tipo2);
+        if (!tipos.contains(tipo3))
+            tipos.add(tipo3);
+        if (!tipos.contains(tipo4))
+            tipos.add(tipo4);
+        if (!tipos.contains(tipo5))
+            tipos.add(tipo5);
+        if (!tipos.contains(tipo6))
+            tipos.add(tipo6);
+        
+        for(Tipo t : tipos)
+            System.out.println(t);
+        
+        System.out.println("------------------LUGARES------------------");
+        Lugar lugar1 = new Lugar("Lugar 1");
+        Lugar lugar2 = new Lugar("Lugar 2");
+        Lugar lugar3 = new Lugar("Lugar 3");
+        Lugar lugar4 = new Lugar("Lugar 4");
+        Lugar lugar5 = new Lugar("Lugar 5");
+        Lugar lugar6 = new Lugar("Lugar 1"); //nombre repetido
+        
+        if (!lugares.contains(lugar1))
+            lugares.add(lugar1);
+        if (!lugares.contains(lugar2))
+            lugares.add(lugar2);
+        if (!lugares.contains(lugar3))
+            lugares.add(lugar3);
+        if (!lugares.contains(lugar4))
+            lugares.add(lugar4);
+        if (!lugares.contains(lugar5))
+            lugares.add(lugar5);
+        if (!lugares.contains(lugar6))
+            lugares.add(lugar6);
+        
+        for(Lugar l : lugares)
+            System.out.println(l);
+        
+        System.out.println("------------------IDIOMAS------------------");
+        Idioma idioma1 = new Idioma("Idioma 1");
+        Idioma idioma2 = new Idioma("Idioma 2");
+        Idioma idioma3 = new Idioma("Idioma 3");
+        Idioma idioma4 = new Idioma("Idioma 4");
+        Idioma idioma5 = new Idioma("Idioma 5");
+        Idioma idioma6 = new Idioma("Idioma 1"); //nombre repetido
+        
+        if (!idiomas.contains(idioma1))
+            idiomas.add(idioma1);
+        if (!idiomas.contains(idioma2))
+            idiomas.add(idioma2);
+        if (!idiomas.contains(idioma3))
+            idiomas.add(idioma3);
+        if (!idiomas.contains(idioma4))
+            idiomas.add(idioma4);
+        if (!idiomas.contains(idioma5))
+            idiomas.add(idioma5);
+        if (!idiomas.contains(idioma6))
+            idiomas.add(idioma6);
+        
+        for(Idioma i : idiomas)
+            System.out.println(i);        
+       
+        System.out.println("------------------PALABRAS CLAVE------------------");
+        PalabraClave palabraClave1 = new PalabraClave("PalabraClave1");
+        PalabraClave palabraClave2 = new PalabraClave("PalabraClave2");
+        PalabraClave palabraClave3 = new PalabraClave("PalabraClave3");
+        PalabraClave palabraClave4 = new PalabraClave("PalabraClave4");
+        PalabraClave palabraClave5 = new PalabraClave("PalabraClave5");
+        PalabraClave palabraClave6 = new PalabraClave("PalabraClave1"); //nombre repetido
+        
+        if (!palabrasClaves.contains(palabraClave1))
+            palabrasClaves.add(palabraClave1);
+        if (!palabrasClaves.contains(palabraClave2))
+            palabrasClaves.add(palabraClave2);
+        if (!palabrasClaves.contains(palabraClave3))
+            palabrasClaves.add(palabraClave3);
+        if (!palabrasClaves.contains(palabraClave4))
+            palabrasClaves.add(palabraClave4);
+        if (!palabrasClaves.contains(palabraClave5))
+            palabrasClaves.add(palabraClave5);
+        if (!palabrasClaves.contains(palabraClave6))
+            palabrasClaves.add(palabraClave6);
+        
+        for(PalabraClave pc : palabrasClaves)
+            System.out.println(pc);  
+        
+        System.out.println("------------------PUBLICACIONES------------------");
+          //PUBLICACION 1
+        MiembroEnGrupo mg1=new MiembroEnGrupo(autores.get(0), grupos.get(0), Rol.ADMINISTRADOR);
+        LocalDate fecha1= LocalDate.of(2020, 06, 24);
+        ArrayList<PalabraClave> palabras1 =new ArrayList<>();
+        palabras1.add(palabraClave1);
+        palabras1.add(palabraClave2);
+        palabras1.add(palabraClave3);
+        Publicacion publicacion1 = new Publicacion("Título 1",mg1, fecha1, tipos.get(0), idiomas.get(0), lugares.get(0), palabras1, "Enlace 1", "Resumen 1");
+        //PUBLICACION 1
+        
+        //PUBLICACION 2
+        MiembroEnGrupo mg2=new MiembroEnGrupo(autores.get(1), grupos.get(0), Rol.ADMINISTRADOR);
+        LocalDate fecha2= LocalDate.of(2020, 06, 24);
+        ArrayList<PalabraClave> palabras2=new ArrayList<>();
+        palabras2.add(palabraClave4);
+        palabras2.add(palabraClave5);
+        palabras2.add(palabraClave1);
+             
+        Publicacion publicacion2 = new Publicacion("Título 2", mg2, fecha2, tipos.get(1), idiomas.get(1), lugares.get(1), palabras2, "Enlace 2", "Resumen 2");
+        //PUBLICACION 2
+
+        //PUBLICACION 3
+        MiembroEnGrupo mg3 = new MiembroEnGrupo(autores.get(2), grupo2, Rol.COLABORADOR);
+        LocalDate fecha3= LocalDate.of(2020, 06, 24);
+        PalabraClave [] listaPalabras3 =new PalabraClave []{palabrasClaves.get(1), palabrasClaves.get(3), palabrasClaves.get(4)};
+        ArrayList<PalabraClave> palabras3=new ArrayList<>();
+        palabras3.add(palabrasClaves.get(1));
+        palabras3.add(palabrasClaves.get(3));
+        palabras3.add(palabrasClaves.get(4));
+        
+        Publicacion publicacion3 = new Publicacion("Título 3",mg3, fecha3 , tipos.get(0), idiomas.get(1), lugares.get(1), palabras3, "Enlace 3", "Resumen 3");
+        //PUBLICACION 3
+        
+        //PUBLICACION 4
+        MiembroEnGrupo mg4 = new MiembroEnGrupo(autores.get(3), grupos.get(3), Rol.COLABORADOR);
+        LocalDate fecha4= LocalDate.of(2020, 03, 15);
+        ArrayList<PalabraClave> palabras4=new ArrayList<>();
+        palabras4.add(palabrasClaves.get(1));
+        
+        Publicacion publicacion4 = new Publicacion("Título 4", mg4, fecha4, tipos.get(4), idiomas.get(2), lugares.get(4),palabras4, "Enlace 4", "Resumen 4");
+        //PUBLICACION 4
+        //PUBLICACION 5
+        MiembroEnGrupo mg5 = new MiembroEnGrupo(autores.get(5), grupos.get(4), Rol.COLABORADOR);
+        LocalDate fecha5= LocalDate.of(2020, 8, 15);
+        ArrayList<PalabraClave> palabras5=new ArrayList<>();
+        palabras5.add(palabrasClaves.get(2));
+        palabras5.add(palabrasClaves.get(3));
+        palabras5.add(palabrasClaves.get(4));
+                
+        Publicacion publicacion5 = new Publicacion("Título 5", mg5, fecha5, tipos.get(4), idiomas.get(2), lugares.get(4), palabras5, "Enlace 5", "Resumen 5");
+        //PUBLICACION 5
+        //PUBLICACION 6
+        MiembroEnGrupo mg6 = new MiembroEnGrupo(autores.get(5), grupos.get(4), Rol.COLABORADOR);
+        LocalDate fecha6= LocalDate.of(2020, 8, 18);
+        ArrayList<PalabraClave> palabras6=new ArrayList<>();
+        palabras6.add(palabrasClaves.get(2));
+        palabras6.add(palabrasClaves.get(4));
+                
+        Publicacion publicacion6 = new Publicacion("Título 1", mg6, fecha6, tipos.get(4), idiomas.get(3), lugares.get(3), palabras6, "Enlace 5", "Resumen 5"); //título repetido
+        //PUBLICACION 6
+        
+        if (!publicaciones.contains(publicacion1))
+            publicaciones.add(publicacion1);
+        if (!publicaciones.contains(publicacion2))
+            publicaciones.add(publicacion2);
+        if (!publicaciones.contains(publicacion3))
+            publicaciones.add(publicacion3);
+        if (!publicaciones.contains(publicacion4))
+            publicaciones.add(publicacion4);
+        if (!publicaciones.contains(publicacion5))
+            publicaciones.add(publicacion5);
+        if (!publicaciones.contains(publicacion6))
+            publicaciones.add(publicacion6);
+      
+        for(Publicacion p : publicaciones) {
+            p.mostrar();
+            System.out.println();
+        }
 
       //</editor-fold>   
         

@@ -78,6 +78,7 @@ public class Grupo {
         if(miembrosEnGrupo.contains(borrarMiembro)){
             miembrosEnGrupo.remove(borrarMiembro);
         }
+        miembro.quitarGrupo(this);
     }
     
     public void verMiembros () {
@@ -85,6 +86,24 @@ public class Grupo {
         for (MiembroEnGrupo meg : miembrosEnGrupo) {
             System.out.println(meg.verAutor().verApellidos() + ", " + meg.verAutor().verNombres());
             System.out.println(meg.verRol());
+        }
+    }
+    
+    public boolean esSuperAdministradores() {
+        if (this.nombre.equals("Super Administradores")) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public boolean tieneMiembros() {
+        if (this.miembrosEnGrupo.isEmpty()) {
+            return false;
+        }
+        else {
+            return true;
         }
     }
     

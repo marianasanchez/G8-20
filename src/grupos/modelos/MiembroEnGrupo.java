@@ -93,4 +93,21 @@ public class MiembroEnGrupo {
         }
         return true;
     }
+    
+    public boolean equalsGrupo(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MiembroEnGrupo other = (MiembroEnGrupo) obj;
+        if (!Objects.equals(this.grupo, other.grupo)) {
+            return false;
+        }
+        return true;
+    }
 }

@@ -100,10 +100,26 @@ public abstract class Autor {
             }
         }
         
-            MiembroEnGrupo nuevoGrupo = new MiembroEnGrupo(this, grupo, rol);
-            miembroEnGrupos.add(nuevoGrupo);
-            grupos.add(grupo);
-            grupo.agregarMiembro(this, rol);
+        MiembroEnGrupo nuevoGrupo = new MiembroEnGrupo(this, grupo, rol);
+        miembroEnGrupos.add(nuevoGrupo);
+        grupos.add(grupo);
+        grupo.agregarMiembro(this, rol);
+    }
+    
+    public void quitarGrupo (Grupo grupo) {
+        for (Grupo g : grupos) {
+            if(grupos.contains(grupo)) {
+                grupos.remove(grupo);
+            }
+        }
+        
+        for (MiembroEnGrupo meg : miembroEnGrupos) {
+            if(meg.equalsGrupo(grupo)) {
+                miembroEnGrupos.remove(meg);
+            }
+        }
+        
+        System.out.println(this.grupos);
     }
     
     public void verGrupos () {
@@ -112,6 +128,15 @@ public abstract class Autor {
             System.out.println(meg.verGrupo().verNombre() + ", " +meg.verGrupo().verDescripcion());
             System.out.println(meg.verRol());
         }
+    }
+    
+    public boolean esSuperAdministrador() {
+        for (Grupo g : grupos) {
+            if(g.esSuperAdministradores()) {
+                return true;
+            }
+        }
+        return false;
     }
     
     public void mostrar() {
