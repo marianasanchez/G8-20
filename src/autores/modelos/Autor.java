@@ -19,7 +19,9 @@ public abstract class Autor {
     private String apellidos;
     private String nombres;
     private String clave;
+    private ArrayList<Grupo> grupos = new ArrayList<>();
     private ArrayList<MiembroEnGrupo> miembroEnGrupos = new ArrayList<>();
+    private int flag = 0;
 
     public Autor(int dni, String apellidos, String nombres, String clave) {
         this.dni = dni;
@@ -92,22 +94,16 @@ public abstract class Autor {
 //    }
     
     public void agregarGrupo (Grupo grupo, Rol rol) {
-        MiembroEnGrupo nuevoGrupo = new MiembroEnGrupo(this, grupo, rol);
-//        for(MiembroEnGrupo meg : miembroEnGrupos) {
-//            if (meg.verGrupo().equals(grupo)) {
-//                System.out.println("YA EXISTE");
-//            }
-//            else {
-//                System.out.println("NO EXISTE");
-//            }
-//        }
-       if(!miembroEnGrupos.contains(nuevoGrupo)){
+        for (Grupo g : grupos) {
+            if(grupos.contains(grupo)) {
+                return;
+            }
+        }
+        
+            MiembroEnGrupo nuevoGrupo = new MiembroEnGrupo(this, grupo, rol);
             miembroEnGrupos.add(nuevoGrupo);
+            grupos.add(grupo);
             grupo.agregarMiembro(this, rol);
-        }
-        else {
-            System.out.println("YA EXISTE");
-        }
     }
     
     public void verGrupos () {

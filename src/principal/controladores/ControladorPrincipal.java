@@ -146,7 +146,7 @@ public class ControladorPrincipal {
         Verificar también que no se pueda agregarle a un autor 
         un mismo grupo más de una vez, por más que sean roles distintos.*/
 
-        System.out.println("AGREGADO DE GRUPOS A UN AUTOR\n");
+        System.out.println("AGREGADO DE GRUPOS A UN AUTOR\n\n");
         profesor1.agregarGrupo(grupo2, Rol.COLABORADOR);
         profesor1.agregarGrupo(grupo2, Rol.ADMINISTRADOR); //grupo repetido
         profesor1.mostrar();
