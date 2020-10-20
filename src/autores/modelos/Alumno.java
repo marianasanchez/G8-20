@@ -5,6 +5,8 @@
  */
 package autores.modelos;
 
+import java.util.Objects;
+
 public class Alumno extends Autor  {
    // private int dni;
    // private String apellidos;
@@ -70,23 +72,29 @@ public class Alumno extends Autor  {
 //        return hash;
 //    }
 
+//    @Override
+//    public int hashCode() {
+//        int hash = 7;
+//        return hash;
+//    }
+
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+
+        
+        if (!super.equals(obj)){
+   
+        if(obj instanceof Alumno){
+  
+            return Objects.equals(this.cx, ((Alumno)obj).verCx());
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Alumno other = (Alumno) obj;
-        if (this.cx != other.cx) {
+        else
             return false;
         }
         return true;
     }
+
+  
     
     @Override
     public void mostrar() {

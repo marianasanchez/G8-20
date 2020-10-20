@@ -65,9 +65,14 @@ public abstract class Autor {
 //    public void asignarMiembrosEnGrupo(ArrayList<MiembroEnGrupo> miembroEnGrupos) {
 //        this.miembroEnGrupos = miembroEnGrupos;
 //    }
-    
-    
-    
+//
+//    @Override
+//    public int hashCode() {
+//        int hash = 7;
+//        return hash;
+//    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -75,15 +80,26 @@ public abstract class Autor {
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (getClass().getSuperclass() != obj.getClass().getSuperclass()) {
             return false;
         }
-        final Autor other = (Autor) obj;
+//        if(getClass() != obj.getClass() ){
+//            return false;
+//        }
+        Autor other = (Autor) obj;
         if (this.dni != other.dni) {
             return false;
         }
         return true;
     }
+
+  
+
+
+    
+    
+    
+ 
 
 //    public void verGrupos() {
 //        for (MiembroEnGrupo g : miembroEnGrupos) {
