@@ -65,33 +65,27 @@ public class Alumno extends Autor  {
         this.cx = cx;
     }
 
-//    @Override
-//    public int hashCode() {
-//        int hash = 7;
-//        hash = 97 * hash + this.dni;
-//        return hash;
-//    }
-
-//    @Override
-//    public int hashCode() {
-//        int hash = 7;
-//        return hash;
-//    }
-
     @Override
     public boolean equals(Object obj) {
 
         
         if (!super.equals(obj)){
    
-        if(obj instanceof Alumno){
-  
-            return Objects.equals(this.cx, ((Alumno)obj).verCx());
-        }
-        else
-            return false;
+            if(obj instanceof Alumno){
+
+                return Objects.equals(this.cx, ((Alumno)obj).verCx());
+            }
+            else
+                return false;
         }
         return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.cx);
+        return hash;
     }
 
   

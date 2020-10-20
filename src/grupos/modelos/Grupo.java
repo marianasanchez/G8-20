@@ -64,21 +64,31 @@ public class Grupo {
         }
         return true;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 79 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
     
     public void agregarMiembro (Autor autor, Rol rol) {
-        MiembroEnGrupo nuevoMiembro = new MiembroEnGrupo(autor, this, rol);
-        if(!miembrosEnGrupo.contains(nuevoMiembro)){
-            miembrosEnGrupo.add(nuevoMiembro);
-            autor.agregarGrupo(this, rol);
+        for (MiembroEnGrupo meg : miembrosEnGrupo) {
+            if(meg.verAutor().equals(autor)){
+                return;
+            }
         }
+        miembrosEnGrupo.add(new MiembroEnGrupo(autor, this, rol));
+        autor.agregarGrupo(this, rol);
     }
     
     public void quitarMiembro (Autor miembro) {
-        MiembroEnGrupo borrarMiembro = new MiembroEnGrupo(miembro, this, null);
-        if(miembrosEnGrupo.contains(borrarMiembro)){
-            miembrosEnGrupo.remove(borrarMiembro);
+        for (MiembroEnGrupo meg : miembrosEnGrupo) {
+            if(meg.verAutor().equals(miembro)){
+                miembrosEnGrupo.remove(meg);
+                miembro.quitarGrupo(this);
+            }
         }
-        miembro.quitarGrupo(this);
     }
     
     public void verMiembros () {

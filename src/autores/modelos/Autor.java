@@ -19,9 +19,7 @@ public abstract class Autor {
     private String apellidos;
     private String nombres;
     private String clave;
-    private ArrayList<Grupo> grupos = new ArrayList<>();
     private ArrayList<MiembroEnGrupo> miembroEnGrupos = new ArrayList<>();
-    private int flag = 0;
 
     public Autor(int dni, String apellidos, String nombres, String clave) {
         this.dni = dni;
@@ -61,11 +59,7 @@ public abstract class Autor {
     public void asignarClave(String clave) {
         this.clave = clave;
     }
-
-//    public void asignarMiembrosEnGrupo(ArrayList<MiembroEnGrupo> miembroEnGrupos) {
-//        this.miembroEnGrupos = miembroEnGrupos;
-//    }
-//
+    
 //    @Override
 //    public int hashCode() {
 //        int hash = 7;
@@ -83,9 +77,6 @@ public abstract class Autor {
         if (getClass().getSuperclass() != obj.getClass().getSuperclass()) {
             return false;
         }
-//        if(getClass() != obj.getClass() ){
-//            return false;
-//        }
         Autor other = (Autor) obj;
         if (this.dni != other.dni) {
             return false;
@@ -93,49 +84,30 @@ public abstract class Autor {
         return true;
     }
 
-  
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 47 * hash + this.dni;
+        return hash;
+    }
 
-
-    
-    
-    
- 
-
-//    public void verGrupos() {
-//        for (MiembroEnGrupo g : miembroEnGrupos) {
-//            System.out.println(g.verAutor());
-//            System.out.println(g.verGrupo());
-//            System.out.println(g.verRol());
-//        }
-//    }
-    
     public void agregarGrupo (Grupo grupo, Rol rol) {
-        for (Grupo g : grupos) {
-            if(grupos.contains(grupo)) {
+        for (MiembroEnGrupo meg : miembroEnGrupos) {
+            if(meg.verGrupo().equals(grupo)){
                 return;
             }
         }
-        
-        MiembroEnGrupo nuevoGrupo = new MiembroEnGrupo(this, grupo, rol);
-        miembroEnGrupos.add(nuevoGrupo);
-        grupos.add(grupo);
+        miembroEnGrupos.add(new MiembroEnGrupo(this, grupo, rol));
         grupo.agregarMiembro(this, rol);
     }
     
     public void quitarGrupo (Grupo grupo) {
-        for (Grupo g : grupos) {
-            if(grupos.contains(grupo)) {
-                grupos.remove(grupo);
-            }
-        }
-        
         for (MiembroEnGrupo meg : miembroEnGrupos) {
-            if(meg.equalsGrupo(grupo)) {
+            if(meg.verGrupo().equals(grupo)){
                 miembroEnGrupos.remove(meg);
+                grupo.quitarMiembro(this);
             }
         }
-        
-        System.out.println(this.grupos);
     }
     
     public void verGrupos () {
@@ -147,8 +119,8 @@ public abstract class Autor {
     }
     
     public boolean esSuperAdministrador() {
-        for (Grupo g : grupos) {
-            if(g.esSuperAdministradores()) {
+        for (MiembroEnGrupo meg : miembroEnGrupos) {
+            if(meg.verGrupo().verNombre().equals("Super Administradores")){
                 return true;
             }
         }
