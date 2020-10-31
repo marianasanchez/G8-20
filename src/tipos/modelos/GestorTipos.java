@@ -14,6 +14,7 @@ public class GestorTipos implements IGestorTipos{
     public static final String EXITO = "El nuevo 'Tipo' fue creado con éxito";
     public static final String REPETIDO = "El nuevo 'Tipo' ya fue creado";
     public static final String INVALIDO = "El nombre ingresado es inválido";
+    public static final String INSTANCIADO = "Un objeto de esta clase ya ha sido creado";
     
     private static GestorTipos instancia;
     
@@ -21,12 +22,15 @@ public class GestorTipos implements IGestorTipos{
         if (instancia == null){
             instancia = new GestorTipos();
         }
+        else{
+            System.out.println(INSTANCIADO);
+        }
         return instancia;
     }
     
     @Override
     public String nuevoTipo(String nombre) {
-        if ((!nombre.isBlank() && (nombre != null))){
+        if ((nombre != null) && (!nombre.isBlank())){
             Tipo t = new Tipo(nombre);
             if (!this.tipos.contains(t)){
                this.tipos.add(t);
