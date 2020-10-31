@@ -10,15 +10,15 @@ import java.util.ArrayList;
 
 public class GestorAutores implements IGestorAutores{
     private ArrayList<Autor> autores = new ArrayList<>();
-    private ArrayList<Profesor> profesores = new ArrayList<>();
-    private ArrayList<Alumno> alumnos = new ArrayList<>();
-    public static final String EXITO = "El nuevo 'Grupo' fue creado con éxito";
-    public static final String REPETIDO = "ERROR. El nuevo 'Grupo' ya fue creado";
+    public static final String EXITO = "El nuevo 'Autor' fue creado con éxito";
+    public static final String REPETIDO = "ERROR. El nuevo 'Autor' ya fue creado";
     public static final String INVALIDO = "ERROR. El nombre ingresado es inválido";
     public static final String INSTANCIADO = "ERROR. Un objeto de esta clase ya ha sido creado";
-    public static final String MODIFICADO = "El 'Grupo' fue modificado";
-    public static final String INEXISTENTE = "ERROR. El 'Grupo' no existe";
+    public static final String MODIFICADO = "El 'Autor' fue modificado";
+    public static final String INEXISTENTE = "ERROR. El 'Autor' no existe";
     public static final String CLAVES_DISTINTAS = "ERROR. Las claves no coinciden";
+    public static final String NO_PROFESOR = "ERROR. El autor ingresado no es un profesor";
+    public static final String NO_ALUMNO = "ERROR. El autor ingresado no es un alumno";
     
     private static GestorAutores instancia;
     
@@ -39,10 +39,9 @@ public class GestorAutores implements IGestorAutores{
                 return CLAVES_DISTINTAS;
             }
             else{
-               Profesor p = new Profesor(dni, apellidos, nombres, clave, cargo);
+               Autor p = new Profesor(dni, apellidos, nombres, clave, cargo);
                if(!this.autores.contains(p)){
                    this.autores.add(p);
-                   this.profesores.add(p);
                    return EXITO;
                }
                else{
@@ -60,10 +59,9 @@ public class GestorAutores implements IGestorAutores{
                 return CLAVES_DISTINTAS;
             }
             else{
-               Alumno a = new Alumno(dni, apellidos, nombres, clave, cx);
+               Autor a = new Alumno(dni, apellidos, nombres, clave, cx);
                if(!this.autores.contains(a)){
                    this.autores.add(a);
-                   this.alumnos.add(a);
                    return EXITO;
                }
                else{
@@ -76,12 +74,42 @@ public class GestorAutores implements IGestorAutores{
 
     @Override
     public String modificarAutor(Autor autor, String apellidos, String nombres, Cargo cargo, String clave, String claveRepetida) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(autor instanceof Profesor){
+            if(clave == claveRepetida){
+                for(Autor a : autores){
+                    if(a.equals(autor)){
+                        a.asignarApellidos(apellidos);
+                        a.asignarNombres(nombres);
+                        ((Profesor)a).asignarCargo(cargo);
+                        a.asignarClave(clave);
+                        return MODIFICADO;
+                    }
+                }
+                return INEXISTENTE;
+            }
+            return CLAVES_DISTINTAS;
+        }
+        return NO_PROFESOR;
     }
 
     @Override
     public String modificarAutor(Autor autor, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(autor instanceof Alumno){
+            if(clave == claveRepetida){
+                for(Autor a : autores){
+                    if(a.equals(autor)){
+                        a.asignarApellidos(apellidos);
+                        a.asignarNombres(nombres);
+                        ((Alumno)a).asignarCx(cx);
+                        a.asignarClave(clave);
+                        return MODIFICADO;
+                    }
+                }
+                return INEXISTENTE;
+            }
+            return CLAVES_DISTINTAS;
+        }
+        return NO_ALUMNO;
     }
 
     @Override
@@ -101,11 +129,25 @@ public class GestorAutores implements IGestorAutores{
 
     @Override
     public ArrayList<Profesor> verProfesores() {
+        ArrayList<Profesor> profesores = new ArrayList<>();
+        
+        for(Autor a : autores){
+            if(a instanceof Profesor){
+                profesores.add((Profesor)a);
+            }
+        }
         return profesores;
     }
 
     @Override
     public ArrayList<Alumno> verAlumnos() {
+        ArrayList<Alumno> alumnos = new ArrayList<>();
+        
+        for(Autor a : autores){
+            if(a instanceof Alumno){
+                alumnos.add((Alumno)a);
+            }
+        }
         return alumnos;
     }
 
@@ -119,5 +161,17 @@ public class GestorAutores implements IGestorAutores{
         return null;
     }
     
-    
+//    public boolean esProfesor(Autor autor){
+//        if(autor instanceof Profesor){
+//            return true;
+//        }
+//        return false;
+//    }
+//    
+//    public boolean esAlumno(Autor autor){
+//        if(autor instanceof Alumno){
+//            return true;
+//        }
+//        return false;
+//    }
 }

@@ -1,5 +1,7 @@
 package principal.controladores;
 
+import autores.modelos.Cargo;
+import autores.modelos.GestorAutores;
 import grupos.modelos.GestorGrupos;
 import palabrasclaves.modelos.GestorPalabrasClaves;
 import tipos.modelos.GestorTipos;
@@ -433,6 +435,51 @@ public class ControladorPrincipal {
         System.out.println("\n\n");
         
         System.out.println("-----Autores-----");
+        
+        GestorAutores ga1 = GestorAutores.crear();
+        GestorAutores ga2 = GestorAutores.crear();
+        System.out.println("\n");
+        
+        System.out.println("-----Profesores-----");
+        System.out.println(ga1.nuevoAutor(10, "Apellido 10", "Nombre 10", Cargo.ADG, "123", "123"));
+        System.out.println(ga1.nuevoAutor(10, null, "Nombre 10", Cargo.ADG, "123", "123"));//null
+        System.out.println(ga1.nuevoAutor(10, "Apellido 10", "Nombre 10", Cargo.ADG, "123", "1234"));//Claves distintas
+        System.out.println(ga1.nuevoAutor(10, "Apellido 10", "Nombre 10", Cargo.ADG, "123", "123"));//existente
+        System.out.println(ga1.nuevoAutor(10, "Apellido 10", "", Cargo.ADG, "123", "123"));//en blanco
+        System.out.println(ga1.nuevoAutor(20, "Apellido 20", "Nombre 20", Cargo.ADJUNTO, "123", "123"));
+        System.out.println("\n");
+        
+        System.out.println("-----Alumnos-----");
+        System.out.println(ga1.nuevoAutor(1, "Apellido 1", "Nombre 1", "1-1", "123", "123"));
+        System.out.println(ga1.nuevoAutor(1, null, "Nombre 1", "1-1", "123", "123"));//null
+        System.out.println(ga1.nuevoAutor(1, "Apellido 1", "Nombre 1", "1-1", "123", "1234"));//Claves distintas
+        System.out.println(ga1.nuevoAutor(1, "Apellido 1", "Nombre 1", "1-1", "123", "123"));//existente
+        System.out.println(ga1.nuevoAutor(1, "Apellido 1", "", "1-1", "123", "123"));//en blanco
+        System.out.println(ga1.nuevoAutor(2, "Apellido 2", "Nombre 2", "2-2", "123", "123"));
+        System.out.println("\n");
+        
+        System.out.println("-----Mostrar-----");
+        System.out.println(ga1.verAutores());
+        System.out.println(ga1.verProfesores());
+        System.out.println(ga1.verAlumnos());
+        System.out.println(ga1.verAutor(1));
+        System.out.println(ga1.verAutor(2));
+        System.out.println(ga1.verAutor(10));
+        System.out.println(ga1.verAutor(20));
+        System.out.println(ga1.existeEsteAutor(ga1.verAutor(1)));
+        System.out.println(ga1.existeEsteAutor(ga1.verAutor(5)));//Ver inexistente
+        System.out.println("\n");
+        
+        System.out.println("-----Modificar-----");
+        System.out.println(ga1.modificarAutor(ga1.verAutor(10), "Ape 10", "Nom 10", Cargo.ADG, "123", "123"));//Modifico profesor
+        System.out.println(ga1.modificarAutor(ga1.verAutor(50), "Ape 10", "Nom 10", Cargo.ADG, "123", "123"));//Modifico profesor inexistente
+        System.out.println(ga1.modificarAutor(ga1.verAutor(1), "Ape 1", "Nom 1", "1-1", "123", "123"));//Modifico alumno
+        System.out.println(ga1.modificarAutor(ga1.verAutor(5), "Ape 1", "Nom 1", "1-1", "123", "123"));//Modifico alumno inexistente
+        System.out.println(ga1.verAutores());
+        System.out.println(ga1.verProfesores());
+        System.out.println(ga1.verAlumnos());
+        System.out.println("\n\n");
+        
     }
 }
 
