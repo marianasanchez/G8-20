@@ -1,5 +1,6 @@
 package principal.controladores;
 
+import grupos.modelos.GestorGrupos;
 import palabrasclaves.modelos.GestorPalabrasClaves;
 import tipos.modelos.GestorTipos;
 
@@ -411,5 +412,27 @@ public class ControladorPrincipal {
         System.out.println(gpc1.verPalabrasClaves());//Muestra todos los tipos
         System.out.println(gpc1.verPalabraClave("Palabra Clave 1"));//Busca un tipo
         System.out.println(gpc1.verPalabraClave("Palabra Clave 3"));//Busca un tipo inexistente
+        System.out.println("\n\n");
+        
+        System.out.println("-----Grupos-----");
+        
+        GestorGrupos gg1 = GestorGrupos.crear();
+        GestorGrupos gg2 = GestorGrupos.crear();
+        
+        System.out.println(gg1.nuevoGrupo("Grupo 1", "Descripción 1"));
+        System.out.println(gg1.nuevoGrupo("Grupo 1", "Descripción 1"));//Repetido
+        System.out.println(gg1.nuevoGrupo("", "Descripción 1"));//Vacio
+        System.out.println(gg1.nuevoGrupo(null, "Descripción 1"));//null
+        System.out.println(gg1.nuevoGrupo("Grupo 2", "Descripción 1"));
+        System.out.println(gg1.modificarGrupo(gg1.verGrupo("Grupo 2"), "Descripción 2"));//Modifico
+        System.out.println(gg1.verGrupos());//Muestra todos los grupos
+        System.out.println(gg1.verGrupo("Grupo 2"));//Muestra un grupo
+        System.out.println(gg1.verGrupo("Grupo 3"));//Muestra un grupo inexistente
+        System.out.println(gg1.existeEsteGrupo(gg1.verGrupo("Grupo 1")));//Busca un grupo
+        System.out.println(gg1.existeEsteGrupo(gg1.verGrupo("Grupo 3")));//Busca un grupo inexistente
+        System.out.println("\n\n");
+        
+        System.out.println("-----Autores-----");
     }
 }
+

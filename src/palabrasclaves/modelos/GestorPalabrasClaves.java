@@ -11,9 +11,9 @@ import java.util.ArrayList;
 public class GestorPalabrasClaves implements IGestorPalabrasClaves{
     private ArrayList<PalabraClave> palabrasClaves = new ArrayList<>();
     public static final String EXITO = "La nueva 'Palabra Clave' fue creado con éxito";
-    public static final String REPETIDO = "La nueva 'Palabra Clave' ya fue creado";
-    public static final String INVALIDO = "El nombre ingresado es inválido";
-    public static final String INSTANCIADO = "Un objeto de esta clase ya ha sido creado";
+    public static final String REPETIDO = "ERROR. La nueva 'Palabra Clave' ya fue creado";
+    public static final String INVALIDO = "ERROR. El nombre ingresado es inválido";
+    public static final String INSTANCIADO = "ERROR. Un objeto de esta clase ya ha sido creado";
     
     private static GestorPalabrasClaves instancia;
     
