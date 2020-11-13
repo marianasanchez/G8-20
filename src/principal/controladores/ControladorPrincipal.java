@@ -3,6 +3,8 @@ package principal.controladores;
 import autores.modelos.Cargo;
 import autores.modelos.GestorAutores;
 import grupos.modelos.GestorGrupos;
+import idiomas.modelos.GestorIdiomas;
+import lugares.modelos.GestorLugares;
 import palabrasclaves.modelos.GestorPalabrasClaves;
 import tipos.modelos.GestorTipos;
 
@@ -478,6 +480,36 @@ public class ControladorPrincipal {
         System.out.println(ga1.verAutores());
         System.out.println(ga1.verProfesores());
         System.out.println(ga1.verAlumnos());
+        System.out.println("\n\n");
+        
+                System.out.println("-----Idiomas-----");
+        
+        GestorIdiomas gi1 = GestorIdiomas.crear();
+        GestorIdiomas gi2 = GestorIdiomas.crear();
+        
+        System.out.println(gi1.nuevoIdioma("Español"));
+        System.out.println(gi1.nuevoIdioma("Español"));;//Repetido
+        System.out.println(gi1.nuevoIdioma("Ingles"));
+        System.out.println(gi1.nuevoIdioma(""));//En blanco
+        System.out.println(gi1.nuevoIdioma(null));//Null
+        System.out.println(gi1.verIdiomas());//Muestra todos los idiomas
+        System.out.println(gi1.verIdioma("Ingles"));//Busca un idioma
+         System.out.println(gi1.verIdioma("Aleman"));//Busca un idioma inexistente
+        System.out.println("\n\n");
+        
+                System.out.println("-----Lugares-----");
+        
+        GestorLugares gl1 = GestorLugares.crear();
+        GestorLugares gl2 = GestorLugares.crear();
+        
+        System.out.println(gl1.nuevoLugar("Lugar 1"));
+        System.out.println(gl1.nuevoLugar("Lugar 1"));;//Repetido
+        System.out.println(gl1.nuevoLugar("Lugar 2"));
+        System.out.println(gl1.nuevoLugar(""));//En blanco
+        System.out.println(gl1.nuevoLugar(null));//Null
+        System.out.println(gl1.verLugares());//Muestra todos los lugares
+        System.out.println(gl1.verLugar("Lugar 1"));//Busca un lugar
+         System.out.println(gl1.verLugar("Lugar 3"));//Busca un lugar inexistente
         System.out.println("\n\n");
         
     }
