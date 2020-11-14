@@ -88,11 +88,11 @@ public class ModeloTablaProfesores extends AbstractTableModel {
 //    }
 //    
 //    
-//    public void actualizar() {
-//        GestorEspacios ge = GestorEspacios.crear();
-//        this.espacios = ge.verEspacios();
-//        this.fireTableDataChanged();
-//    }
+    public void actualizar() {
+        GestorAutores ga = GestorAutores.crear();
+        this.autores = ga.verProfesores();
+        this.fireTableDataChanged();
+    }
 //    
     
 

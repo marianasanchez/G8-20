@@ -17,11 +17,12 @@ import java.awt.event.WindowEvent;
  */
 public class ControladorAutores implements IControladorAutores {
     private VentanaAMAutores ventana;
-    
+    private GestorAutores ga = GestorAutores.crear();
     public ControladorAutores() {
         this.ventana = new VentanaAMAutores(this);
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
+        //GestorAutores ga = GestorAutores.crear();
     }
     @Override
     public void btnNuevoProfesorClic(ActionEvent evt) {
@@ -45,7 +46,9 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void btnBorrarProfesorClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ga.BorrarAutor(this.ventana.verDniProfesor());
+        ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
+        mtp.actualizar();
     }
 
     @Override
@@ -60,7 +63,7 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void btnBuscarProfesorClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override

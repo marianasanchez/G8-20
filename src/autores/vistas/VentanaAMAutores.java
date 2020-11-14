@@ -7,6 +7,7 @@ package autores.vistas;
 
 import autores.modelos.ModeloTablaProfesores;
 import interfaces.IControladorAutores;
+import javax.swing.JTable;
 
 /**
  *
@@ -14,6 +15,7 @@ import interfaces.IControladorAutores;
  */
 public class VentanaAMAutores extends javax.swing.JDialog {
     private IControladorAutores controlador;
+    
     /**
      * Creates new form VentanaAMAutores
      */
@@ -22,6 +24,7 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         this.tablaProfesores.setModel(new ModeloTablaProfesores());
         this.controlador = controlador;
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,6 +68,11 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         jLabel3.setText("Apellidos:");
 
         btnBuscarProfesor.setText("Buscar");
+        btnBuscarProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarProfesorClic(evt);
+            }
+        });
 
         tablaProfesores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,6 +88,11 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tablaProfesores);
 
         btnBorrarProfesor.setText("Borrar");
+        btnBorrarProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarProfesorClic(evt);
+            }
+        });
 
         btnModificarProfesor.setText("Modificar");
 
@@ -231,6 +244,14 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBuscarProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProfesorClic
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarProfesorClic
+
+    private void btnBorrarProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarProfesorClic
+      this.controlador.btnBorrarProfesorClic(evt);
+    }//GEN-LAST:event_btnBorrarProfesorClic
+
     /**
      * @param args the command line arguments
      */
@@ -261,6 +282,18 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         /* Create and display the dialog */
         //VentanaAMAutores ventana = new VentanaAMAutores(null, true);
         
+    }
+    public int verDniProfesor() {
+       ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.tablaProfesores.getModel();
+       return (Integer)mtp.getValueAt(this.tablaProfesores.getSelectedRow(), 0);
+       
+    }
+    
+//    public void Actualizar(){
+//        mtp.actualizar();
+//    }
+    public JTable getTablaProfesores() {
+        return tablaProfesores;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -160,6 +160,13 @@ public class GestorAutores implements IGestorAutores{
         }
         return null;
     }
+    public void BorrarAutor(int dni) {
+        for(Autor a : autores){
+            if(a.verDni() == dni){
+                autores.remove(a);
+            }
+        }
+    }
     
 //    public boolean esProfesor(Autor autor){
 //        if(autor instanceof Profesor){
