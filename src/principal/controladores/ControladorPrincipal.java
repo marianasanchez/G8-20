@@ -1,5 +1,6 @@
 package principal.controladores;
 
+import autores.modelos.ControladorAutores;
 import interfaces.IControladorPrincipal;
 import java.awt.event.ActionEvent;
 import principal.vistas.VentanaPrincipal;
@@ -17,7 +18,7 @@ public class ControladorPrincipal implements IControladorPrincipal{
     
     @Override
     public void btnAutoresClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ControladorAutores Autores = new ControladorAutores();
     }
 
     @Override

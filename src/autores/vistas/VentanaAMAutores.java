@@ -5,22 +5,23 @@
  */
 package autores.vistas;
 
+import autores.modelos.ModeloTablaProfesores;
+import interfaces.IControladorAutores;
+
 /**
  *
  * @author rodrigo
  */
 public class VentanaAMAutores extends javax.swing.JDialog {
-
+    private IControladorAutores controlador;
     /**
      * Creates new form VentanaAMAutores
      */
-    public VentanaAMAutores(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public VentanaAMAutores(IControladorAutores controlador) {
         initComponents();
-        this.setTitle("RODRI");
-        this.setVisible(true);
+        this.tablaProfesores.setModel(new ModeloTablaProfesores());
+        this.controlador = controlador;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -258,7 +259,7 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        VentanaAMAutores ventana = new VentanaAMAutores(null, true);
+        //VentanaAMAutores ventana = new VentanaAMAutores(null, true);
         
     }
 
