@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package autores.modelos;
+package autores.controladores;
 
+import autores.controladores.ControladorAMProfesor;
+import autores.modelos.GestorAutores;
+import autores.modelos.ModeloTablaProfesores;
 import autores.vistas.VentanaAMAutores;
 import interfaces.IControladorAutores;
 import java.awt.event.ActionEvent;
@@ -66,7 +69,8 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void btnVolverClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.ventana.setVisible(false);
+        this.ventana.dispose();
     }
 
     @Override
@@ -87,14 +91,37 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void txtApellidosProfesorPresionarTecla(KeyEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+            switch(c) {
+                case KeyEvent.VK_ENTER:                
+                case KeyEvent.VK_BACK_SPACE:
+                case KeyEvent.VK_SPACE:
+                case KeyEvent.VK_DELETE:
+                    break;
+                default:                    
+                    evt.consume();
+                    break;
+            }
+        }
     }
 
     @Override
     public void txtApellidosAlumnoPresionarTecla(KeyEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+            switch(c) {
+                case KeyEvent.VK_ENTER:                
+                case KeyEvent.VK_BACK_SPACE:
+                case KeyEvent.VK_SPACE:
+                case KeyEvent.VK_DELETE:
+                    break;
+                default:                    
+                    evt.consume();
+                    break;
+            }
+        } 
     }
-    
     public void actualizar(){
         ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
         mtp.actualizar();

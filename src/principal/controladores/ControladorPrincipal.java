@@ -1,6 +1,6 @@
 package principal.controladores;
 
-import autores.modelos.ControladorAutores;
+import autores.controladores.ControladorAutores;
 import interfaces.IControladorPrincipal;
 import java.awt.event.ActionEvent;
 import principal.vistas.VentanaPrincipal;

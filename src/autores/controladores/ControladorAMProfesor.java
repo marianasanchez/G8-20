@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package autores.modelos;
+package autores.controladores;
 
+import autores.modelos.Autor;
+import autores.modelos.GestorAutores;
 import autores.vistas.VentanaAMProfesor;
 import interfaces.IControladorAMProfesor;
 import java.awt.event.ActionEvent;
