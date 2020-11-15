@@ -28,7 +28,7 @@ public class ControladorAutores implements IControladorAutores {
     
     @Override
     public void btnNuevoProfesorClic(ActionEvent evt) {
-        ControladorAMProfesor controlador = new ControladorAMProfesor();
+        ControladorAMProfesor controlador = new ControladorAMProfesor("Nuevo Profesor", true);
         this.ventana.setVisible(false);
         this.ventana.dispose();
     }
@@ -40,7 +40,10 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void btnModificarProfesorClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ControladorAMProfesor controlador = new ControladorAMProfesor("Modificar Profesor", false);
+        System.out.println(this.ventana.verProfesor());
+        this.ventana.setVisible(false);
+        this.ventana.dispose();
     }
 
     @Override

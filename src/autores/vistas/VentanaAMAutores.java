@@ -5,6 +5,7 @@
  */
 package autores.vistas;
 
+import autores.modelos.Autor;
 import autores.modelos.ModeloTablaProfesores;
 import interfaces.IControladorAutores;
 import javax.swing.JTable;
@@ -95,6 +96,11 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         });
 
         btnModificarProfesor.setText("Modificar");
+        btnModificarProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarProfesorClic(evt);
+            }
+        });
 
         btnNuevoProfesor.setText("Nuevo");
         btnNuevoProfesor.addActionListener(new java.awt.event.ActionListener() {
@@ -254,12 +260,19 @@ public class VentanaAMAutores extends javax.swing.JDialog {
     }//GEN-LAST:event_btnBuscarProfesorClic
 
     private void btnBorrarProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarProfesorClic
-      this.controlador.btnBorrarProfesorClic(evt);
+        this.controlador.btnBorrarProfesorClic(evt);
     }//GEN-LAST:event_btnBorrarProfesorClic
 
     private void btnNuevoProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProfesorClic
         this.controlador.btnNuevoProfesorClic(evt);
     }//GEN-LAST:event_btnNuevoProfesorClic
+
+    private void btnModificarProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProfesorClic
+        ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.tablaProfesores.getModel();
+        if (this.tablaProfesores.getSelectedRow() >= 0) {
+            this.controlador.btnModificarProfesorClic(evt);
+        }
+    }//GEN-LAST:event_btnModificarProfesorClic
 
     /**
      * @param args the command line arguments
@@ -299,6 +312,11 @@ public class VentanaAMAutores extends javax.swing.JDialog {
     
     public JTable getTablaProfesores() {
         return tablaProfesores;
+    }
+    
+    public Autor verProfesor() {
+       ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.tablaProfesores.getModel();
+       return mtp.verAutor(this.tablaProfesores.getSelectedRow());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

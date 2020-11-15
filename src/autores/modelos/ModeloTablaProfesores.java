@@ -25,7 +25,7 @@ public class ModeloTablaProfesores extends AbstractTableModel {
         nombreColumnas.add("Cargo");
 //        GestorAutores ga = GestorAutores.crear();
         this.autores = ga.verProfesores();
-        System.out.println("Lista de profesores: " + ga.verProfesores());
+//        System.out.println("Lista de profesores: " + ga.verProfesores());
         this.actualizar();
         //Creo profesores
 //        ga.nuevoAutor(12312, "guzman", "Rodri", Cargo.ADG, "12345", "12345");
@@ -59,9 +59,9 @@ public class ModeloTablaProfesores extends AbstractTableModel {
         return this.nombreColumnas.get(columna);
     }
     
-//    public Espacio verEspacio(int fila) {
-//        return this.espacios.get(fila);
-//    }
+    public Autor verAutor(int fila) {
+        return this.autores.get(fila);
+    }
 //
 //    @Override
 //    public boolean isCellEditable(int fila, int columna) {

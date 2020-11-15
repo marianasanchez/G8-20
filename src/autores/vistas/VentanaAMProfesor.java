@@ -162,7 +162,7 @@ public class VentanaAMProfesor extends JDialog {
     }//GEN-LAST:event_btnGuardarNuevoProfesorClic
 
     private void btnCancelarNuevoProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarNuevoProfesorActionPerformed
-        // TODO add your handling code here:
+        this.controlador.btnCancelarClic(evt);
     }//GEN-LAST:event_btnCancelarNuevoProfesorActionPerformed
 
     public int getDni(){
@@ -193,6 +193,10 @@ public class VentanaAMProfesor extends JDialog {
     public String getClaveRepetida() {
         String claveRepetida = new String(this.txtRepetirClaveProfesor.getPassword());
         return claveRepetida;
+    }
+    
+    public void dniEnabled(boolean enabled){
+        this.txtDNIProfesor.setEnabled(enabled);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

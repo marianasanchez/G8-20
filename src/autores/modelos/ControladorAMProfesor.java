@@ -20,8 +20,10 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
     private VentanaAMProfesor ventana;
     private GestorAutores ga = GestorAutores.crear();
     
-    public ControladorAMProfesor() {
+    public ControladorAMProfesor(String title, boolean dniEnabled) {
         this.ventana = new VentanaAMProfesor(this);
+        this.ventana.setTitle(title);
+        this.ventana.dniEnabled(dniEnabled);
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
     }
@@ -29,7 +31,7 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
     @Override
     public void btnGuardarClic(ActionEvent evt) {
         System.out.println(this.ga.nuevoAutor(this.ventana.getDni(), this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCargo(), this.ventana.getClave(), this.ventana.getClaveRepetida()));
-        System.out.println("Listilla de profs: " + ga.verProfesores());
+//        System.out.println("Listilla de profs: " + ga.verProfesores());
         ControladorAutores controlador = new ControladorAutores();
         this.ventana.setVisible(false);
         this.ventana.dispose();
@@ -37,7 +39,9 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
 
     @Override
     public void btnCancelarClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ControladorAutores controlador = new ControladorAutores();
+        this.ventana.setVisible(false);
+        this.ventana.dispose();    
     }
 
     @Override
