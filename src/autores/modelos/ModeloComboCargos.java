@@ -16,7 +16,6 @@ public class ModeloComboCargos extends DefaultComboBoxModel{
         }
     }
     
-    
     public Cargo obtenerCargo() {
         return (Cargo)this.getSelectedItem();
     }

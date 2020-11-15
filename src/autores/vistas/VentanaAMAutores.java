@@ -314,6 +314,15 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         return tablaProfesores;
     }
     
+    public void autoresCargados(){
+        if (this.tablaProfesores.getRowCount() == 0){
+            this.btnModificarProfesor.setEnabled(false);
+        }
+        else {
+            this.btnModificarProfesor.setEnabled(true);
+        }
+    }
+    
     public Autor verProfesor() {
        ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.tablaProfesores.getModel();
        return mtp.verAutor(this.tablaProfesores.getSelectedRow());

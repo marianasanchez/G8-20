@@ -198,6 +198,34 @@ public class VentanaAMProfesor extends JDialog {
     public void dniEnabled(boolean enabled){
         this.txtDNIProfesor.setEnabled(enabled);
     }
+    
+    /*SET*/
+    
+    public void setDni(String dni){
+        this.txtDNIProfesor.setText(dni);
+    }
+    
+    public void setApellidos(String apellidos){
+        this.txtApellidosProfesor.setText(apellidos);
+    }
+    
+    public void setNombres(String nombres){
+        this.txtNombresProfesor.setText(nombres);
+    }
+    
+//    public void setCargo(){
+//        Cargo cargo = Cargo.toCargo(this.comboBoxCargoProfesor.getSelectedItem().toString().toUpperCase());
+//        return cargo;
+//    }
+//    
+//    public void setClave(String clave){
+//        this.txtClaveProfesor.setPassword(clave);
+//    }
+//    
+//    public String setClaveRepetida() {
+//        String claveRepetida = new String(this.txtRepetirClaveProfesor.getPassword());
+//        return claveRepetida;
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarNuevoProfesor;

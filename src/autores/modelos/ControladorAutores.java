@@ -21,6 +21,7 @@ public class ControladorAutores implements IControladorAutores {
     
     public ControladorAutores() {
         this.ventana = new VentanaAMAutores(this);
+        this.ventana.autoresCargados();
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
         this.actualizar();
@@ -28,7 +29,7 @@ public class ControladorAutores implements IControladorAutores {
     
     @Override
     public void btnNuevoProfesorClic(ActionEvent evt) {
-        ControladorAMProfesor controlador = new ControladorAMProfesor("Nuevo Profesor", true);
+        ControladorAMProfesor controlador = new ControladorAMProfesor("Nuevo Profesor", true, true);
         this.ventana.setVisible(false);
         this.ventana.dispose();
     }
@@ -40,7 +41,7 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void btnModificarProfesorClic(ActionEvent evt) {
-        ControladorAMProfesor controlador = new ControladorAMProfesor("Modificar Profesor", false);
+        ControladorAMProfesor controlador = new ControladorAMProfesor("Modificar Profesor", false, false, this.ventana.verProfesor());
         System.out.println(this.ventana.verProfesor());
         this.ventana.setVisible(false);
         this.ventana.dispose();

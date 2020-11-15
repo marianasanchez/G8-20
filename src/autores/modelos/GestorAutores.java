@@ -74,28 +74,31 @@ public class GestorAutores implements IGestorAutores{
 
     @Override
     public String modificarAutor(Autor autor, String apellidos, String nombres, Cargo cargo, String clave, String claveRepetida) {
-        if(autor instanceof Profesor){
-            if(clave == claveRepetida){
-                for(Autor a : autores){
-                    if(a.equals(autor)){
-                        a.asignarApellidos(apellidos);
-                        a.asignarNombres(nombres);
-                        ((Profesor)a).asignarCargo(cargo);
-                        a.asignarClave(clave);
-                        return MODIFICADO;
+        if((apellidos != null) && (nombres != null) && (!apellidos.isBlank()) && (!nombres.isBlank())){
+            if(autor instanceof Profesor){
+                if(clave.equals(claveRepetida)){
+                    for(Autor a : autores){
+                        if(a.equals(autor)){
+                            a.asignarApellidos(apellidos);
+                            a.asignarNombres(nombres);
+                            ((Profesor)a).asignarCargo(cargo);
+                            a.asignarClave(clave);
+                            return MODIFICADO;
+                        }
                     }
+                    return INEXISTENTE;
                 }
-                return INEXISTENTE;
+                return CLAVES_DISTINTAS;
             }
-            return CLAVES_DISTINTAS;
+            return NO_PROFESOR;
         }
-        return NO_PROFESOR;
+        return INVALIDO;
     }
 
     @Override
     public String modificarAutor(Autor autor, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
         if(autor instanceof Alumno){
-            if(clave == claveRepetida){
+            if(clave.equals(claveRepetida)){
                 for(Autor a : autores){
                     if(a.equals(autor)){
                         a.asignarApellidos(apellidos);
