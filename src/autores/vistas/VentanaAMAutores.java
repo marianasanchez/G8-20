@@ -97,6 +97,11 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         btnModificarProfesor.setText("Modificar");
 
         btnNuevoProfesor.setText("Nuevo");
+        btnNuevoProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoProfesorClic(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -252,6 +257,10 @@ public class VentanaAMAutores extends javax.swing.JDialog {
       this.controlador.btnBorrarProfesorClic(evt);
     }//GEN-LAST:event_btnBorrarProfesorClic
 
+    private void btnNuevoProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProfesorClic
+        this.controlador.btnNuevoProfesorClic(evt);
+    }//GEN-LAST:event_btnNuevoProfesorClic
+
     /**
      * @param args the command line arguments
      */
@@ -286,12 +295,8 @@ public class VentanaAMAutores extends javax.swing.JDialog {
     public int verDniProfesor() {
        ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.tablaProfesores.getModel();
        return (Integer)mtp.getValueAt(this.tablaProfesores.getSelectedRow(), 0);
-       
     }
     
-//    public void Actualizar(){
-//        mtp.actualizar();
-//    }
     public JTable getTablaProfesores() {
         return tablaProfesores;
     }

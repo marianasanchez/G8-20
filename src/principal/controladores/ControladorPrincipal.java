@@ -18,7 +18,7 @@ public class ControladorPrincipal implements IControladorPrincipal{
     
     @Override
     public void btnAutoresClic(ActionEvent evt) {
-        ControladorAutores Autores = new ControladorAutores();
+        ControladorAutores autores = new ControladorAutores();
     }
 
     @Override

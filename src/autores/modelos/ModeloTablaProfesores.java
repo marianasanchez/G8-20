@@ -16,18 +16,21 @@ import javax.swing.table.AbstractTableModel;
 public class ModeloTablaProfesores extends AbstractTableModel {
     private ArrayList<String> nombreColumnas = new ArrayList<>();
     private ArrayList<Profesor> autores = new ArrayList<>();
+    private GestorAutores ga = GestorAutores.crear();
     
     public ModeloTablaProfesores() {
         nombreColumnas.add("DNI");
         nombreColumnas.add("Apellidos");
         nombreColumnas.add("Nombres");
         nombreColumnas.add("Cargo");
-        GestorAutores ga = GestorAutores.crear();
+//        GestorAutores ga = GestorAutores.crear();
         this.autores = ga.verProfesores();
+        System.out.println("Lista de profesores: " + ga.verProfesores());
+        this.actualizar();
         //Creo profesores
-        ga.nuevoAutor(12312, "guzman", "Rodri", Cargo.ADG, "12345", "12345");
-        ga.nuevoAutor(123412, "guzmanx", "Rodsi", Cargo.ADG, "1234s5", "1234s5");
-        autores = ga.verProfesores();
+//        ga.nuevoAutor(12312, "guzman", "Rodri", Cargo.ADG, "12345", "12345");
+//        ga.nuevoAutor(123412, "guzmanx", "Rodsi", Cargo.ADG, "1234s5", "1234s5");
+//        autores = ga.verProfesores();
     }
 
     @Override

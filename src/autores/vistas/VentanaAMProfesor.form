@@ -56,12 +56,12 @@
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtRepetirClaveNuevoProfesor" max="32767" attributes="0"/>
-                          <Component id="txtNombresNuevoProfesor" pref="345" max="32767" attributes="0"/>
-                          <Component id="txtDNINuevoProfesor" max="32767" attributes="0"/>
-                          <Component id="txtApellidosNuevoProfesor" max="32767" attributes="0"/>
-                          <Component id="txtClaveNuevoProfesor" alignment="0" max="32767" attributes="0"/>
-                          <Component id="comboBoxCargoNuevoProfesor" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtRepetirClaveProfesor" max="32767" attributes="0"/>
+                          <Component id="txtNombresProfesor" pref="345" max="32767" attributes="0"/>
+                          <Component id="txtDNIProfesor" max="32767" attributes="0"/>
+                          <Component id="txtApellidosProfesor" max="32767" attributes="0"/>
+                          <Component id="txtClaveProfesor" alignment="0" max="32767" attributes="0"/>
+                          <Component id="comboBoxCargoProfesor" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -80,32 +80,32 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtDNINuevoProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDNIProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtApellidosNuevoProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtApellidosProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNombresNuevoProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNombresProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="comboBoxCargoNuevoProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboBoxCargoProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtClaveNuevoProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtClaveProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtRepetirClaveNuevoProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtRepetirClaveProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -123,7 +123,7 @@
         <Property name="text" type="java.lang.String" value="Apellidos:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtApellidosNuevoProfesor">
+    <Component class="javax.swing.JTextField" name="txtApellidosProfesor">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Apellidos del profesor"/>
       </Properties>
@@ -133,7 +133,7 @@
         <Property name="text" type="java.lang.String" value="Nombres:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNombresNuevoProfesor">
+    <Component class="javax.swing.JTextField" name="txtNombresProfesor">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Nombres del profesor"/>
       </Properties>
@@ -158,19 +158,19 @@
         <Property name="text" type="java.lang.String" value="Documento:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtDNINuevoProfesor">
+    <Component class="javax.swing.JTextField" name="txtDNIProfesor">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Documento del profesor"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="txtClaveNuevoProfesor">
+    <Component class="javax.swing.JPasswordField" name="txtClaveProfesor">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="Clave:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboBoxCargoNuevoProfesor">
+    <Component class="javax.swing.JComboBox" name="comboBoxCargoProfesor">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
@@ -191,7 +191,7 @@
         <Property name="text" type="java.lang.String" value="Repetir clave:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="txtRepetirClaveNuevoProfesor">
+    <Component class="javax.swing.JPasswordField" name="txtRepetirClaveProfesor">
     </Component>
     <Component class="javax.swing.JButton" name="btnCancelarNuevoProfesor">
       <Properties>

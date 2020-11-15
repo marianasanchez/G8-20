@@ -12,7 +12,7 @@ public class GestorAutores implements IGestorAutores{
     private ArrayList<Autor> autores = new ArrayList<>();
     public static final String EXITO = "El nuevo 'Autor' fue creado con éxito";
     public static final String REPETIDO = "ERROR. El nuevo 'Autor' ya fue creado";
-    public static final String INVALIDO = "ERROR. El nombre ingresado es inválido";
+    public static final String INVALIDO = "ERROR. El autor ingresado es inválido";
     public static final String INSTANCIADO = "ERROR. Un objeto de esta clase ya ha sido creado";
     public static final String MODIFICADO = "El 'Autor' fue modificado";
     public static final String INEXISTENTE = "ERROR. El 'Autor' no existe";
@@ -26,16 +26,16 @@ public class GestorAutores implements IGestorAutores{
         if(instancia == null){
             instancia = new GestorAutores();
         }
-        else {
-            System.out.println(INSTANCIADO);
-        }
+//        else {
+//            System.out.println(INSTANCIADO);
+//        }
         return instancia;
     }
 
     @Override
     public String nuevoAutor(int dni, String apellidos, String nombres, Cargo cargo, String clave, String claveRepetida) {
         if((apellidos != null) && (nombres != null) && (cargo != null) && (dni != 0) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cargo.toString().isBlank())){
-            if(clave != claveRepetida){
+            if(!clave.equals(claveRepetida)){
                 return CLAVES_DISTINTAS;
             }
             else{
@@ -164,6 +164,7 @@ public class GestorAutores implements IGestorAutores{
         for(Autor a : autores){
             if(a.verDni() == dni){
                 autores.remove(a);
+                return;
             }
         }
     }

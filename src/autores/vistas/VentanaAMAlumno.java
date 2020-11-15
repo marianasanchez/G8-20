@@ -12,14 +12,14 @@ import java.awt.Dialog;
 import java.util.ArrayList;
 import javax.swing.JDialog;
 
-public class VentanaANuevoProfesor extends JDialog {
+public class VentanaAMAlumno extends JDialog {
     ArrayList<Profesor> profesores = new ArrayList<>();
     
     /**
      * Constructor
      * @param ventanaPadre ventana padre
      */
-    public VentanaANuevoProfesor(Dialog ventanaPadre) {
+    public VentanaAMAlumno(Dialog ventanaPadre) {
         super(ventanaPadre, true);
         initComponents();
 //        this.comboBoxCargo.setModel(new ModeloComboCargos());
@@ -36,19 +36,19 @@ public class VentanaANuevoProfesor extends JDialog {
 
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        txtApellidosNuevoProfesor = new javax.swing.JTextField();
+        txtApellidosNuevoAlumno = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtNombresNuevoProfesor = new javax.swing.JTextField();
-        btnGuardarNuevoProfesor = new javax.swing.JButton();
+        txtNombresNuevoAlumno = new javax.swing.JTextField();
+        btnGuardarNuevoAlumno = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtDNINuevoProfesor = new javax.swing.JTextField();
-        txtClaveNuevoProfesor = new javax.swing.JPasswordField();
+        txtDNINuevoAlumno = new javax.swing.JTextField();
+        txtClaveNuevoAlumno = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        comboBoxCargoNuevoProfesor = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        txtRepetirClaveNuevoProfesor = new javax.swing.JPasswordField();
-        btnCancelarNuevoProfesor = new javax.swing.JButton();
+        txtRepetirClaveNuevoAlumno = new javax.swing.JPasswordField();
+        btnCancelarNuevoAlumno = new javax.swing.JButton();
+        txtCXNuevoAlumno = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -58,37 +58,41 @@ public class VentanaANuevoProfesor extends JDialog {
 
         jLabel1.setText("Apellidos:");
 
-        txtApellidosNuevoProfesor.setToolTipText("Apellidos del profesor");
+        txtApellidosNuevoAlumno.setToolTipText("Apellidos del profesor");
 
         jLabel2.setText("Nombres:");
 
-        txtNombresNuevoProfesor.setToolTipText("Nombres del profesor");
+        txtNombresNuevoAlumno.setToolTipText("Nombres del profesor");
 
-        btnGuardarNuevoProfesor.setMnemonic('G');
-        btnGuardarNuevoProfesor.setText("Guardar");
-        btnGuardarNuevoProfesor.setToolTipText("");
-        btnGuardarNuevoProfesor.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarNuevoAlumno.setMnemonic('G');
+        btnGuardarNuevoAlumno.setText("Guardar");
+        btnGuardarNuevoAlumno.setToolTipText("");
+        btnGuardarNuevoAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarNuevoProfesorClic(evt);
+                btnGuardarNuevoAlumnoClic(evt);
             }
         });
 
-        jLabel3.setText("Cargo:");
+        jLabel3.setText("CX");
 
         jLabel4.setText("Documento:");
 
-        txtDNINuevoProfesor.setToolTipText("Documento del profesor");
+        txtDNINuevoAlumno.setToolTipText("Documento del profesor");
 
         jLabel6.setText("Clave:");
 
-        comboBoxCargoNuevoProfesor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Titular", "Asociado", "Adjunto", "JTP", "ADG" }));
-
         jLabel7.setText("Repetir clave:");
 
-        btnCancelarNuevoProfesor.setText("Cancelar");
-        btnCancelarNuevoProfesor.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelarNuevoAlumno.setText("Cancelar");
+        btnCancelarNuevoAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarNuevoProfesorActionPerformed(evt);
+                btnCancelarNuevoAlumnoActionPerformed(evt);
+            }
+        });
+
+        txtCXNuevoAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCXNuevoAlumnoActionPerformed(evt);
             }
         });
 
@@ -109,17 +113,17 @@ public class VentanaANuevoProfesor extends JDialog {
                             .addComponent(jLabel7))
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRepetirClaveNuevoProfesor)
-                            .addComponent(txtNombresNuevoProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
-                            .addComponent(txtDNINuevoProfesor)
-                            .addComponent(txtApellidosNuevoProfesor)
-                            .addComponent(txtClaveNuevoProfesor)
-                            .addComponent(comboBoxCargoNuevoProfesor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(txtRepetirClaveNuevoAlumno)
+                            .addComponent(txtNombresNuevoAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                            .addComponent(txtDNINuevoAlumno)
+                            .addComponent(txtApellidosNuevoAlumno)
+                            .addComponent(txtClaveNuevoAlumno)
+                            .addComponent(txtCXNuevoAlumno)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnGuardarNuevoProfesor)
+                        .addComponent(btnGuardarNuevoAlumno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCancelarNuevoProfesor)))
+                        .addComponent(btnCancelarNuevoAlumno)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -127,61 +131,64 @@ public class VentanaANuevoProfesor extends JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDNINuevoProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDNINuevoAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtApellidosNuevoProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidosNuevoAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombresNuevoProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombresNuevoAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(comboBoxCargoNuevoProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCXNuevoAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtClaveNuevoProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClaveNuevoAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRepetirClaveNuevoProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRepetirClaveNuevoAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardarNuevoProfesor)
-                    .addComponent(btnCancelarNuevoProfesor)))
+                    .addComponent(btnGuardarNuevoAlumno)
+                    .addComponent(btnCancelarNuevoAlumno)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarNuevoProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarNuevoProfesorClic
+    private void btnGuardarNuevoAlumnoClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarNuevoAlumnoClic
         int dni = 0;
-        if (!this.txtDNINuevoProfesor.getText().trim().isEmpty())
-            dni = Integer.parseInt(this.txtDNINuevoProfesor.getText().trim());
-        String apellidos = this.txtApellidosNuevoProfesor.getText().trim();
-        String nombres = this.txtNombresNuevoProfesor.getText().trim();
+        if (!this.txtDNINuevoAlumno.getText().trim().isEmpty())
+            dni = Integer.parseInt(this.txtDNINuevoAlumno.getText().trim());
+        String apellidos = this.txtApellidosNuevoAlumno.getText().trim();
+        String nombres = this.txtNombresNuevoAlumno.getText().trim();
         //Por qué necesito que sea static el método toCargo?
-        Cargo cargo = Cargo.toCargo(this.comboBoxCargoNuevoProfesor.getSelectedItem().toString().toUpperCase());
-        String clave = new String(this.txtClaveNuevoProfesor.getPassword());
-        Profesor profesor = new Profesor(dni, apellidos, nombres, clave, cargo);
-        this.profesores.add(profesor);
-        for(Profesor p : this.profesores)
-            p.mostrar();
-    }//GEN-LAST:event_btnGuardarNuevoProfesorClic
+        //Cargo cargo = Cargo.toCargo(this.comboBoxCargoNuevoProfesor.getSelectedItem().toString().toUpperCase());
+        String clave = new String(this.txtClaveNuevoAlumno.getPassword());
+        //Profesor profesor = new Profesor(dni, apellidos, nombres, clave, cargo);
+        //this.profesores.add(profesor);
+        //for(Profesor p : this.profesores)
+            //p.mostrar();
+    }//GEN-LAST:event_btnGuardarNuevoAlumnoClic
 
-    private void btnCancelarNuevoProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarNuevoProfesorActionPerformed
+    private void btnCancelarNuevoAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarNuevoAlumnoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarNuevoProfesorActionPerformed
+    }//GEN-LAST:event_btnCancelarNuevoAlumnoActionPerformed
+
+    private void txtCXNuevoAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCXNuevoAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCXNuevoAlumnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelarNuevoProfesor;
-    private javax.swing.JButton btnGuardarNuevoProfesor;
-    private javax.swing.JComboBox<String> comboBoxCargoNuevoProfesor;
+    private javax.swing.JButton btnCancelarNuevoAlumno;
+    private javax.swing.JButton btnGuardarNuevoAlumno;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -189,10 +196,11 @@ public class VentanaANuevoProfesor extends JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField txtApellidosNuevoProfesor;
-    private javax.swing.JPasswordField txtClaveNuevoProfesor;
-    private javax.swing.JTextField txtDNINuevoProfesor;
-    private javax.swing.JTextField txtNombresNuevoProfesor;
-    private javax.swing.JPasswordField txtRepetirClaveNuevoProfesor;
+    private javax.swing.JTextField txtApellidosNuevoAlumno;
+    private javax.swing.JTextField txtCXNuevoAlumno;
+    private javax.swing.JPasswordField txtClaveNuevoAlumno;
+    private javax.swing.JTextField txtDNINuevoAlumno;
+    private javax.swing.JTextField txtNombresNuevoAlumno;
+    private javax.swing.JPasswordField txtRepetirClaveNuevoAlumno;
     // End of variables declaration//GEN-END:variables
 }
