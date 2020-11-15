@@ -71,7 +71,8 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void btnBuscarProfesorClic(ActionEvent evt) {
-        
+        ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
+        mtp.BuscarProfesores(this.ventana.getBusquedaProfesores());  
     }
 
     @Override

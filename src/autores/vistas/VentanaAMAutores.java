@@ -256,7 +256,7 @@ public class VentanaAMAutores extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProfesorClic
-        // TODO add your handling code here:
+        this.controlador.btnBuscarProfesorClic(evt);
     }//GEN-LAST:event_btnBuscarProfesorClic
 
     private void btnBorrarProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarProfesorClic
@@ -326,6 +326,10 @@ public class VentanaAMAutores extends javax.swing.JDialog {
     public Autor verProfesor() {
        ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.tablaProfesores.getModel();
        return mtp.verAutor(this.tablaProfesores.getSelectedRow());
+    }
+    
+    public String getBusquedaProfesores(){
+       return this.txtApellidosProfesor.getText();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
