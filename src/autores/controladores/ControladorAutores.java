@@ -38,7 +38,6 @@ public class ControladorAutores implements IControladorAutores {
     @Override
     public void btnModificarProfesorClic(ActionEvent evt) {
         ControladorAMProfesor controlador = new ControladorAMProfesor("Modificar Profesor", false, false, this.ventana.verProfesor());
-        System.out.println(this.ventana.verProfesor());
         this.ventana.setVisible(false);
         this.ventana.dispose();
     }
@@ -46,7 +45,6 @@ public class ControladorAutores implements IControladorAutores {
     @Override
     public void btnModificarAlumnoClic(ActionEvent evt) {
         ControladorAMAlumno controlador = new ControladorAMAlumno("Modificar Alumno", false, false, this.ventana.verAlumno());
-        System.out.println(this.ventana.verAlumno());
         this.ventana.setVisible(false);
         this.ventana.dispose();
     }
@@ -63,8 +61,6 @@ public class ControladorAutores implements IControladorAutores {
     public void btnBorrarAlumnoClic(ActionEvent evt) {
         ga.BorrarAutor(this.ventana.verDniAlumno());
         this.actualizar();
-        //ModeloTablaAlumnos mtp = (ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
-        //mtp.actualizar();
     }
 
     @Override

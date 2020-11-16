@@ -39,15 +39,15 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
     
     @Override
     public void btnGuardarClic(ActionEvent evt) {
+        String mensaje;
         if(crear == true){
-            System.out.println(this.ga.nuevoAutor(this.ventana.getDni(), this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCX(), this.ventana.getClave(), this.ventana.getClaveRepetida()));
+            mensaje = this.ga.nuevoAutor(this.ventana.getDni(), this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCX(), this.ventana.getClave(), this.ventana.getClaveRepetida());
         }
         else {
-            System.out.println(autorAux.verDni());
-            System.out.println(autorAux.verClave());
-            System.out.println(this.ga.modificarAutor(autorAux, this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCX(), this.ventana.getClave(), this.ventana.getClaveRepetida()));
+            mensaje = this.ga.modificarAutor(autorAux, this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCX(), this.ventana.getClave(), this.ventana.getClaveRepetida());
         }
         ControladorAutores controlador = new ControladorAutores();
+        ControladorMensajeAutor cont = new ControladorMensajeAutor(mensaje);
         this.ventana.setVisible(false);
         this.ventana.dispose();
     }

@@ -34,6 +34,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Repositorios");
+        setResizable(false);
 
         btnPalabrasClaves.setText("Palabras Claves");
 
