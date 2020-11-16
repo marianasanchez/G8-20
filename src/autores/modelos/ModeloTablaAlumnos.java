@@ -13,8 +13,8 @@ public class ModeloTablaAlumnos extends AbstractTableModel {
         nombreColumnas.add("Apellidos");
         nombreColumnas.add("Nombres");
         nombreColumnas.add("CX");
-        ga.nuevoAutor(12, "duran", "bernardo", "14-0385-9", "12345", "12345");
-        ga.nuevoAutor(13, "guzmanx", "Rodsi", "14-0385-7", "1234s5", "1234s5");
+//        ga.nuevoAutor(12, "duran", "bernardo", "14-0385-9", "12345", "12345");
+//        ga.nuevoAutor(13, "guzmanx", "Rodsi", "14-0385-7", "1234s5", "1234s5");
         this.alumnos = ga.verAlumnos();
         this.actualizar();
     }
