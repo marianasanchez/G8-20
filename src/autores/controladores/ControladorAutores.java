@@ -54,15 +54,17 @@ public class ControladorAutores implements IControladorAutores {
     @Override
     public void btnBorrarProfesorClic(ActionEvent evt) {
         ga.BorrarAutor(this.ventana.verDniProfesor());
-        ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
-        mtp.actualizar();
+        this.actualizar();
+        //ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
+        //mtp.actualizar();
     }
 
     @Override
     public void btnBorrarAlumnoClic(ActionEvent evt) {
         ga.BorrarAutor(this.ventana.verDniAlumno());
-        ModeloTablaAlumnos mtp = (ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
-        mtp.actualizar();
+        this.actualizar();
+        //ModeloTablaAlumnos mtp = (ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
+        //mtp.actualizar();
     }
 
     @Override
@@ -85,7 +87,8 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void ventanaObtenerFoco(WindowEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     this.actualizar();
+
     }
 
     @Override
@@ -127,5 +130,8 @@ public class ControladorAutores implements IControladorAutores {
     public void actualizar(){
         ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
         mtp.actualizar();
+        ModeloTablaAlumnos mta = (ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
+        mta.actualizar();
+        this.ventana.autoresCargados();
     }
 }

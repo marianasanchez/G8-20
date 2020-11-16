@@ -53,6 +53,13 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Autores");
         setResizable(false);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                ventanaObtenerFoco(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Profesores");
@@ -298,7 +305,9 @@ public class VentanaAMAutores extends javax.swing.JDialog {
     }//GEN-LAST:event_btnBuscarProfesorClic
 
     private void btnBorrarProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarProfesorClic
+        if (this.tablaProfesores.getSelectedRow() >= 0) {
         this.controlador.btnBorrarProfesorClic(evt);
+         }
     }//GEN-LAST:event_btnBorrarProfesorClic
 
     private void btnNuevoProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProfesorClic
@@ -340,8 +349,14 @@ public class VentanaAMAutores extends javax.swing.JDialog {
     }//GEN-LAST:event_btnModificarAlumnoClic
 
     private void btnBorrarAlumnoClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarAlumnoClic
+        if (this.tablaAlumnos.getSelectedRow() >= 0) {
         this.controlador.btnBorrarAlumnoClic(evt);
+        }
     }//GEN-LAST:event_btnBorrarAlumnoClic
+
+    private void ventanaObtenerFoco(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_ventanaObtenerFoco
+        this.controlador.ventanaObtenerFoco(evt);
+    }//GEN-LAST:event_ventanaObtenerFoco
 
     /**
      * @param args the command line arguments
@@ -387,16 +402,22 @@ public class VentanaAMAutores extends javax.swing.JDialog {
     public void autoresCargados(){
         if (this.tablaProfesores.getRowCount() == 0){
             this.btnModificarProfesor.setEnabled(false);
+            this.btnBorrarProfesor.setEnabled(false);
         }
         else {
             this.btnModificarProfesor.setEnabled(true);
+            this.btnBorrarProfesor.setEnabled(true);
+            
         }
         if (this.tablaAlumnos.getRowCount() == 0){
             this.btnModificarAlumno.setEnabled(false);
+            this.btnBorrarAlumno.setEnabled(false);
         }
         else {
             this.btnModificarAlumno.setEnabled(true);
+            this.btnBorrarAlumno.setEnabled(true);
         }
+        
     }
     
     public Autor verProfesor() {
