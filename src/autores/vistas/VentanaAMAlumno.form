@@ -56,19 +56,19 @@
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtRepetirClaveNuevoAlumno" max="32767" attributes="0"/>
-                          <Component id="txtNombresNuevoAlumno" pref="345" max="32767" attributes="0"/>
-                          <Component id="txtDNINuevoAlumno" max="32767" attributes="0"/>
-                          <Component id="txtApellidosNuevoAlumno" max="32767" attributes="0"/>
-                          <Component id="txtClaveNuevoAlumno" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtCXNuevoAlumno" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtRepetirClaveAlumno" max="32767" attributes="0"/>
+                          <Component id="txtNombresAlumno" pref="345" max="32767" attributes="0"/>
+                          <Component id="txtDNIAlumno" max="32767" attributes="0"/>
+                          <Component id="txtApellidosAlumno" max="32767" attributes="0"/>
+                          <Component id="txtClaveAlumno" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtCX" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btnGuardarNuevoAlumno" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnGuardarNuevoProfesor" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnCancelarNuevoAlumno" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCancelarNuevoProfesor" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -80,38 +80,38 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtDNINuevoAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDNIAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtApellidosNuevoAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtApellidosAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNombresNuevoAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNombresAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCXNuevoAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCX" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtClaveNuevoAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtClaveAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtRepetirClaveNuevoAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtRepetirClaveAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnGuardarNuevoAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnCancelarNuevoAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnGuardarNuevoProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCancelarNuevoProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -123,22 +123,28 @@
         <Property name="text" type="java.lang.String" value="Apellidos:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtApellidosNuevoAlumno">
+    <Component class="javax.swing.JTextField" name="txtApellidosAlumno">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Apellidos del profesor"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtApellidosPresionarTecla"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombres:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNombresNuevoAlumno">
+    <Component class="javax.swing.JTextField" name="txtNombresAlumno">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Nombres del profesor"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNombresPresionarTecla"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnGuardarNuevoAlumno">
+    <Component class="javax.swing.JButton" name="btnGuardarNuevoProfesor">
       <Properties>
         <Property name="mnemonic" type="int" value="71"/>
         <Property name="text" type="java.lang.String" value="Guardar"/>
@@ -150,7 +156,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="CX"/>
+        <Property name="text" type="java.lang.String" value="CX:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -158,12 +164,18 @@
         <Property name="text" type="java.lang.String" value="Documento:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtDNINuevoAlumno">
+    <Component class="javax.swing.JTextField" name="txtDNIAlumno">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Documento del profesor"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDocumentoPresionarTecla"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="txtClaveNuevoAlumno">
+    <Component class="javax.swing.JPasswordField" name="txtClaveAlumno">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtClavePresionarTecla"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -175,19 +187,22 @@
         <Property name="text" type="java.lang.String" value="Repetir clave:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="txtRepetirClaveNuevoAlumno">
+    <Component class="javax.swing.JPasswordField" name="txtRepetirClaveAlumno">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtRepetirPresionarTecla"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCancelarNuevoAlumno">
+    <Component class="javax.swing.JButton" name="btnCancelarNuevoProfesor">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarNuevoAlumnoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarNuevoAlumnoClic"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCXNuevoAlumno">
+    <Component class="javax.swing.JTextField" name="txtCX">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCXNuevoAlumnoActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCXPresionarTecla"/>
       </Events>
     </Component>
   </SubComponents>

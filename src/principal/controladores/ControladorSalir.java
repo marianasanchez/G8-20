@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package principal.controladores;
 
 import java.awt.event.ActionEvent;
@@ -29,5 +24,4 @@ public class ControladorSalir implements IControladorSalir{
         this.ventana.setVisible(false);
         this.ventana.dispose();
     }
-    
 }

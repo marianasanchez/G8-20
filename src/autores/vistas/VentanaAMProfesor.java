@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package autores.vistas;
 
 import autores.modelos.Autor;
@@ -58,10 +53,20 @@ public class VentanaAMProfesor extends JDialog {
         jLabel1.setText("Apellidos:");
 
         txtApellidosProfesor.setToolTipText("Apellidos del profesor");
+        txtApellidosProfesor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidosPresionarTecla(evt);
+            }
+        });
 
         jLabel2.setText("Nombres:");
 
         txtNombresProfesor.setToolTipText("Nombres del profesor");
+        txtNombresProfesor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombresPresionarTecla(evt);
+            }
+        });
 
         btnGuardarNuevoProfesor.setMnemonic('G');
         btnGuardarNuevoProfesor.setText("Guardar");
@@ -77,6 +82,17 @@ public class VentanaAMProfesor extends JDialog {
         jLabel4.setText("Documento:");
 
         txtDNIProfesor.setToolTipText("Documento del profesor");
+        txtDNIProfesor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDocumentoPresionarTecla(evt);
+            }
+        });
+
+        txtClaveProfesor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtClavePresionarTecla(evt);
+            }
+        });
 
         jLabel6.setText("Clave:");
 
@@ -84,10 +100,16 @@ public class VentanaAMProfesor extends JDialog {
 
         jLabel7.setText("Repetir clave:");
 
+        txtRepetirClaveProfesor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRepetirPresionarTecla(evt);
+            }
+        });
+
         btnCancelarNuevoProfesor.setText("Cancelar");
         btnCancelarNuevoProfesor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarNuevoProfesorActionPerformed(evt);
+                btnCancelarNuevoProfesorClic(evt);
             }
         });
 
@@ -161,9 +183,29 @@ public class VentanaAMProfesor extends JDialog {
         this.controlador.btnGuardarClic(evt);
     }//GEN-LAST:event_btnGuardarNuevoProfesorClic
 
-    private void btnCancelarNuevoProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarNuevoProfesorActionPerformed
+    private void btnCancelarNuevoProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarNuevoProfesorClic
         this.controlador.btnCancelarClic(evt);
-    }//GEN-LAST:event_btnCancelarNuevoProfesorActionPerformed
+    }//GEN-LAST:event_btnCancelarNuevoProfesorClic
+
+    private void txtDocumentoPresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDocumentoPresionarTecla
+        this.controlador.txtDocumentoPresionarTecla(evt);
+    }//GEN-LAST:event_txtDocumentoPresionarTecla
+
+    private void txtApellidosPresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosPresionarTecla
+        this.controlador.txtApellidosPresionarTecla(evt);
+    }//GEN-LAST:event_txtApellidosPresionarTecla
+
+    private void txtNombresPresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombresPresionarTecla
+        this.controlador.txtNombresPresionarTecla(evt);
+    }//GEN-LAST:event_txtNombresPresionarTecla
+
+    private void txtClavePresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClavePresionarTecla
+        this.controlador.passClavePresionarTecla(evt);
+    }//GEN-LAST:event_txtClavePresionarTecla
+
+    private void txtRepetirPresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRepetirPresionarTecla
+        this.controlador.passRepetirClavePresionarTecla(evt);
+    }//GEN-LAST:event_txtRepetirPresionarTecla
 
     public int getDni(){
         Integer dni = Integer.parseInt(this.txtDNIProfesor.getText().trim());

@@ -1,19 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package autores.vistas;
 
 import autores.modelos.Autor;
+import autores.modelos.ModeloTablaAlumnos;
 import autores.modelos.ModeloTablaProfesores;
 import interfaces.IControladorAutores;
 import javax.swing.JTable;
 
-/**
- *
- * @author rodrigo
- */
 public class VentanaAMAutores extends javax.swing.JDialog {
     private IControladorAutores controlador;
     
@@ -23,6 +15,7 @@ public class VentanaAMAutores extends javax.swing.JDialog {
     public VentanaAMAutores(IControladorAutores controlador) {
         initComponents();
         this.tablaProfesores.setModel(new ModeloTablaProfesores());
+        this.tablaAlumnos.setModel(new ModeloTablaAlumnos());
         this.controlador = controlador;
     }
     
@@ -169,6 +162,11 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         });
 
         btnBuscarAlumno.setText("Buscar");
+        btnBuscarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarAlumnoClic(evt);
+            }
+        });
 
         tablaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -184,10 +182,25 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         jScrollPane2.setViewportView(tablaAlumnos);
 
         btnBorrarAlumno.setText("Borrar");
+        btnBorrarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarAlumnoClic(evt);
+            }
+        });
 
         btnModificarAlumno.setText("Modificar");
+        btnModificarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarAlumnoClic(evt);
+            }
+        });
 
         btnNuevoAlumno.setText("Nuevo");
+        btnNuevoAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoAlumnoClic(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -249,17 +262,14 @@ public class VentanaAMAutores extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnVolver)
@@ -314,6 +324,25 @@ public class VentanaAMAutores extends javax.swing.JDialog {
        this.controlador.txtApellidosAlumnoPresionarTecla(evt);
     }//GEN-LAST:event_txtApellidosAlumnoPresionarTecla
 
+    private void btnBuscarAlumnoClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAlumnoClic
+        this.controlador.btnBuscarAlumnoClic(evt);
+    }//GEN-LAST:event_btnBuscarAlumnoClic
+
+    private void btnNuevoAlumnoClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoAlumnoClic
+        this.controlador.btnNuevoAlumnoClic(evt);
+    }//GEN-LAST:event_btnNuevoAlumnoClic
+
+    private void btnModificarAlumnoClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarAlumnoClic
+        ModeloTablaAlumnos mta = (ModeloTablaAlumnos)this.tablaAlumnos.getModel();
+        if (this.tablaAlumnos.getSelectedRow() >= 0) {
+            this.controlador.btnModificarAlumnoClic(evt);
+        }
+    }//GEN-LAST:event_btnModificarAlumnoClic
+
+    private void btnBorrarAlumnoClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarAlumnoClic
+        this.controlador.btnBorrarAlumnoClic(evt);
+    }//GEN-LAST:event_btnBorrarAlumnoClic
+
     /**
      * @param args the command line arguments
      */
@@ -345,6 +374,7 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         //VentanaAMAutores ventana = new VentanaAMAutores(null, true);
         
     }
+    
     public int verDniProfesor() {
        ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.tablaProfesores.getModel();
        return (Integer)mtp.getValueAt(this.tablaProfesores.getSelectedRow(), 0);
@@ -361,6 +391,12 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         else {
             this.btnModificarProfesor.setEnabled(true);
         }
+        if (this.tablaAlumnos.getRowCount() == 0){
+            this.btnModificarAlumno.setEnabled(false);
+        }
+        else {
+            this.btnModificarAlumno.setEnabled(true);
+        }
     }
     
     public Autor verProfesor() {
@@ -370,6 +406,24 @@ public class VentanaAMAutores extends javax.swing.JDialog {
     
     public String getBusquedaProfesores(){
        return this.txtApellidosProfesor.getText();
+    }
+    
+    public Autor verAlumno() {
+       ModeloTablaAlumnos mtp = (ModeloTablaAlumnos)this.tablaAlumnos.getModel();
+       return mtp.verAutor(this.tablaAlumnos.getSelectedRow());
+    }
+    
+    public int verDniAlumno() {
+       ModeloTablaAlumnos mta = (ModeloTablaAlumnos)this.tablaAlumnos.getModel();
+       return (Integer)mta.getValueAt(this.tablaAlumnos.getSelectedRow(), 0);
+    }
+    
+    public JTable getTablaAlumnos() {
+        return tablaAlumnos;
+    }
+    
+    public String getBusquedaAlumnos(){
+       return this.txtApellidosAlumno.getText();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

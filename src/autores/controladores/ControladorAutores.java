@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package autores.controladores;
 
-import autores.controladores.ControladorAMProfesor;
 import autores.modelos.GestorAutores;
+import autores.modelos.ModeloTablaAlumnos;
 import autores.modelos.ModeloTablaProfesores;
 import autores.vistas.VentanaAMAutores;
 import interfaces.IControladorAutores;
@@ -14,10 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 
-/**
- *
- * @author Carlos
- */
 public class ControladorAutores implements IControladorAutores {
     private VentanaAMAutores ventana;
     private GestorAutores ga = GestorAutores.crear();
@@ -39,7 +30,9 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void btnNuevoAlumnoClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ControladorAMAlumno controlador = new ControladorAMAlumno("Nuevo Alumno", true, true);
+        this.ventana.setVisible(false);
+        this.ventana.dispose();
     }
 
     @Override
@@ -52,7 +45,10 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void btnModificarAlumnoClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ControladorAMAlumno controlador = new ControladorAMAlumno("Modificar Alumno", false, false, this.ventana.verAlumno());
+        System.out.println(this.ventana.verAlumno());
+        this.ventana.setVisible(false);
+        this.ventana.dispose();
     }
 
     @Override
@@ -64,7 +60,9 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void btnBorrarAlumnoClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ga.BorrarAutor(this.ventana.verDniAlumno());
+        ModeloTablaAlumnos mtp = (ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
+        mtp.actualizar();
     }
 
     @Override
@@ -81,7 +79,8 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void btnBuscarAlumnoClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ModeloTablaAlumnos mta = (ModeloTablaAlumnos)this.ventana.getTablaAlumnos().getModel();
+        mta.BuscarAlumnos(this.ventana.getBusquedaAlumnos());
     }
 
     @Override
@@ -122,6 +121,7 @@ public class ControladorAutores implements IControladorAutores {
             }
         } 
     }
+    
     public void actualizar(){
         ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
         mtp.actualizar();

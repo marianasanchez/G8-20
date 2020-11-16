@@ -2,30 +2,31 @@ package autores.controladores;
 
 import autores.modelos.Autor;
 import autores.modelos.GestorAutores;
+import autores.vistas.VentanaAMAlumno;
 import autores.vistas.VentanaAMProfesor;
-import interfaces.IControladorAMProfesor;
+import interfaces.IControladorAMAlumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class ControladorAMProfesor implements IControladorAMProfesor{
+public class ControladorAMAlumno implements IControladorAMAlumno{
 
-    private VentanaAMProfesor ventana;
+    private VentanaAMAlumno ventana;
     private GestorAutores ga = GestorAutores.crear();
     private boolean crear;
     private Autor autorAux;
     
-    public ControladorAMProfesor(String title, boolean dniEnabled, boolean crear) {
+    public ControladorAMAlumno(String title, boolean dniEnabled, boolean crear) {
         this.crear = crear;
-        this.ventana = new VentanaAMProfesor(this);
+        this.ventana = new VentanaAMAlumno(this);
         this.ventana.setTitle(title);
         this.ventana.dniEnabled(dniEnabled);
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
     }
     
-    public ControladorAMProfesor(String title, boolean dniEnabled, boolean crear, Autor autor){
+    public ControladorAMAlumno(String title, boolean dniEnabled, boolean crear, Autor autor){
         this.crear = crear;
-        this.ventana = new VentanaAMProfesor(this);
+        this.ventana = new VentanaAMAlumno(this);
         this.ventana.setTitle(title);
         this.ventana.dniEnabled(dniEnabled);
         this.ventana.setDni(String.valueOf(autor.verDni()));
@@ -39,12 +40,12 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
     @Override
     public void btnGuardarClic(ActionEvent evt) {
         if(crear == true){
-            System.out.println(this.ga.nuevoAutor(this.ventana.getDni(), this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCargo(), this.ventana.getClave(), this.ventana.getClaveRepetida()));
+            System.out.println(this.ga.nuevoAutor(this.ventana.getDni(), this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCX(), this.ventana.getClave(), this.ventana.getClaveRepetida()));
         }
         else {
             System.out.println(autorAux.verDni());
             System.out.println(autorAux.verClave());
-            System.out.println(this.ga.modificarAutor(autorAux, this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCargo(), this.ventana.getClave(), this.ventana.getClaveRepetida()));
+            System.out.println(this.ga.modificarAutor(autorAux, this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCX(), this.ventana.getClave(), this.ventana.getClaveRepetida()));
         }
         ControladorAutores controlador = new ControladorAutores();
         this.ventana.setVisible(false);
@@ -137,5 +138,21 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
                     break;
             }
         }  
+    }
+
+    @Override
+    public void txtCXPresionarTecla(KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            switch(c) {
+                case KeyEvent.VK_ENTER:                
+                case KeyEvent.VK_BACK_SPACE:
+                case KeyEvent.VK_DELETE:
+                    break;
+                default:
+                    evt.consume();
+                    break;
+            }
+        }
     }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package autores.modelos;
 
 import interfaces.IGestorAutores;
@@ -26,9 +21,6 @@ public class GestorAutores implements IGestorAutores{
         if(instancia == null){
             instancia = new GestorAutores();
         }
-//        else {
-//            System.out.println(INSTANCIADO);
-//        }
         return instancia;
     }
 
@@ -55,7 +47,7 @@ public class GestorAutores implements IGestorAutores{
     @Override
     public String nuevoAutor(int dni, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
         if((apellidos != null) && (nombres != null) && (cx != null) && (dni != 0) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cx.isBlank())){
-            if(clave != claveRepetida){
+            if(!clave.equals(claveRepetida)){
                 return CLAVES_DISTINTAS;
             }
             else{
@@ -171,18 +163,4 @@ public class GestorAutores implements IGestorAutores{
             }
         }
     }
-    
-//    public boolean esProfesor(Autor autor){
-//        if(autor instanceof Profesor){
-//            return true;
-//        }
-//        return false;
-//    }
-//    
-//    public boolean esAlumno(Autor autor){
-//        if(autor instanceof Alumno){
-//            return true;
-//        }
-//        return false;
-//    }
 }
