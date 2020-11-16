@@ -26,7 +26,7 @@ public class GestorAutores implements IGestorAutores{
 
     @Override
     public String nuevoAutor(int dni, String apellidos, String nombres, Cargo cargo, String clave, String claveRepetida) {
-        if((apellidos != null) && (nombres != null) && (cargo != null) && (dni != 0) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cargo.toString().isBlank())){
+        if((apellidos != null) && (nombres != null) && (cargo != null)&& (clave != null) && (dni != 0) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cargo.toString().isBlank())&& (!clave.isBlank())){
             if(!clave.equals(claveRepetida)){
                 return CLAVES_DISTINTAS;
             }
@@ -46,7 +46,7 @@ public class GestorAutores implements IGestorAutores{
 
     @Override
     public String nuevoAutor(int dni, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
-        if((apellidos != null) && (nombres != null) && (cx != null) && (dni != 0) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cx.isBlank())){
+        if((apellidos != null) && (nombres != null) && (cx != null) && (dni != 0)&& (clave != null) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cx.isBlank())&& (!clave.isBlank())){
             if(!clave.equals(claveRepetida)){
                 return CLAVES_DISTINTAS;
             }
