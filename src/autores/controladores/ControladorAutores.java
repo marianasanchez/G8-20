@@ -93,7 +93,8 @@ public class ControladorAutores implements IControladorAutores {
         char c = evt.getKeyChar();
         if (!Character.isLetter(c)) {
             switch(c) {
-                case KeyEvent.VK_ENTER:                
+                case KeyEvent.VK_ENTER:    
+                   this.btnBuscarProfesorClic(null);
                 case KeyEvent.VK_BACK_SPACE:
                 case KeyEvent.VK_SPACE:
                 case KeyEvent.VK_DELETE:
@@ -110,7 +111,8 @@ public class ControladorAutores implements IControladorAutores {
         char c = evt.getKeyChar();
         if (!Character.isLetter(c)) {
             switch(c) {
-                case KeyEvent.VK_ENTER:                
+                case KeyEvent.VK_ENTER:     
+                    this.btnBuscarAlumnoClic(null);
                 case KeyEvent.VK_BACK_SPACE:
                 case KeyEvent.VK_SPACE:
                 case KeyEvent.VK_DELETE:
