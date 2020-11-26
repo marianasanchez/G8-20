@@ -1,30 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tipos.modelos;
 
 import interfaces.IGestorTipos;
 import java.util.ArrayList;
+import java.util.List;
+import publicaciones.modelos.GestorPublicaciones;
 
 public class GestorTipos implements IGestorTipos{
 
-    private ArrayList<Tipo> tipos = new ArrayList<> ();
+    private List<Tipo> tipos = new ArrayList<> ();
     public static final String EXITO = "El nuevo 'Tipo' fue creado con éxito";
     public static final String REPETIDO = "ERROR. El nuevo 'Tipo' ya fue creado";
     public static final String INVALIDO = "ERROR. El nombre ingresado es inválido";
     public static final String INSTANCIADO = "ERROR. Un objeto de esta clase ya ha sido creado";
-    
+    public static final String BORRADO_EXITO = "Se ha borrado con éxito el tipo seleccionado";
+    public static final String BORRADO_INEXISTENTE = "No se encuentra el tipo seleccionado";
+    public static final String EXISTE_PUB = "ERROR. Existe una publicación asociada a ese tipo";
+           
     private static GestorTipos instancia;
     
     public static GestorTipos crear () {
         if (instancia == null){
             instancia = new GestorTipos();
         }
-        else{
-            System.out.println(INSTANCIADO);
-        }
+//        else{
+//            System.out.println(INSTANCIADO);
+//        }
         return instancia;
     }
     
@@ -46,7 +46,7 @@ public class GestorTipos implements IGestorTipos{
     }
 
     @Override
-    public ArrayList<Tipo> verTipos() {
+    public List<Tipo> verTipos() {
         return tipos;
     }
 
@@ -58,6 +58,32 @@ public class GestorTipos implements IGestorTipos{
             }
         }
         return null;
+    }
+
+    @Override
+    public String borrarTipo(Tipo tipo) {
+        GestorPublicaciones gp1 = GestorPublicaciones.crear();
+        if (tipos.contains(tipo)){
+            if(gp1.hayPublicacionesConEsteTipo(tipo)){
+                return EXISTE_PUB;
+            }
+            tipos.remove(tipo);
+            return BORRADO_EXITO;
+        }
+        return BORRADO_INEXISTENTE;
+    }
+
+    @Override
+    public List<Tipo> buscarTipos(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean existeEsteTipo(Tipo tipo) {
+        if(tipos.contains(tipo)){
+            return true;
+        }
+        return false;
     }
     
 }

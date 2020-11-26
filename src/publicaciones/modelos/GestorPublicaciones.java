@@ -1,14 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package publicaciones.modelos;
-
-/**
- *
- * @author Carlos
- */
 
 import autores.modelos.Autor;
 import grupos.modelos.MiembroEnGrupo;
@@ -16,13 +6,14 @@ import idiomas.modelos.Idioma;
 import interfaces.IGestorPublicaciones;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import lugares.modelos.Lugar;
 import palabrasclaves.modelos.PalabraClave;
 import tipos.modelos.Tipo;
 
 
 public class GestorPublicaciones implements IGestorPublicaciones {
-    private ArrayList<Publicacion> publicaciones = new ArrayList<> ();
+    private List<Publicacion> publicaciones = new ArrayList<> ();
     public static final String EXITO = "La nueva 'Publicacion' fue creada con éxito";
     public static final String REPETIDO = "ERROR. La nueva 'Publicacion' ya fue creada";
     public static final String INVALIDO = "ERROR. El nombre ingresado es inválido";
@@ -35,17 +26,18 @@ public class GestorPublicaciones implements IGestorPublicaciones {
         if (instancia == null){
             instancia = new GestorPublicaciones();
         }
-        else{
-            System.out.println(INSTANCIADO);
-        }
+//        else{
+//            System.out.println(INSTANCIADO);
+//        }
         return instancia;
     }
+    
     @Override
-    public String nuevaPublicacion(String titulo, MiembroEnGrupo miembroEnGrupo, LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, ArrayList<PalabraClave> palabrasClaves,String enlace, String resumen){
+    public String nuevaPublicacion(String titulo, MiembroEnGrupo miembroEnGrupo, LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, List<PalabraClave> palabrasClaves, String enlace, String resumen){
             if((titulo != null) && (miembroEnGrupo != null) && (fechaPublicacion != null) && (tipo != null)&& (lugar != null)&& (palabrasClaves != null)&& (enlace != null)&& (resumen != null) && (!titulo.isBlank()) && (!fechaPublicacion.toString().isBlank()) && (!palabrasClaves.toString().isBlank())&& (!miembroEnGrupo.verGrupo().toString().isBlank())&& (!enlace.isBlank())&& (!resumen.isBlank())){
 
             
-               Publicacion p = new Publicacion(titulo, miembroEnGrupo, fechaPublicacion, tipo, idioma, lugar,palabrasClaves, enlace, resumen);
+               Publicacion p = new Publicacion(titulo, miembroEnGrupo, fechaPublicacion, tipo, idioma, lugar, palabrasClaves, enlace, resumen);
                if(!this.publicaciones.contains(p)){
                    this.publicaciones.add(p);
                    return EXITO;
@@ -59,8 +51,8 @@ public class GestorPublicaciones implements IGestorPublicaciones {
        }
 
    @Override
- public String modificarPublicacion(Publicacion publicacion, MiembroEnGrupo miembroEnGrupo,LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, ArrayList<PalabraClave> palabrasClaves, String enlace, String resumen){
-     if(instancia.existeEstaPublicacion(publicacion)){
+    public String modificarPublicacion(Publicacion publicacion, MiembroEnGrupo miembroEnGrupo,LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, List<PalabraClave> palabrasClaves, String enlace, String resumen){
+        if(instancia.existeEstaPublicacion(publicacion)){
             for (Publicacion p : publicaciones) {
                 if(p.equals(publicacion)){
                     p.asignarMiembroEnGrupo(miembroEnGrupo);
@@ -76,7 +68,7 @@ public class GestorPublicaciones implements IGestorPublicaciones {
             }
         }
         return INEXISTENTE;
- }
+    }
  
  @Override
  public boolean hayPublicacionesConEstaPalabraClave(PalabraClave palabraClave){
@@ -87,7 +79,6 @@ public class GestorPublicaciones implements IGestorPublicaciones {
                 }
         
               }
-        
         }
          return false;
  }
@@ -134,7 +125,7 @@ public class GestorPublicaciones implements IGestorPublicaciones {
     }
 
     @Override
-    public ArrayList<Publicacion> verPublicaciones() {
+    public List<Publicacion> verPublicaciones() {
         return publicaciones;
     }
 
@@ -152,11 +143,33 @@ public class GestorPublicaciones implements IGestorPublicaciones {
 
     @Override
     public boolean existeEstaPublicacion(Publicacion publicacion) {
-             for(Publicacion p : publicaciones){
+        for(Publicacion p : publicaciones){
             if(p.equals(publicacion)){
                 return true;
             }
         }
         return false;
     }
+
+//    @Override
+//    public String nuevaPublicacion(String titulo, MiembroEnGrupo miembroEnGrupo, LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, List<PalabraClave> palabrasClaves, String enlace, String resumen) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public String modificarPublicacion(Publicacion publicacion, MiembroEnGrupo miembroEnGrupo, LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, List<PalabraClave> palabrasClaves, String enlace, String resumen) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+
+    @Override
+    public String borrarPublicacion(Publicacion publicacion) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Publicacion> buscarPublicaciones(String titulo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }

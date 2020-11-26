@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package grupos.modelos;
 
 import autores.modelos.Autor;
 
 import java.util.Objects;
-/**
- *
- * @author rodrigo
- */
+
 public class MiembroEnGrupo {
     //private Profesor profesor;
     private Autor autor;

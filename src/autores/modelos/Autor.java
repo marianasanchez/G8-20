@@ -1,25 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package autores.modelos;
 
 import grupos.modelos.Grupo;
 import grupos.modelos.MiembroEnGrupo;
 import grupos.modelos.Rol;
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author Carlos
- */
 public abstract class Autor {
     private int dni;
     private String apellidos;
     private String nombres;
     private String clave;
-    private ArrayList<MiembroEnGrupo> miembroEnGrupos = new ArrayList<>();
+    private List<MiembroEnGrupo> miembroEnGrupos = new ArrayList<>();
 
     public Autor(int dni, String apellidos, String nombres, String clave) {
         this.dni = dni;
@@ -116,6 +108,14 @@ public abstract class Autor {
             System.out.println(meg.verGrupo().verNombre() + ", " +meg.verGrupo().verDescripcion());
             System.out.println(meg.verRol());
         }
+    }
+    
+    public List<Grupo> mostrarGrupos(){
+        List<Grupo> grupos = new ArrayList<> ();
+        for (MiembroEnGrupo meg : miembroEnGrupos) {
+            grupos.add(meg.verGrupo());
+        }
+        return grupos;
     }
     
     public boolean esSuperAdministrador() {

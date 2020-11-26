@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package autores.modelos;
 
+import grupos.modelos.Grupo;
 import interfaces.IGestorAutores;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GestorAutores implements IGestorAutores{
-    private ArrayList<Autor> autores = new ArrayList<>();
+    private List<Autor> autores = new ArrayList<>();
     public static final String EXITO = "El nuevo 'Autor' fue creado con éxito";
     public static final String REPETIDO = "ERROR. El nuevo 'Autor' ya fue creado";
-    public static final String INVALIDO = "ERROR. El nombre ingresado es inválido";
+    public static final String INVALIDO = "ERROR. El autor ingresado es inválido";
     public static final String INSTANCIADO = "ERROR. Un objeto de esta clase ya ha sido creado";
     public static final String MODIFICADO = "El 'Autor' fue modificado";
     public static final String INEXISTENTE = "ERROR. El 'Autor' no existe";
@@ -26,16 +23,13 @@ public class GestorAutores implements IGestorAutores{
         if(instancia == null){
             instancia = new GestorAutores();
         }
-        else {
-            System.out.println(INSTANCIADO);
-        }
         return instancia;
     }
 
     @Override
     public String nuevoAutor(int dni, String apellidos, String nombres, Cargo cargo, String clave, String claveRepetida) {
-        if((apellidos != null) && (nombres != null) && (cargo != null) && (dni != 0) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cargo.toString().isBlank())){
-            if(clave != claveRepetida){
+        if((apellidos != null) && (nombres != null) && (cargo != null)&& (clave != null) && (dni != 0) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cargo.toString().isBlank())&& (!clave.isBlank())){
+            if(!clave.equals(claveRepetida)){
                 return CLAVES_DISTINTAS;
             }
             else{
@@ -54,8 +48,8 @@ public class GestorAutores implements IGestorAutores{
 
     @Override
     public String nuevoAutor(int dni, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
-        if((apellidos != null) && (nombres != null) && (cx != null) && (dni != 0) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cx.isBlank())){
-            if(clave != claveRepetida){
+        if((apellidos != null) && (nombres != null) && (cx != null) && (dni != 0)&& (clave != null) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cx.isBlank())&& (!clave.isBlank())){
+            if(!clave.equals(claveRepetida)){
                 return CLAVES_DISTINTAS;
             }
             else{
@@ -73,29 +67,57 @@ public class GestorAutores implements IGestorAutores{
     }
 
     @Override
-    public String modificarAutor(Autor autor, String apellidos, String nombres, Cargo cargo, String clave, String claveRepetida) {
-        if(autor instanceof Profesor){
-            if(clave == claveRepetida){
-                for(Autor a : autores){
-                    if(a.equals(autor)){
-                        a.asignarApellidos(apellidos);
-                        a.asignarNombres(nombres);
-                        ((Profesor)a).asignarCargo(cargo);
-                        a.asignarClave(clave);
-                        return MODIFICADO;
-                    }
-                }
-                return INEXISTENTE;
+    public String borrarAutor(Autor autor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Profesor> buscarProfesores(String apellidos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Alumno> buscarAlumnos(String apellidos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean hayAutoresConEsteGrupo(Grupo grupo) {
+        for(Autor a  : autores){
+            if(a.mostrarGrupos().contains(grupo)){
+                return true;
             }
-            return CLAVES_DISTINTAS;
         }
-        return NO_PROFESOR;
+        return false;
+    }
+
+    @Override
+    public String modificarAutor(Autor autor, String apellidos, String nombres, Cargo cargo, String clave, String claveRepetida) {
+        if((apellidos != null) && (nombres != null) && (!apellidos.isBlank()) && (!nombres.isBlank())){
+            if(autor instanceof Profesor){
+                if(clave.equals(claveRepetida)){
+                    for(Autor a : autores){
+                        if(a.equals(autor)){
+                            a.asignarApellidos(apellidos);
+                            a.asignarNombres(nombres);
+                            ((Profesor)a).asignarCargo(cargo);
+                            a.asignarClave(clave);
+                            return MODIFICADO;
+                        }
+                    }
+                    return INEXISTENTE;
+                }
+                return CLAVES_DISTINTAS;
+            }
+            return NO_PROFESOR;
+        }
+        return INVALIDO;
     }
 
     @Override
     public String modificarAutor(Autor autor, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
         if(autor instanceof Alumno){
-            if(clave == claveRepetida){
+            if(clave.equals(claveRepetida)){
                 for(Autor a : autores){
                     if(a.equals(autor)){
                         a.asignarApellidos(apellidos);
@@ -123,7 +145,7 @@ public class GestorAutores implements IGestorAutores{
     }
 
     @Override
-    public ArrayList<Autor> verAutores() {
+    public List<Autor> verAutores() {
         return autores;
     }
 
@@ -160,18 +182,12 @@ public class GestorAutores implements IGestorAutores{
         }
         return null;
     }
-    
-//    public boolean esProfesor(Autor autor){
-//        if(autor instanceof Profesor){
-//            return true;
-//        }
-//        return false;
-//    }
-//    
-//    public boolean esAlumno(Autor autor){
-//        if(autor instanceof Alumno){
-//            return true;
-//        }
-//        return false;
-//    }
+    public void BorrarAutor(int dni) {
+        for(Autor a : autores){
+            if(a.verDni() == dni){
+                autores.remove(a);
+                return;
+            }
+        }
+    }
 }

@@ -1,23 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package publicaciones.modelos;
 
 import grupos.modelos.MiembroEnGrupo;
 import idiomas.modelos.Idioma;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Objects;
 import lugares.modelos.Lugar;
 import palabrasclaves.modelos.PalabraClave;
 import tipos.modelos.Tipo;
 
-/**
- *
- * @author rodrigo
- */
 public class Publicacion {
     private String titulo;
     private LocalDate fechaPublicacion;
@@ -27,9 +19,9 @@ public class Publicacion {
     private Idioma idioma;
     private Lugar lugar;
     private MiembroEnGrupo miembroEnGrupo;
-    private ArrayList<PalabraClave> palabrasClaves;
+    private List<PalabraClave> palabrasClaves;
 
-    public Publicacion(String titulo, MiembroEnGrupo miembroEnGrupo, LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, ArrayList<PalabraClave> palabrasClaves, String enlace, String resumen) {
+    public Publicacion(String titulo, MiembroEnGrupo miembroEnGrupo, LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, List<PalabraClave> palabrasClaves, String enlace, String resumen) {
         this.titulo = titulo;
         this.fechaPublicacion = fechaPublicacion;
         this.enlace = enlace;
@@ -97,11 +89,11 @@ public class Publicacion {
         this.lugar = lugar;
     }
 
-    public ArrayList<PalabraClave> verPalabrasClaves() {
+    public List<PalabraClave> verPalabrasClaves() {
         return palabrasClaves;
     }
 
-    public void asignarPalabrasClaves(ArrayList<PalabraClave> palabrasClaves) {
+    public void asignarPalabrasClaves(List<PalabraClave> palabrasClaves) {
         this.palabrasClaves = palabrasClaves;
     }
     
@@ -143,7 +135,7 @@ public class Publicacion {
         System.out.println("Autor: " + this.miembroEnGrupo.verAutor().verApellidos() + ", " + this.miembroEnGrupo.verAutor().verNombres());
         System.out.println("Grupo: " + this.miembroEnGrupo.verGrupo().verNombre());
         System.out.println("Rol: " + this.miembroEnGrupo.verRol().name());
-        System.out.println("Fecha de publicación: " + this.fechaPublicacion);
+        System.out.println("Fecha de publicación: " + this.fechaPublicacion.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         System.out.println("Tipo: " + this.tipo);
         System.out.println("Idioma: " + this.idioma);
         System.out.println("Lugar: " + this.lugar);

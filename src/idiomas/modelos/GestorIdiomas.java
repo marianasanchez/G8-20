@@ -1,26 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package idiomas.modelos;
 
 import java.util.ArrayList;
-import idiomas.modelos.GestorIdiomas;
-import idiomas.modelos.Idioma;
 import interfaces.IGestorIdiomas;
-//import interfaces.IGestorTipos;
+import java.util.List;
+import publicaciones.modelos.GestorPublicaciones;
 
-/**
- *
- * @author Carlos
- */
 public class GestorIdiomas implements IGestorIdiomas{
-    private ArrayList<Idioma> idiomas = new ArrayList<> ();
+    private List<Idioma> idiomas = new ArrayList<> ();
     public static final String EXITO = "El nuevo 'Idioma' fue creado con éxito";
     public static final String REPETIDO = "ERROR. El nuevo 'Idioma' ya fue creado";
     public static final String INVALIDO = "ERROR. El nombre ingresado es inválido";
     public static final String INSTANCIADO = "ERROR. Un objeto de esta clase ya ha sido creado";
+    public static final String BORRADO_EXITO = "Se ha borrado con éxito el tipo seleccionado";
+    public static final String BORRADO_INEXISTENTE = "No se encuentra el tipo seleccionado";
+    public static final String EXISTE_PUB = "ERROR. Existe una publicación asociada a ese tipo";
     
     private static GestorIdiomas instancia;
     
@@ -28,9 +21,9 @@ public class GestorIdiomas implements IGestorIdiomas{
         if (instancia == null){
             instancia = new GestorIdiomas();
         }
-        else{
-            System.out.println(INSTANCIADO);
-        }
+//        else{
+//            System.out.println(INSTANCIADO);
+//        }
         return instancia;
     }
     
@@ -51,7 +44,7 @@ public class GestorIdiomas implements IGestorIdiomas{
         }
     }
 
-    public ArrayList<Idioma> verIdiomas() {
+    public List<Idioma> verIdiomas() {
         return idiomas;
     }
 
@@ -63,5 +56,31 @@ public class GestorIdiomas implements IGestorIdiomas{
             }
         }
         return null;
+    }
+
+    @Override
+    public String borrarIdioma(Idioma idioma) {
+        GestorPublicaciones gp1 = GestorPublicaciones.crear();
+        if (idiomas.contains(idioma)){
+            if(gp1.hayPublicacionesConEsteIdioma(idioma)){
+                return EXISTE_PUB;
+            }
+            idiomas.remove(idioma);
+            return BORRADO_EXITO;
+        }
+        return BORRADO_INEXISTENTE;
+    }
+
+    @Override
+    public List<Idioma> buscarIdiomas(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean existeEsteIdioma(Idioma idioma) {
+        if(idiomas.contains(idioma)){
+            return true;
+        }
+        return false;
     }
 }

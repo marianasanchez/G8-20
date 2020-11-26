@@ -5,17 +5,22 @@
  */
 package grupos.modelos;
 
+import autores.modelos.GestorAutores;
 import interfaces.IGestorGrupos;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GestorGrupos implements IGestorGrupos{
-    private ArrayList<Grupo> grupos = new ArrayList<>();
+    private List<Grupo> grupos = new ArrayList<>();
     public static final String EXITO = "El nuevo 'Grupo' fue creado con éxito";
     public static final String REPETIDO = "ERROR. El nuevo 'Grupo' ya fue creado";
     public static final String INVALIDO = "ERROR. El nombre ingresado es inválido";
     public static final String INSTANCIADO = "ERROR. Un objeto de esta clase ya ha sido creado";
     public static final String MODIFICADO = "El 'Grupo' fue modificado";
     public static final String INEXISTENTE = "ERROR. El 'Grupo' no existe";
+    public static final String BORRADO_EXITO = "Se ha borrado con éxito el tipo seleccionado";
+    public static final String BORRADO_INEXISTENTE = "No se encuentra el tipo seleccionado";
+    public static final String EXISTE_PUB = "ERROR. Existe una publicación asociada a ese tipo";
     
     private static GestorGrupos instancia;
     
@@ -23,9 +28,9 @@ public class GestorGrupos implements IGestorGrupos{
         if (instancia == null){
             instancia = new GestorGrupos();
         }
-        else {
-            System.out.println(INSTANCIADO);            
-        }
+//        else {
+//            System.out.println(INSTANCIADO);            
+//        }
         return instancia;
     }
 
@@ -58,7 +63,25 @@ public class GestorGrupos implements IGestorGrupos{
     }
 
     @Override
-    public ArrayList<Grupo> verGrupos() {
+    public String borrarGrupo(Grupo grupo) {
+        GestorAutores ga1 = GestorAutores.crear();
+        if (grupos.contains(grupo)){
+            if(ga1.hayAutoresConEsteGrupo(grupo)){
+                return EXISTE_PUB;
+            }
+            grupos.remove(grupo);
+            return BORRADO_EXITO;
+        }
+        return BORRADO_INEXISTENTE;
+    }
+
+    @Override
+    public List<Grupo> buscarGrupos(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Grupo> verGrupos() {
         return grupos;
     }
 
