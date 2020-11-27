@@ -2,6 +2,7 @@ package idiomas.modelos;
 
 import java.util.ArrayList;
 import interfaces.IGestorIdiomas;
+import java.util.Collections;
 import java.util.List;
 import publicaciones.modelos.GestorPublicaciones;
 
@@ -45,6 +46,7 @@ public class GestorIdiomas implements IGestorIdiomas{
     }
 
     public List<Idioma> verIdiomas() {
+        Collections.sort(idiomas);
         return idiomas;
     }
 
@@ -73,7 +75,14 @@ public class GestorIdiomas implements IGestorIdiomas{
 
     @Override
     public List<Idioma> buscarIdiomas(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             List<Idioma> busquedaIdiomas = new ArrayList<>();
+        for (Idioma i : idiomas){
+            if (i.verNombre().contains(nombre)){
+                busquedaIdiomas.add(i);
+            }
+        }
+        Collections.sort(busquedaIdiomas);
+        return busquedaIdiomas;
     }
 
     @Override

@@ -7,7 +7,7 @@ package idiomas.modelos;
 
 import java.util.Objects;
 
-public class Idioma {
+public class Idioma implements Comparable<Idioma> {
     private String nombre;
 
     public Idioma(String nombre) {
@@ -53,6 +53,11 @@ public class Idioma {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public int compareTo(Idioma i) {
+       return this.verNombre().compareTo(i.verNombre());
     }
     
     

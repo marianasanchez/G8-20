@@ -10,7 +10,7 @@ import lugares.modelos.Lugar;
 import palabrasclaves.modelos.PalabraClave;
 import tipos.modelos.Tipo;
 
-public class Publicacion {
+public class Publicacion implements Comparable<Publicacion>{
     private String titulo;
     private LocalDate fechaPublicacion;
     private String enlace;
@@ -145,6 +145,11 @@ public class Publicacion {
         }
         System.out.println("Enlace: " + this.enlace);
         System.out.println("Resumen" + this.resumen);
+    }
+
+    @Override
+    public int compareTo(Publicacion p) {
+        return this.verTitulo().compareTo(p.verTitulo());
     }
     
 }

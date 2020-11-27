@@ -1,11 +1,15 @@
 package publicaciones.modelos;
 
 import autores.modelos.Autor;
+import static grupos.modelos.GestorGrupos.BORRADO_EXITO;
+import static grupos.modelos.GestorGrupos.BORRADO_INEXISTENTE;
+import static grupos.modelos.GestorGrupos.EXISTE_PUB;
 import grupos.modelos.MiembroEnGrupo;
 import idiomas.modelos.Idioma;
 import interfaces.IGestorPublicaciones;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import lugares.modelos.Lugar;
 import palabrasclaves.modelos.PalabraClave;
@@ -126,6 +130,7 @@ public class GestorPublicaciones implements IGestorPublicaciones {
 
     @Override
     public List<Publicacion> verPublicaciones() {
+        Collections.sort(publicaciones);
         return publicaciones;
     }
 
@@ -163,12 +168,26 @@ public class GestorPublicaciones implements IGestorPublicaciones {
 
     @Override
     public String borrarPublicacion(Publicacion publicacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (publicaciones.contains(publicacion)){
+            if(existeEstaPublicacion(publicacion)){
+                return EXISTE_PUB;
+            }
+            publicaciones.remove(publicacion);
+            return BORRADO_EXITO;
+        }
+        return BORRADO_INEXISTENTE;
     }
 
     @Override
     public List<Publicacion> buscarPublicaciones(String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           List<Publicacion> busquedaPublicaciones = new ArrayList<>();
+        for (Publicacion p : publicaciones){
+            if (p.verTitulo().contains(titulo)){
+                busquedaPublicaciones.add(p);
+            }
+        }
+        Collections.sort(busquedaPublicaciones);
+        return busquedaPublicaciones;
     }
     
     

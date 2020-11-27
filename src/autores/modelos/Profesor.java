@@ -21,4 +21,9 @@ public class Profesor extends Autor{
         super.mostrar();
         System.out.println("Cargo: " + this.verCargo()+ "\n");
     }
+
+    @Override
+    public int compareTo(Autor arg0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -44,4 +44,9 @@ public class Alumno extends Autor  {
         super.mostrar();
         System.out.println("CX: " + this.verCx() + "\n");
     }
+
+    @Override
+    public int compareTo(Autor arg0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

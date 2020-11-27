@@ -8,6 +8,7 @@ package grupos.modelos;
 import autores.modelos.GestorAutores;
 import interfaces.IGestorGrupos;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GestorGrupos implements IGestorGrupos{
@@ -77,11 +78,19 @@ public class GestorGrupos implements IGestorGrupos{
 
     @Override
     public List<Grupo> buscarGrupos(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                List<Grupo> busquedaGrupos = new ArrayList<>();
+        for (Grupo g : grupos){
+            if (g.verNombre().contains(nombre)){
+                busquedaGrupos.add(g);
+            }
+        }
+        Collections.sort(busquedaGrupos);
+        return busquedaGrupos;
     }
 
     @Override
     public List<Grupo> verGrupos() {
+        Collections.sort(grupos);
         return grupos;
     }
 

@@ -1,12 +1,18 @@
 package autores.modelos;
 
+import static grupos.modelos.GestorGrupos.BORRADO_EXITO;
+import static grupos.modelos.GestorGrupos.BORRADO_INEXISTENTE;
+import static grupos.modelos.GestorGrupos.EXISTE_PUB;
 import grupos.modelos.Grupo;
 import interfaces.IGestorAutores;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import publicaciones.modelos.GestorPublicaciones;
 
 public class GestorAutores implements IGestorAutores{
     private List<Autor> autores = new ArrayList<>();
+    //private List<Profesor> profespres = new ArrayList<>();
     public static final String EXITO = "El nuevo 'Autor' fue creado con éxito";
     public static final String REPETIDO = "ERROR. El nuevo 'Autor' ya fue creado";
     public static final String INVALIDO = "ERROR. El autor ingresado es inválido";
@@ -68,14 +74,43 @@ public class GestorAutores implements IGestorAutores{
 
     @Override
     public String borrarAutor(Autor autor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        GestorPublicaciones gp1 = GestorPublicaciones.crear();
+        if (autores.contains(autor)){
+            if(gp1.hayPublicacionesConEsteAutor(autor)){
+                return EXISTE_PUB;
+            }
+            autores.remove(autor);
+            return BORRADO_EXITO;
+        }
+        return BORRADO_INEXISTENTE;
     }
 
     @Override
     public List<Profesor> buscarProfesores(String apellidos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Profesor> busquedaProfesores = new ArrayList<>();
+        for (Profesor p : this.verProfesores()){
+            if (p.verApellidos().contains(apellidos)){
+                busquedaProfesores.add(p);
+            }
+        }
+        Collections.sort(busquedaProfesores);
+        return busquedaProfesores;
     }
 
+   
+    @Override
+     public List<Profesor> verProfesores() {
+          List<Profesor> profesores = new ArrayList<>();
+        
+        for(Autor a : autores){
+            if(a instanceof Profesor){
+                profesores.add((Profesor)a);
+            }
+        }
+        return profesores;
+   }
+
+   
     @Override
     public List<Alumno> buscarAlumnos(String apellidos) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -149,17 +184,6 @@ public class GestorAutores implements IGestorAutores{
         return autores;
     }
 
-    @Override
-    public ArrayList<Profesor> verProfesores() {
-        ArrayList<Profesor> profesores = new ArrayList<>();
-        
-        for(Autor a : autores){
-            if(a instanceof Profesor){
-                profesores.add((Profesor)a);
-            }
-        }
-        return profesores;
-    }
 
     @Override
     public ArrayList<Alumno> verAlumnos() {
@@ -186,7 +210,7 @@ public class GestorAutores implements IGestorAutores{
         for(Autor a : autores){
             if(a.verDni() == dni){
                 autores.remove(a);
-                return;
+                return ;
             }
         }
     }

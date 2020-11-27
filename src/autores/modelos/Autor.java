@@ -6,7 +6,7 @@ import grupos.modelos.Rol;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Autor {
+    public abstract class Autor implements Comparable<Autor> {
     private int dni;
     private String apellidos;
     private String nombres;

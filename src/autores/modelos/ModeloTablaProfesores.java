@@ -1,11 +1,12 @@
 package autores.modelos;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class ModeloTablaProfesores extends AbstractTableModel {
     private ArrayList<String> nombreColumnas = new ArrayList<>();
-    private ArrayList<Profesor> profesores = new ArrayList<>();
+    private List<Profesor> profesores = new ArrayList<>();
     private GestorAutores ga = GestorAutores.crear();
     private ArrayList<Profesor> auxProfesores = new ArrayList<>();
     public ModeloTablaProfesores() {
