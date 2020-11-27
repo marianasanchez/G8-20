@@ -2,6 +2,7 @@ package palabrasclaves.modelos;
 
 import interfaces.IGestorPalabrasClaves;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import publicaciones.modelos.GestorPublicaciones;
 
@@ -42,7 +43,14 @@ public class GestorPalabrasClaves implements IGestorPalabrasClaves{
 
     @Override
     public List<PalabraClave> buscarPalabrasClaves(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<PalabraClave> busquedaPalabrasClaves = new ArrayList<>();
+        for (PalabraClave pc : palabrasClaves){
+            if (pc.verNombre().contains(nombre)){
+                busquedaPalabrasClaves.add(pc);
+            }
+        }
+        Collections.sort(busquedaPalabrasClaves);
+        return busquedaPalabrasClaves;
     }
 
     @Override
@@ -72,6 +80,7 @@ public class GestorPalabrasClaves implements IGestorPalabrasClaves{
 
     @Override
     public List<PalabraClave> verPalabrasClaves() {
+        Collections.sort(palabrasClaves);
         return palabrasClaves;
     }
 

@@ -2,6 +2,7 @@ package lugares.modelos;
 
 import java.util.ArrayList;
 import interfaces.IGestorLugares;
+import java.util.Collections;
 import java.util.List;
 import publicaciones.modelos.GestorPublicaciones;
 
@@ -46,6 +47,7 @@ public class GestorLugares implements IGestorLugares{
 
  
     public List<Lugar> verLugares() {
+        Collections.sort(lugares);
         return lugares;
     }
 
@@ -74,7 +76,14 @@ public class GestorLugares implements IGestorLugares{
 
     @Override
     public List<Lugar> buscarLugares(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Lugar> busquedaLugares = new ArrayList<>();
+        for (Lugar l : lugares){
+            if (l.verNombre().contains(nombre)){
+                busquedaLugares.add(l);
+            }
+        }
+        Collections.sort(busquedaLugares);
+        return busquedaLugares;
     }
 
     @Override

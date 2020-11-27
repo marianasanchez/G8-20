@@ -7,7 +7,7 @@ package tipos.modelos;
 
 import java.util.Objects;
 
-public class Tipo {
+public class Tipo implements Comparable<Tipo>{
     private String nombre;
 
     public Tipo(String nombre) {
@@ -26,12 +26,12 @@ public class Tipo {
         return "Tipo: " + this.nombre;
     }
 
-//    @Override
-//    public int hashCode() {
-//        int hash = 7;
-//        hash = 89 * hash + Objects.hashCode(this.nombre);
-//        return hash;
-//    }
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -54,4 +54,11 @@ public class Tipo {
     public void Mostrar() {
         System.out.println(this.toString());
     }
+
+    @Override
+    public int compareTo(Tipo t) {
+        return this.verNombre().compareTo(t.verNombre());
+    }
+    
+    
 }

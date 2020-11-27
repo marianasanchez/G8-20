@@ -2,6 +2,7 @@ package tipos.modelos;
 
 import interfaces.IGestorTipos;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import publicaciones.modelos.GestorPublicaciones;
 
@@ -47,6 +48,7 @@ public class GestorTipos implements IGestorTipos{
 
     @Override
     public List<Tipo> verTipos() {
+        Collections.sort(tipos);
         return tipos;
     }
 
@@ -75,7 +77,14 @@ public class GestorTipos implements IGestorTipos{
 
     @Override
     public List<Tipo> buscarTipos(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Tipo> busquedaTipos = new ArrayList<>();
+        for (Tipo t : tipos){
+            if (t.verNombre().contains(nombre)){
+                busquedaTipos.add(t);
+            }
+        }
+        Collections.sort(busquedaTipos);
+        return busquedaTipos;
     }
 
     @Override

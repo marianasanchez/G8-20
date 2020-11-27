@@ -7,7 +7,7 @@ package palabrasclaves.modelos;
 
 import java.util.Objects;
 
-public class PalabraClave {
+public class PalabraClave implements Comparable<PalabraClave>{
     private String nombre;
 
     public PalabraClave(String nombre) {
@@ -22,12 +22,12 @@ public class PalabraClave {
         this.nombre = nombre;
     }
 
-//    @Override
-//    public int hashCode() {
-//        int hash = 5;
-//        hash = 37 * hash + Objects.hashCode(this.nombre);
-//        return hash;
-//    }
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -54,4 +54,13 @@ public class PalabraClave {
     public void Mostrar() {
         System.out.println(this.toString());
     }
+
+    @Override
+    public int compareTo(PalabraClave pc) {
+        return this.verNombre().compareTo(pc.verNombre());
+    }
+
+    
+    
+    
 }
