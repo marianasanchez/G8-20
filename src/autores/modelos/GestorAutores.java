@@ -7,12 +7,12 @@ import grupos.modelos.Grupo;
 import interfaces.IGestorAutores;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import publicaciones.modelos.GestorPublicaciones;
 
 public class GestorAutores implements IGestorAutores{
     private List<Autor> autores = new ArrayList<>();
-    //private List<Profesor> profespres = new ArrayList<>();
     public static final String EXITO = "El nuevo 'Autor' fue creado con éxito";
     public static final String REPETIDO = "ERROR. El nuevo 'Autor' ya fue creado";
     public static final String INVALIDO = "ERROR. El autor ingresado es inválido";
@@ -87,34 +87,167 @@ public class GestorAutores implements IGestorAutores{
 
     @Override
     public List<Profesor> buscarProfesores(String apellidos) {
+        this.verProfesores();
+        return null;
+    }
+
+    @Override
+    public List<Profesor> buscarProfesores(String apellidos, Comparator<Profesor> apellidoCmp, Comparator<Profesor> nombreCmp) {
         List<Profesor> busquedaProfesores = new ArrayList<>();
-        for (Profesor p : this.verProfesores()){
-            if (p.verApellidos().contains(apellidos)){
+        for(Profesor p : this.verProfesores(apellidoCmp, nombreCmp)){
+            if(p.verApellidos().contains(apellidos)){
                 busquedaProfesores.add(p);
             }
         }
-        Collections.sort(busquedaProfesores);
         return busquedaProfesores;
     }
-
-   
+    
     @Override
      public List<Profesor> verProfesores() {
-          List<Profesor> profesores = new ArrayList<>();
-        
+        List<Profesor> profesores = new ArrayList<>();
         for(Autor a : autores){
             if(a instanceof Profesor){
                 profesores.add((Profesor)a);
             }
         }
         return profesores;
-   }
+    }
+   
+    @Override
+    public List<Profesor> verProfesores(Comparator<Profesor> apellidoCmp, Comparator<Profesor> nombreCmp) {
+        List<Profesor> profesores = new ArrayList<>();
+        for(Autor a : autores){
+            if(a instanceof Profesor){
+                profesores.add((Profesor)a);
+            }
+        }
+        profesores.sort(apellidoCmp);
+
+        List<String> apellidosAux = new ArrayList<>();
+        for(Profesor p : profesores){
+            if (!apellidosAux.contains(p.verApellidos())){
+                apellidosAux.add(p.verApellidos());
+            }
+        }
+        
+        List<Profesor> profesoresOrdenados = new ArrayList<>();
+        int i;
+        for (i = 0; i < apellidosAux.size(); i++){
+            List<Profesor> profesoresAux = new ArrayList<>();
+            for(Profesor p : profesores){
+                if(p.verApellidos().equals(apellidosAux.get(i))){
+                    profesoresAux.add(p);
+                }
+            }
+            profesoresAux.sort(nombreCmp);
+            profesoresOrdenados.addAll(profesoresAux);
+        }
+        
+        return profesoresOrdenados;
+
+//        String  aux = null;
+//        List<Profesor>  arrayaux = new ArrayList<>();
+//        List<Profesor>  arrayaux2 = new ArrayList<>();
+//        for(Profesor p : profesores){
+//            if(profesores.indexOf(p) == 0){
+//                arrayaux.add(p);
+//                aux = p.verApellidos();
+//            }
+//            else{
+//                 if(!p.verApellidos().equals(aux)){
+//                    arrayaux2.addAll(arrayaux);
+//                    arrayaux.clear();
+//                    arrayaux.add(p);
+//                    aux=p.verApellidos();
+//                 }
+//                else{
+//                    arrayaux.add(p);
+//                    arrayaux.sort(nombreCmp);
+//                }
+//            }
+//        }
+//        
+//        return arrayaux2;
+    }
 
    
+    @Override
+    public List<Alumno> buscarAlumnos(String apellidos, Comparator<Alumno> apellidoCmp, Comparator<Alumno> nombreCmp) {
+        List<Alumno> busquedaAlumnos = new ArrayList<>();
+        for(Alumno a : this.verAlumnos(apellidoCmp, nombreCmp)){
+            if(a.verApellidos().contains(apellidos)){
+                busquedaAlumnos.add(a);
+            }
+        }
+        return busquedaAlumnos;
+    }
+
     @Override
     public List<Alumno> buscarAlumnos(String apellidos) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<Autor> verAutores(Comparator<Autor> apellidoCmp, Comparator<Autor> nombreCmp) {
+        autores.sort(apellidoCmp);
+
+        List<String> apellidosAux = new ArrayList<>();
+        for(Autor a : autores){
+            if (!apellidosAux.contains(a.verApellidos())){
+                apellidosAux.add(a.verApellidos());
+            }
+        }
+        
+        List<Autor> autoresOrdenados = new ArrayList<>();
+        int i;
+        for (i = 0; i < apellidosAux.size(); i++){
+            List<Autor> autoresAux = new ArrayList<>();
+            for(Autor a : autores){
+                if(a.verApellidos().equals(apellidosAux.get(i))){
+                    autoresAux.add(a);
+                }
+            }
+            autoresAux.sort(nombreCmp);
+            autoresOrdenados.addAll(autoresAux);
+        }
+        
+        return autoresOrdenados;
+    }
+
+    @Override
+    public List<Alumno> verAlumnos(Comparator<Alumno> apellidoCmp, Comparator<Alumno> nombreCmp) {
+        List<Alumno> alumnos = new ArrayList<>();
+        for(Autor a : autores){
+            if(a instanceof Alumno){
+                alumnos.add((Alumno)a);
+            }
+        }
+        alumnos.sort(apellidoCmp);
+
+        List<String> apellidosAux = new ArrayList<>();
+        for(Alumno a : alumnos){
+            if (!apellidosAux.contains(a.verApellidos())){
+                apellidosAux.add(a.verApellidos());
+            }
+        }
+        
+        List<Alumno> alumnosOrdenados = new ArrayList<>();
+        int i;
+        for (i = 0; i < apellidosAux.size(); i++){
+            List<Alumno> alumnosAux = new ArrayList<>();
+            for(Alumno a : alumnos){
+                if(a.verApellidos().equals(apellidosAux.get(i))){
+                    alumnosAux.add(a);
+                }
+            }
+            alumnosAux.sort(nombreCmp);
+            alumnosOrdenados.addAll(alumnosAux);
+        }
+        
+        return alumnosOrdenados;
+    }
+    
+    
 
     @Override
     public boolean hayAutoresConEsteGrupo(Grupo grupo) {

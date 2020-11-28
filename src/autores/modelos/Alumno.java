@@ -2,7 +2,7 @@ package autores.modelos;
 
 import java.util.Objects;
 
-public class Alumno extends Autor  {
+public class Alumno extends Autor {
     private String cx;
 
     public Alumno(int dni, String apellidos, String nombres, String clave, String cx) {
