@@ -5,26 +5,22 @@ import autores.modelos.Autor;
 import java.util.Objects;
 
 public class MiembroEnGrupo {
-    //private Profesor profesor;
     private Autor autor;
     private Grupo grupo;
     private Rol rol;
 
     public MiembroEnGrupo(Autor autor, Grupo grupo, Rol rol) {
-        //this.profesor = profesor;
         this.autor = autor;
         this.rol = rol;
         this.grupo = grupo;
     }
     
     public MiembroEnGrupo(Grupo grupo, Rol rol) {
-        //this.profesor = profesor;
         this.rol = rol;
         this.grupo = grupo;
     }
     
     public MiembroEnGrupo(Autor autor, Rol rol) {
-        //this.profesor = profesor;
         this.autor = autor;
         this.rol = rol;
     }
@@ -36,14 +32,6 @@ public class MiembroEnGrupo {
     public void asignarRol(Rol rol) {
         this.rol = rol;
     }
-
-//    public Profesor verProfesor() {
-//        return profesor;
-//    }
-//
-//    public void asignarProfesor(Profesor profesor) {
-//        this.profesor = profesor;
-//    }
     
      public Autor verAutor() {
         return autor;

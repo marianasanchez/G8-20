@@ -119,8 +119,9 @@ public class Grupo implements Comparable<Grupo> {
     
     public void mostrar () {
         System.out.println("Grupo: " + this.verNombre());
-        System.out.println("Descripción " + this.verDescripcion() + "\n");
+        System.out.println("Descripción " + this.verDescripcion());
         this.verMiembros();
+        System.out.println("\n");
     }
 
     @Override

@@ -78,7 +78,7 @@ public class GestorGrupos implements IGestorGrupos{
 
     @Override
     public List<Grupo> buscarGrupos(String nombre) {
-                List<Grupo> busquedaGrupos = new ArrayList<>();
+        List<Grupo> busquedaGrupos = new ArrayList<>();
         for (Grupo g : grupos){
             if (g.verNombre().contains(nombre)){
                 busquedaGrupos.add(g);

@@ -1,15 +1,19 @@
 package principal.controladores;
 import autores.modelos.Alumno;
+import autores.modelos.Autor;
 import autores.modelos.Cargo;
 import autores.modelos.GestorAutores;
 import autores.modelos.Profesor;
 import grupos.modelos.GestorGrupos;
+import grupos.modelos.Grupo;
 import idiomas.modelos.GestorIdiomas;
-import java.util.Comparator;
+import java.time.LocalDate;
 import lugares.modelos.GestorLugares;
 import palabrasclaves.modelos.GestorPalabrasClaves;
+import publicaciones.modelos.GestorPublicaciones;
 import tipos.modelos.GestorTipos;
 
+//<editor-fold defaultstate="collapsed" desc="Trabajo Práctico N° 4">
 //TP N° 4
 //package principal.controladores;
 //
@@ -399,7 +403,9 @@ import tipos.modelos.GestorTipos;
 ////     //</editor-fold>
 //    }
 //}
+//</editor-fold>
 
+//<editor-fold defaultstate="collapsed" desc="Trabajo Práctico N°5">
 //TP N° 5
 //public class ControladorPrincipal {
 //    public static void main (String[] args) {
@@ -529,7 +535,9 @@ import tipos.modelos.GestorTipos;
 //        
 //    }
 //}
+//</editor-fold>
 
+//<editor-fold defaultstate="collapsed" desc="Parcial N° 1">
 //Parcial N° 1
 //package principal.controladores;
 //
@@ -559,8 +567,9 @@ import tipos.modelos.GestorTipos;
 //        ControladorSalir salir = new ControladorSalir();
 //    }
 //}
+//</editor-fold>
 
-
+//<editor-fold defaultstate="collapsed" desc="Trabajo Práctico N° 6">
 //TP N° 6
 public class ControladorPrincipal {
     public static void main (String[] args) {
@@ -570,21 +579,22 @@ public class ControladorPrincipal {
         GestorTipos gt2 = GestorTipos.crear();
         
         System.out.println(gt1.nuevoTipo("Tipo 2"));//Exito
-        System.out.println(gt2.nuevoTipo("Tipo 2"));//Repetido
+        System.out.println(gt2.nuevoTipo("Tipo 5"));//Exito
         System.out.println(gt1.nuevoTipo("Tipo 1"));//Exito
-        System.out.println(gt1.nuevoTipo("Tipo 5"));//Exito
+        System.out.println(gt2.nuevoTipo("Tipo 4"));//Exito
         System.out.println(gt1.nuevoTipo("Tipo 3"));//Exito
-        System.out.println(gt1.nuevoTipo("Tipo 4"));//Exito
+        
+        System.out.println(gt2.nuevoTipo("Tipo 2"));//Repetido
         System.out.println(gt2.nuevoTipo(""));//Invalido
         System.out.println(gt1.nuevoTipo(null));//Invalido
-        System.out.println(gt2.verTipos());//Muestra todos los tipos
+        System.out.println(gt2.verTipos());//Muestra todos los tipos alfabéticamente
         System.out.println(gt1.verTipo("Tipo 1"));//Busca un tipo
         System.out.println(gt2.verTipo("Tipo 6"));//Busca un tipo inexistente
         System.out.println(gt1.borrarTipo(gt1.verTipo("Tipo 1")));//Borra Tipo1
-        System.out.println(gt2.verTipos());//Muestra todos los tipos
+        System.out.println(gt2.verTipos());//Muestra todos los tipos alfabéticamente
         System.out.println(gt1.borrarTipo(gt1.verTipo("Tipo 1")));//Borra inexistente
-        System.out.println(gt2.verTipos());//Muestra todos los tipos
-        System.out.println(gt2.buscarTipos("4"));
+        System.out.println(gt2.verTipos());//Muestra todos los tipos alfabéticamente
+        System.out.println(gt2.buscarTipos("4"));//Busca un tipo
         System.out.println(gt1.existeEsteTipo(gt1.verTipo("Tipo 1")));//No existe
         System.out.println(gt2.existeEsteTipo(gt2.verTipo("Tipo 2")));//Existe
         System.out.println("\n\n");
@@ -596,24 +606,25 @@ public class ControladorPrincipal {
         GestorPalabrasClaves gpc1 = GestorPalabrasClaves.crear();
         GestorPalabrasClaves gpc2 = GestorPalabrasClaves.crear();
         
-        System.out.println(gpc1.nuevaPalabraClave("Palabra Clave 2"));//Éxito
-        System.out.println(gpc2.nuevaPalabraClave("Palabra Clave 2"));//Repetido
-        System.out.println(gpc1.nuevaPalabraClave("Palabra Clave 4"));//Éxito
-        System.out.println(gpc1.nuevaPalabraClave("Palabra Clave 5"));//Éxito
-        System.out.println(gpc1.nuevaPalabraClave("Palabra Clave 1"));//Éxito
-        System.out.println(gpc1.nuevaPalabraClave("Palabra Clave 3"));//Éxito
-        System.out.println(gpc2.nuevaPalabraClave(""));//Inválido
-        System.out.println(gpc1.nuevaPalabraClave(null));//Inválido
-        System.out.println(gpc2.verPalabrasClaves());//Muestra todas las palabras claves
-        System.out.println(gpc1.verPalabraClave("Palabra Clave 1"));//Busca una palabra clave
-        System.out.println(gpc2.verPalabraClave("Palabra Clave 6"));//Busca una palabra clave inexistente
-        System.out.println(gpc1.borrarPalabraClave(gpc1.verPalabraClave("Palabra Clave 1")));//Borra PC 1
-        System.out.println(gpc2.verPalabrasClaves());//Muesta todas las pc
-        System.out.println(gpc1.borrarPalabraClave(gpc1.verPalabraClave("Palabra Clave 1")));//Borra inexistente
-        System.out.println(gpc2.verPalabrasClaves());//Muestra todas las pc
-        System.out.println(gpc2.buscarPalabrasClaves("3"));
-        System.out.println(gpc1.existeEstaPalabraClave(gpc1.verPalabraClave("Palabra Clave 1")));//no existe
-        System.out.println(gpc1.existeEstaPalabraClave(gpc1.verPalabraClave("Palabra Clave 2")));//Existe
+        System.out.println(gpc1.nuevaPalabraClave("PC 5"));//Exito
+        System.out.println(gpc2.nuevaPalabraClave("PC 2"));//Exito
+        System.out.println(gpc1.nuevaPalabraClave("PC 4"));//Exito
+        System.out.println(gpc2.nuevaPalabraClave("PC 1"));//Exito
+        System.out.println(gpc1.nuevaPalabraClave("PC 3"));//Exito
+        
+        System.out.println(gpc1.nuevaPalabraClave("PC 2"));//Repetido
+        System.out.println(gpc1.nuevaPalabraClave(""));//Invalido
+        System.out.println(gpc1.nuevaPalabraClave(null));//Invalido
+        System.out.println(gpc1.verPalabrasClaves());//Muestra todas las palabras claves alfabéticamente
+        System.out.println(gpc1.verPalabraClave("PC 1"));//Busca una palabra clave
+        System.out.println(gpc1.verPalabraClave("PC 6"));//Busca una palabra clave inexistente
+        System.out.println(gpc1.borrarPalabraClave(gpc1.verPalabraClave("PC 1")));//Borra PC 1
+        System.out.println(gpc1.verPalabrasClaves());//Muestra todas las palabras claves alfabéticamente
+        System.out.println(gpc1.borrarPalabraClave(gpc1.verPalabraClave("PC 1")));//Borra inexistente
+        System.out.println(gpc1.verPalabrasClaves());//Muestra todas las palabras claves alfabéticamente
+        System.out.println(gpc1.buscarPalabrasClaves("4"));//Busca una palabra clave
+        System.out.println(gpc1.existeEstaPalabraClave(gpc1.verPalabraClave("PC 1")));//No existe
+        System.out.println(gpc1.existeEstaPalabraClave(gpc2.verPalabraClave("PC 2")));//Existe
         System.out.println("\n\n");
         
         
@@ -623,24 +634,25 @@ public class ControladorPrincipal {
         GestorLugares gl1 = GestorLugares.crear();
         GestorLugares gl2 = GestorLugares.crear();
         
-        System.out.println(gl1.nuevoLugar("Lugar 2"));
-        System.out.println(gl2.nuevoLugar("Lugar 2"));//Repetido
-        System.out.println(gl1.nuevoLugar("Lugar 3"));
-        System.out.println(gl1.nuevoLugar("Lugar 5"));
-        System.out.println(gl1.nuevoLugar("Lugar 1"));
-        System.out.println(gl1.nuevoLugar("Lugar 4"));
-        System.out.println(gl2.nuevoLugar(""));//En blanco
-        System.out.println(gl1.nuevoLugar(null));//Null
-        System.out.println(gl2.verLugares());//Muestra todos los lugares
+        System.out.println(gl1.nuevoLugar("Lugar 2"));//Exito
+        System.out.println(gl2.nuevoLugar("Lugar 4"));//Exito
+        System.out.println(gl1.nuevoLugar("Lugar 3"));//Exito
+        System.out.println(gl2.nuevoLugar("Lugar 5"));//Exito
+        System.out.println(gl1.nuevoLugar("Lugar 1"));//Exito
+        
+        System.out.println(gl1.nuevoLugar("Lugar 2"));//Repetido
+        System.out.println(gl1.nuevoLugar(""));//Invalido
+        System.out.println(gl1.nuevoLugar(null));//Invalido
+        System.out.println(gl1.verLugares());//Muestra todos los lugares alfabéticamente
         System.out.println(gl1.verLugar("Lugar 1"));//Busca un lugar
-        System.out.println(gl2.verLugar("Lugar 6"));//Busca un lugar inexistente
-        System.out.println(gl1.borrarLugar(gl1.verLugar("Lugar 1")));//Borra PC 1
-        System.out.println(gl2.verLugares());//Muesta todas las pc
+        System.out.println(gl1.verLugar("Lugar 6"));//Busca un lugar inexistente
+        System.out.println(gl1.borrarLugar(gl1.verLugar("Lugar 1")));//Borra lugar 1
+        System.out.println(gl1.verLugares());//Muestra todos los lugares alfabéticamente
         System.out.println(gl1.borrarLugar(gl1.verLugar("Lugar 1")));//Borra inexistente
-        System.out.println(gl2.verLugares());//Muestra todas las pc
-        System.out.println(gl2.buscarLugares("2"));
-        System.out.println(gl1.existeEsteLugar(gl1.verLugar("Lugar 1")));//no existe
-        System.out.println(gl2.existeEsteLugar(gl2.verLugar("Lugar 2")));//Existe
+        System.out.println(gl1.verLugares());//Muestra todos los lugares alfabéticamente
+        System.out.println(gl1.buscarLugares("4"));//Busca un lugar
+        System.out.println(gl1.existeEsteLugar(gl1.verLugar("Lugar 1")));//No existe
+        System.out.println(gl1.existeEsteLugar(gl1.verLugar("Lugar 2")));//Existe
         System.out.println("\n\n");
         
         
@@ -650,22 +662,25 @@ public class ControladorPrincipal {
         GestorIdiomas gi1 = GestorIdiomas.crear();
         GestorIdiomas gi2 = GestorIdiomas.crear();
         
-        System.out.println(gi1.nuevoIdioma("Español"));
-        System.out.println(gi2.nuevoIdioma("Español"));//Repetido
-        System.out.println(gi1.nuevoIdioma("Ingles"));
-        System.out.println(gi2.nuevoIdioma(""));//En blanco
-        System.out.println(gi1.nuevoIdioma(null));//Null
-        System.out.println(gi2.verIdiomas());//Muestra todos los idiomas
-        System.out.println(gi1.verIdioma("Ingles"));//Busca un idioma
-        System.out.println(gi2.verIdioma("Aleman"));//Busca un idioma inexistente
-        System.out.println(gi1.borrarIdioma(gi1.verIdioma("Español")));//Borra PC 1
-        System.out.println(gi2.verIdiomas());//Muesta todas las pc
-        System.out.println(gi1.borrarIdioma(gi1.verIdioma("Español")));//Borra inexistente
-        System.out.println(gi2.verIdiomas());//Muestra todas las pc
-        //Buscar pcs
-        //verpcs
-        System.out.println(gi1.existeEsteIdioma(gi1.verIdioma("Español")));//no existe
-        System.out.println(gi2.existeEsteIdioma(gi2.verIdioma("Ingles")));//Existe
+        System.out.println(gi1.nuevoIdioma("Idioma 5"));//Exito
+        System.out.println(gi2.nuevoIdioma("Idioma 2"));//Exito
+        System.out.println(gi1.nuevoIdioma("Idioma 4"));//Exito
+        System.out.println(gi2.nuevoIdioma("Idioma 1"));//Exito
+        System.out.println(gi1.nuevoIdioma("Idioma 3"));//Exito
+        
+        System.out.println(gi1.nuevoIdioma("Idioma 2"));//Repetido
+        System.out.println(gi1.nuevoIdioma(""));//Invalido
+        System.out.println(gi1.nuevoIdioma(null));//Invalido
+        System.out.println(gi1.verIdiomas());//Muestra todos los idiomas alfabéticamente
+        System.out.println(gi1.verIdioma("Idioma 1"));//Busca un idioma
+        System.out.println(gi1.verIdioma("Idioma 6"));//Busca un idioma inexistente
+        System.out.println(gi1.borrarIdioma(gi1.verIdioma("Idioma 1")));//Borra idioma 1
+        System.out.println(gi1.verIdiomas());//Muestra todos los idiomas alfabéticamente
+        System.out.println(gi1.borrarIdioma(gi1.verIdioma("Idioma 1")));//Borra inexistente
+        System.out.println(gi1.verIdiomas());//Muestra todos los idiomas alfabéticamente
+        System.out.println(gi1.buscarIdiomas("4"));//Busca un idioma
+        System.out.println(gi1.existeEsteIdioma(gi1.verIdioma("Idioma 1")));//No existe
+        System.out.println(gi1.existeEsteIdioma(gi1.verIdioma("Idioma 2")));//Existe
         System.out.println("\n\n");
         
         
@@ -675,120 +690,147 @@ public class ControladorPrincipal {
         GestorGrupos gg1 = GestorGrupos.crear();
         GestorGrupos gg2 = GestorGrupos.crear();
         
-        System.out.println(gg1.nuevoGrupo("Grupo 1", "Descripción 1"));
-        System.out.println(gg2.nuevoGrupo("Grupo 1", "Descripción 1"));//Repetido
-        System.out.println(gg1.nuevoGrupo("Grupo 2", "Descripción 1"));
-        System.out.println(gg1.nuevoGrupo("", "Descripción 1"));//Vacio
-        System.out.println(gg2.nuevoGrupo(null, "Descripción 1"));//null
-        System.out.println(gg2.modificarGrupo(gg1.verGrupo("Grupo 2"), "Descripción 2"));//Modifico
-        System.out.println(gg1.verGrupos());//Muestra todos los grupos
-        System.out.println(gg2.verGrupo("Grupo 2"));//Muestra un grupo
-        System.out.println(gg1.verGrupo("Grupo 3"));//Muestra un grupo inexistente
+        System.out.println(gg1.nuevoGrupo("Grupo 3", "Descripcion 3"));//Exito
+        System.out.println(gg2.nuevoGrupo("Grupo 5", "Descripcion 5"));//Exito
+        System.out.println(gg1.nuevoGrupo("Grupo 1", "Descripcion 1"));//Exito
+        System.out.println(gg2.nuevoGrupo("Grupo 2", "Descripcion 2"));//Exito
+        System.out.println(gg1.nuevoGrupo("Grupo 4", "Descripcion 4"));//Exito
         
-        System.out.println(gg1.borrarGrupo(gg1.verGrupo("Grupo 1")));//Borra PC 1
-        System.out.println(gg2.verGrupos());//Muesta todas las pc
+        System.out.println(gg1.nuevoGrupo("Grupo 2", "Descripcion 5"));//Repetido
+        System.out.println(gg1.nuevoGrupo("", "Descripcion 2"));//Invalido
+        System.out.println(gg1.nuevoGrupo(null, "Descripcion h"));//Invalido
+        for(Grupo g : gg1.verGrupos()){//Muestra todos los grupos alfabéticamente
+            g.mostrar();
+        }
+        gg1.verGrupo("Grupo 1").mostrar();//Busca un grupo
+        System.out.println(gg1.verGrupo("Grupo 6"));//Busca un grupo inexistente
+        System.out.println(gg1.borrarGrupo(gg1.verGrupo("Grupo 1")));//Borra grupo 1
+        for(Grupo g : gg1.verGrupos()){//Muestra todos los grupos alfabéticamente
+            g.mostrar();
+        }
         System.out.println(gg1.borrarGrupo(gg1.verGrupo("Grupo 1")));//Borra inexistente
-        System.out.println(gg2.verGrupos());//Muestra todas las pc
-        //Buscar pcs
-        //verpcs
-        System.out.println(gg1.existeEsteGrupo(gg1.verGrupo("Grupo 1")));//Busca un grupo
-        System.out.println(gg2.existeEsteGrupo(gg1.verGrupo("Grupo 2")));//Busca un grupo inexistente
-        
+        for(Grupo g : gg1.verGrupos()){//Muestra todos los grupos alfabéticamente
+            g.mostrar();
+        }
+        for(Grupo g : gg1.buscarGrupos("4")){//Muestra todos los grupos alfabéticamente
+            g.mostrar();
+        }
+        System.out.println(gg1.existeEsteGrupo(gg1.verGrupo("Grupo 1")));//No existe
+        System.out.println(gg1.existeEsteGrupo(gg1.verGrupo("Grupo 2")));//Existe
         System.out.println("\n\n");
         
         
         
-        System.out.println("-----Autores-----");
+        System.out.println("-----Gestor Autores-----");
         
         GestorAutores ga1 = GestorAutores.crear();
         GestorAutores ga2 = GestorAutores.crear();
         System.out.println("\n");
         
         System.out.println("-----Profesores-----");
-        System.out.println(ga1.nuevoAutor(20, "Apellido 20", "Nombre h", Cargo.ADG, "123", "123"));
+        System.out.println(ga1.nuevoAutor(20, "Apellido 20", "Nombre h", Cargo.ADG, "123", "123"));//Éxito
+        System.out.println(ga1.nuevoAutor(10, "Apellido 10", "Nombre w", Cargo.ASOCIADO, "123", "123"));//Éxito
+        System.out.println(ga1.nuevoAutor(30, "Apellido 30", "Nombre j", Cargo.ADJUNTO, "123", "123"));//Éxito
+        System.out.println(ga1.nuevoAutor(40, "Apellido 10", "Nombre m", Cargo.JTP, "123", "123"));//Éxito
+        System.out.println(ga1.nuevoAutor(50, "Apellido 30", "Nombre d", Cargo.TITULAR, "123", "123"));//Éxito
+        System.out.println(ga1.nuevoAutor(60, "Apellido 20", "Nombre o", Cargo.ADJUNTO, "123", "123"));//Éxito
+        System.out.println(ga1.nuevoAutor(70, "Apellido 30", "Nombre z", Cargo.TITULAR, "123", "123"));//Éxito
+        System.out.println(ga1.nuevoAutor(80, "Apellido 20", "Nombre g", Cargo.ADG, "123", "123"));//Éxito
+        System.out.println(ga1.nuevoAutor(90, "Apellido 10", "Nombre o", Cargo.ASOCIADO, "123", "123"));//Éxito
         System.out.println(ga1.nuevoAutor(10, null, "Nombre 10", Cargo.ADG, "123", "123"));//null
         System.out.println(ga1.nuevoAutor(10, "Apellido 10", "Nombre 10", Cargo.ADG, "123", "1234"));//Claves distintas
         System.out.println(ga1.nuevoAutor(10, "Apellido 10", "Nombre 10", Cargo.ADG, "123", "123"));//existente
         System.out.println(ga1.nuevoAutor(10, "Apellido 10", "", Cargo.ADG, "123", "123"));//en blanco
-        System.out.println(ga1.nuevoAutor(10, "Apellido 10", "Nombre w", Cargo.ADJUNTO, "123", "123"));
-        System.out.println(ga1.nuevoAutor(30, "Apellido 30", "Nombre j", Cargo.ADJUNTO, "123", "123"));
-        System.out.println(ga1.nuevoAutor(40, "Apellido 10", "Nombre m", Cargo.ADJUNTO, "123", "123"));
-        System.out.println(ga1.nuevoAutor(50, "Apellido 30", "Nombre d", Cargo.ADJUNTO, "123", "123"));
-        System.out.println(ga1.nuevoAutor(60, "Apellido 20", "Nombre o", Cargo.ADJUNTO, "123", "123"));
-        System.out.println(ga1.nuevoAutor(70, "Apellido 30", "Nombre z", Cargo.ADJUNTO, "123", "123"));
-        System.out.println(ga1.nuevoAutor(80, "Apellido 20", "Nombre g", Cargo.ADJUNTO, "123", "123"));
-        System.out.println(ga1.nuevoAutor(90, "Apellido 10", "Nombre o", Cargo.ADJUNTO, "123", "123"));
         
-        Comparator<Profesor> apellidoProfCmp = (p1, p2) -> {
-            return p1.verApellidos().compareTo(p2.verApellidos());
-        };
-        
-        Comparator<Profesor> nombreProfCmp = (p1, p2) -> {
-            return p1.verNombres().compareTo(p2.verNombres());
-        };
-        
-        for (Profesor p : ga1.buscarProfesores("2", apellidoProfCmp, nombreProfCmp)){
-            p.mostrar();
-        }
-        
-        for (Profesor p : ga1.verProfesores(apellidoProfCmp, nombreProfCmp)){
+        for (Profesor p : ga1.verProfesores()){
             p.mostrar();
         }
 
+        System.out.println(ga1.borrarAutor(ga1.verAutor(60)));
+        
+        for (Profesor p : ga1.verProfesores()){
+            p.mostrar();
+        }
+        
+        for (Profesor p : ga1.buscarProfesores("2")){
+            p.mostrar();
+        }
+        
         System.out.println("\n");
         
+        
+        
         System.out.println("-----Alumnos-----");
-        System.out.println(ga1.nuevoAutor(1, "Apellido 1", "Nombre h", "1-1", "123", "123"));
-        System.out.println(ga1.nuevoAutor(1, null, "Nombre 1", "1-1", "123", "123"));//null
-        System.out.println(ga1.nuevoAutor(1, "Apellido 1", "Nombre 1", "1-1", "123", "1234"));//Claves distintas
-        System.out.println(ga1.nuevoAutor(1, "Apellido 1", "Nombre 1", "1-1", "123", "123"));//existente
-        System.out.println(ga1.nuevoAutor(1, "Apellido 1", "", "1-1", "123", "123"));//en blanco
-        System.out.println(ga1.nuevoAutor(2, "Apellido 2", "Nombre x", "2-2", "123", "123"));
-        System.out.println(ga1.nuevoAutor(3, "Apellido 3", "Nombre n", "2-3", "123", "123"));
-        System.out.println(ga1.nuevoAutor(4, "Apellido 2", "Nombre f", "2-4", "123", "123"));
-        System.out.println(ga1.nuevoAutor(5, "Apellido 1", "Nombre h", "2-5", "123", "123"));
-        System.out.println(ga1.nuevoAutor(6, "Apellido 3", "Nombre l", "2-6", "123", "123"));
-        System.out.println(ga1.nuevoAutor(7, "Apellido 3", "Nombre ñ", "2-7", "123", "123"));
-        System.out.println(ga1.nuevoAutor(8, "Apellido 2", "Nombre v", "2-8", "123", "123"));
-        System.out.println(ga1.nuevoAutor(9, "Apellido 1", "Nombre e", "2-9", "123", "123"));
-
-        Comparator<Alumno> apellidoAlumCmp = (a1, a2) -> {
-            return a1.verApellidos().compareTo(a2.verApellidos());
-        };
+        System.out.println(ga2.nuevoAutor(2, "Apellido 2", "Nombre h", "2-2", "123", "123"));//Éxito
+        System.out.println(ga2.nuevoAutor(1, "Apellido 1", "Nombre w", "1-1", "123", "123"));//Éxito
+        System.out.println(ga2.nuevoAutor(3, "Apellido 3", "Nombre j", "3-3", "123", "123"));//Éxito
+        System.out.println(ga2.nuevoAutor(4, "Apellido 1", "Nombre m", "4-4", "123", "123"));//Éxito
+        System.out.println(ga2.nuevoAutor(5, "Apellido 3", "Nombre d", "5-5", "123", "123"));//Éxito
+        System.out.println(ga2.nuevoAutor(6, "Apellido 2", "Nombre o", "6-6", "123", "123"));//Éxito
+        System.out.println(ga2.nuevoAutor(7, "Apellido 3", "Nombre z", "7-7", "123", "123"));//Éxito
+        System.out.println(ga2.nuevoAutor(8, "Apellido 2", "Nombre g", "8-8", "123", "123"));//Éxito
+        System.out.println(ga2.nuevoAutor(9, "Apellido 1", "Nombre o", "9-9", "123", "123"));//Éxito
+        System.out.println(ga2.nuevoAutor(1, null, "Nombre 1", "2-2", "123", "123"));//null
+        System.out.println(ga2.nuevoAutor(1, "Apellido 1", "Nombre 10", "2-2", "123", "1234"));//Claves distintas
+        System.out.println(ga2.nuevoAutor(1, "Apellido 1", "Nombre 10", "2-2", "123", "123"));//existente
+        System.out.println(ga2.nuevoAutor(100, "Apellido 1", "", "1-8", "123", "123"));//en blanco
         
-        Comparator<Alumno> nombreAlumCmp = (a1, a2) -> {
-            return a1.verNombres().compareTo(a2.verNombres());
-        };
-        
-        for (Alumno a : ga1.buscarAlumnos("2", apellidoAlumCmp, nombreAlumCmp)){
-            a.mostrar();
-        }
-        
-        for (Alumno a : ga1.verAlumnos(apellidoAlumCmp, nombreAlumCmp)){
+        for (Alumno a : ga1.verAlumnos()){
             a.mostrar();
         }
 
-        System.out.println("\n");        
-        System.out.println("-----Mostrar-----");
-        System.out.println(ga1.verAutores());
-        System.out.println(ga1.verProfesores());
-        System.out.println(ga1.verAlumnos());
-        System.out.println(ga1.verAutor(1));
-        System.out.println(ga1.verAutor(2));
-        System.out.println(ga1.verAutor(10));
-        System.out.println(ga1.verAutor(20));
+        System.out.println(ga1.borrarAutor(ga1.verAutor(6)));
+        
+        for (Alumno a : ga1.verAlumnos()){
+            a.mostrar();
+        }
+        
+        for (Alumno a : ga1.buscarAlumnos("2")){
+            a.mostrar();
+        }
+        
+        System.out.println("\n");
+        
+        
+        
+        System.out.println("-----Autores-----");
+        for(Autor a : ga1.verAutores()){
+            a.mostrar();
+        }
+        for (Profesor p : ga1.verProfesores()){
+            p.mostrar();
+        }
+        for (Alumno a : ga1.verAlumnos()){
+            a.mostrar();
+        }
+        ga1.verAutor(1).mostrar();
+        ga1.verAutor(2).mostrar();
+        ga1.verAutor(10).mostrar();
+        ga1.verAutor(20).mostrar();
         System.out.println(ga1.existeEsteAutor(ga1.verAutor(1)));
-        System.out.println(ga1.existeEsteAutor(ga1.verAutor(5)));//Ver inexistente
+        System.out.println(ga1.existeEsteAutor(ga1.verAutor(55)));//Ver inexistente
         System.out.println("\n");
         
         System.out.println("-----Modificar-----");
         System.out.println(ga1.modificarAutor(ga1.verAutor(10), "Ape 10", "Nom 10", Cargo.ADG, "123", "123"));//Modifico profesor
-        System.out.println(ga1.modificarAutor(ga1.verAutor(50), "Ape 10", "Nom 10", Cargo.ADG, "123", "123"));//Modifico profesor inexistente
+        System.out.println(ga1.modificarAutor(ga1.verAutor(55), "Ape 10", "Nom 10", Cargo.ADG, "123", "123"));//Modifico profesor inexistente
         System.out.println(ga1.modificarAutor(ga1.verAutor(1), "Ape 1", "Nom 1", "1-1", "123", "123"));//Modifico alumno
-        System.out.println(ga1.modificarAutor(ga1.verAutor(5), "Ape 1", "Nom 1", "1-1", "123", "123"));//Modifico alumno inexistente
-        System.out.println(ga1.verAutores());
-        System.out.println(ga1.verProfesores());
-        System.out.println(ga1.verAlumnos());
+        System.out.println(ga1.modificarAutor(ga1.verAutor(55), "Ape 1", "Nom 1", "1-1", "123", "123"));//Modifico alumno inexistente
+        for(Autor a : ga1.verAutores()){
+            a.mostrar();
+        }
         System.out.println("\n\n"); 
+        
+        
+        
+        System.out.println("-----Publicaciones-----");
+        GestorPublicaciones gp1 = GestorPublicaciones.crear();
+        GestorPublicaciones gp2 = GestorPublicaciones.crear();
+        
+        //HACER UN GESTOR DE MIEMBRO EN GRUPO
+        
+        //System.out.println(gp2.nuevaPublicacion("Publicacion 1", miembroEnGrupo, LocalDate.EPOCH, tipo, idioma, lugar, palabrasClaves, enlace, resumen))
+        
     }
+//</editor-fold>
 }
