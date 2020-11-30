@@ -5,24 +5,23 @@
  */
 package idiomas.vistas;
 
-import idiomas.modelos.Idioma;
-import java.awt.Dialog;
-import java.util.ArrayList;
-import javax.swing.JDialog;
+import interfaces.IControladorAIdioma;
 
-public class VentanaAIdioma extends JDialog {
-   ArrayList<Idioma> idiomas = new ArrayList<>();
-   
+/**
+ *
+ * @author Carlos
+ */
+public class VentanaAIdioma extends javax.swing.JDialog {
+    private IControladorAIdioma controlador;
     /**
-     * Constructor 
-     * @param ventanaPadre ventana padre
-     */        
-    public VentanaAIdioma(Dialog ventanaPadre) {
-        super(ventanaPadre, true);
+     * Creates new form VentanaAIdioma
+     */
+    public VentanaAIdioma(IControladorAIdioma controlador) {
+//        super(idiomas, true);
         initComponents();
+        this.controlador = controlador;
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,24 +31,45 @@ public class VentanaAIdioma extends JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        btnGuardar = new javax.swing.JButton();
+        txtNuevoIdioma = new javax.swing.JTextField();
+        btnGuardarIdioma = new javax.swing.JButton();
+        btnCancelarIdioma = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Idiomas");
-        setResizable(false);
+        setTitle("Nuevo Idioma");
 
-        jLabel1.setText("Nombre:");
+        jLabel1.setText("Nombre :");
 
-        txtNombre.setToolTipText("Nombre del nivel");
+        txtNuevoIdioma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdiomaPresionarTecla(evt);
+            }
+        });
 
-        btnGuardar.setMnemonic('G');
-        btnGuardar.setText("Guardar");
-        btnGuardar.setToolTipText("");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarIdioma.setText("Guardar");
+        btnGuardarIdioma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarClic(evt);
+                btnGuardarIdiomaClic(evt);
+            }
+        });
+
+        btnCancelarIdioma.setText("Cancelar");
+        btnCancelarIdioma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarIdiomaClic(evt);
             }
         });
 
@@ -62,11 +82,13 @@ public class VentanaAIdioma extends JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(43, 43, 43)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNuevoIdioma))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnGuardar)))
+                        .addGap(0, 123, Short.MAX_VALUE)
+                        .addComponent(btnGuardarIdioma)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelarIdioma)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -75,27 +97,69 @@ public class VentanaAIdioma extends JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                .addComponent(btnGuardar)
+                    .addComponent(txtNuevoIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardarIdioma)
+                    .addComponent(btnCancelarIdioma))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClic
-        String nombre = this.txtNombre.getText().trim();
-        Idioma idioma = new Idioma(nombre);
-        this.idiomas.add(idioma);
-        for(Idioma i : this.idiomas)
-            System.out.println(i);
-    }//GEN-LAST:event_btnGuardarClic
+    private void txtIdiomaPresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdiomaPresionarTecla
+        this.controlador.txtNombrePresionarTecla(evt);
+    }//GEN-LAST:event_txtIdiomaPresionarTecla
 
+    private void btnGuardarIdiomaClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarIdiomaClic
+        this.controlador.btnGuardarClic(evt);
+    }//GEN-LAST:event_btnGuardarIdiomaClic
+
+    private void btnCancelarIdiomaClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarIdiomaClic
+        this.controlador.btnCancelarClic(evt);
+    }//GEN-LAST:event_btnCancelarIdiomaClic
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VentanaAIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VentanaAIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VentanaAIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VentanaAIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the dialog */
+       
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnCancelarIdioma;
+    private javax.swing.JButton btnGuardarIdioma;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtNuevoIdioma;
     // End of variables declaration//GEN-END:variables
+
+    public String getNombre() {
+        return this.txtNuevoIdioma.getText();
+    }
 }

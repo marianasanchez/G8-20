@@ -14,4 +14,6 @@ public interface IControladorPrincipal {
     public void btnAutoresClic(ActionEvent evt);
     
     public void btnSalirClic(ActionEvent evt);
+    
+    public void btnIdiomasClic(ActionEvent evt);
 }

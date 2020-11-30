@@ -41,6 +41,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnLugares.setText("Lugares");
 
         btnIdiomas.setText("Idiomas");
+        btnIdiomas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIdiomasClic(evt);
+            }
+        });
 
         btnTipos.setText("Tipos");
 
@@ -116,6 +121,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.controlador.btnAutoresClic(evt);
     }//GEN-LAST:event_btnAutoresClic
 
+    private void btnIdiomasClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIdiomasClic
+        this.controlador.btnIdiomasClic(evt);
+    }//GEN-LAST:event_btnIdiomasClic
+
     /**
      * @param args the command line arguments
      */
@@ -144,7 +153,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         //</editor-fold>
-        //IControladorPrincipal controlador = new ControladorPrincipal();
+        IControladorPrincipal controlador = new ControladorPrincipal();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
