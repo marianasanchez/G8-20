@@ -141,8 +141,10 @@ public class Publicacion implements Comparable<Publicacion>{
         System.out.println("Lugar: " + this.lugar);
         System.out.println("Palabras claves\n---------------");
         for(PalabraClave pc : palabrasClaves) {
-           System.out.println("\t" + pc); 
+        System.out.println("\t" + pc); 
+        
         }
+        
         System.out.println("Enlace: " + this.enlace);
         System.out.println("Resumen" + this.resumen);
     }

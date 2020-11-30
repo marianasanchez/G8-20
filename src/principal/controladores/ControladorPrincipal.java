@@ -6,11 +6,17 @@ import autores.modelos.GestorAutores;
 import autores.modelos.Profesor;
 import grupos.modelos.GestorGrupos;
 import grupos.modelos.Grupo;
+import grupos.modelos.MiembroEnGrupo;
+import grupos.modelos.Rol;
 import idiomas.modelos.GestorIdiomas;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import lugares.modelos.GestorLugares;
 import palabrasclaves.modelos.GestorPalabrasClaves;
+import palabrasclaves.modelos.PalabraClave;
 import publicaciones.modelos.GestorPublicaciones;
+import publicaciones.modelos.Publicacion;
 import tipos.modelos.GestorTipos;
 
 //<editor-fold defaultstate="collapsed" desc="Trabajo Práctico N° 4">
@@ -827,9 +833,35 @@ public class ControladorPrincipal {
         GestorPublicaciones gp1 = GestorPublicaciones.crear();
         GestorPublicaciones gp2 = GestorPublicaciones.crear();
         
-        //HACER UN GESTOR DE MIEMBRO EN GRUPO
+        MiembroEnGrupo mg1=new MiembroEnGrupo(ga1.verAutores().get(2), gg1.verGrupos().get(2), Rol.COLABORADOR);
+        MiembroEnGrupo mg2=new MiembroEnGrupo(ga1.verAutores().get(1), gg1.verGrupos().get(1), Rol.COLABORADOR);
+        LocalDate fecha1= LocalDate.of(2020, 06, 24);
+        LocalDate fecha2= LocalDate.of(2020, 03, 20);
+
+
+//        //PUBLICACION 1
         
-        //System.out.println(gp2.nuevaPublicacion("Publicacion 1", miembroEnGrupo, LocalDate.EPOCH, tipo, idioma, lugar, palabrasClaves, enlace, resumen))
+        //HACER UN GESTOR DE MIEMBRO EN GRUPO
+        List <PalabraClave> palabrasclaves1 = new ArrayList <>();
+        palabrasclaves1.add(gpc1.verPalabraClave("PC 2"));
+        palabrasclaves1.add(gpc1.verPalabraClave("PC 5"));
+        System.out.println(gp1.nuevaPublicacion("Publicacion 1", mg1, fecha1, gt1.verTipo("Tipo 3"), gi1.verIdioma("Idioma 2"), gl1.verLugar("Lugar 3"), palabrasclaves1, "www.google/publicacion1", "Publicacion 1"));
+        System.out.println(gp1.nuevaPublicacion("Publicacion 2", mg2, fecha2, gt1.verTipo("Tipo 2"), gi1.verIdioma("Idioma 3"), gl1.verLugar("Lugar 2"), gpc1.verPalabrasClaves(), "www.google/publicacion2", "Publicacion 2"));
+
+        for (Publicacion p : gp1.verPublicaciones()){
+            p.mostrar();
+        }
+        
+        gp1.modificarPublicacion(gp1.verPublicacion("Publicacion 1"), mg1, fecha2, gt1.verTipo("Tipo 2"), gi1.verIdioma("Idioma 3"), gl1.verLugar("Lugar 2"), palabrasclaves1, "www.google/publicacion1modificado", "Publicacion 1");
+        System.out.println("-----Publicaciones----- MODIFICADO");
+         for (Publicacion p : gp1.verPublicaciones()){
+            p.mostrar();
+        }
+        
+        System.out.println("-----Publicaciones----- BUSCAR");
+        for (Publicacion p : gp1.buscarPublicaciones("Publicacion 2")){
+            p.mostrar();
+        }
         
     }
 //</editor-fold>
