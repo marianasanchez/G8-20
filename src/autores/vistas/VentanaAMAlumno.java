@@ -1,9 +1,11 @@
 package autores.vistas;
 
 import autores.modelos.Alumno;
+import autores.modelos.Cargo;
 import interfaces.IControladorAMAlumno;
 import java.util.ArrayList;
 import javax.swing.JDialog;
+import javax.swing.JPasswordField;
 
 public class VentanaAMAlumno extends JDialog {
     ArrayList<Alumno> alumnos = new ArrayList<>();
@@ -12,7 +14,8 @@ public class VentanaAMAlumno extends JDialog {
     /**
      * Creates new form VentanaSalir
      */
-    public VentanaAMAlumno(IControladorAMAlumno controlador) {
+    public VentanaAMAlumno(VentanaAMAutores padre, boolean modal, IControladorAMAlumno controlador) {
+        super(padre, modal);
         initComponents();
         this.controlador = controlador;
     }
@@ -261,19 +264,17 @@ public class VentanaAMAlumno extends JDialog {
         this.txtNombresAlumno.setText(nombres);
     }
     
-//    public void setCargo(){
-//        Cargo cargo = Cargo.toCargo(this.comboBoxCargoProfesor.getSelectedItem().toString().toUpperCase());
-//        return cargo;
-//    }
-//    
-//    public void setClave(String clave){
-//        this.txtClaveProfesor.setPassword(clave);
-//    }
-//    
-//    public String setClaveRepetida() {
-//        String claveRepetida = new String(this.txtRepetirClaveProfesor.getPassword());
-//        return claveRepetida;
-//    }
+    public void setCX(String CX){
+        this.txtCX.setText(CX);
+    }
+    
+    public void setClave(String clave){
+        this.txtClaveAlumno.setText(clave);
+    }
+    
+    public void setClaveRepetida(String clave) {
+        this.txtRepetirClaveAlumno.setText(clave);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarNuevoProfesor;

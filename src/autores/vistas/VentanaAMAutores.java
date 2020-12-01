@@ -5,6 +5,7 @@ import autores.modelos.ModeloTablaAlumnos;
 import autores.modelos.ModeloTablaProfesores;
 import interfaces.IControladorAutores;
 import javax.swing.JTable;
+import principal.vistas.VentanaPrincipal;
 
 public class VentanaAMAutores extends javax.swing.JDialog {
     private IControladorAutores controlador;
@@ -12,7 +13,8 @@ public class VentanaAMAutores extends javax.swing.JDialog {
     /**
      * Creates new form VentanaAMAutores
      */
-    public VentanaAMAutores(IControladorAutores controlador) {
+    public VentanaAMAutores(VentanaPrincipal padre, boolean modal, IControladorAutores controlador) {
+        super(padre, modal);
         initComponents();
         this.tablaProfesores.setModel(new ModeloTablaProfesores());
         this.tablaAlumnos.setModel(new ModeloTablaAlumnos());

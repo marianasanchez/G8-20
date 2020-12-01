@@ -5,21 +5,19 @@
  */
 package idiomas.vistas;
 
+import idiomas.modelos.Idioma;
 import idiomas.modelos.ModeloTablaIdiomas;
 import interfaces.IControladorIdiomas;
+import javax.swing.JTable;
+import principal.vistas.VentanaPrincipal;
 
-/**
- *
- * @author Carlos
- */
 public class VentanaIdiomas extends javax.swing.JDialog {
-private IControladorIdiomas controlador;
+    private IControladorIdiomas controlador;
     /**
      * Creates new form VentanaAIdiomas
      */
-    public VentanaIdiomas(IControladorIdiomas controlador) {
- //       super(parent, modal);
- 
+    public VentanaIdiomas(VentanaPrincipal padre, boolean modal, IControladorIdiomas controlador) {
+        super(padre, modal);
         initComponents();
         this.tablaIdiomas.setModel(new ModeloTablaIdiomas());
         this.controlador = controlador;
@@ -170,23 +168,25 @@ private IControladorIdiomas controlador;
     }//GEN-LAST:event_btnNuevoIdiomaClic
 
     private void btnVolverIdiomaClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverIdiomaClic
-        // TODO add your handling code here:
+        this.controlador.btnVolverClic(evt);
     }//GEN-LAST:event_btnVolverIdiomaClic
 
     private void txtIdiomasPresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdiomasPresionarTecla
-        // TODO add your handling code here:
+        this.controlador.txtIdiomaPresionarTecla(evt);
     }//GEN-LAST:event_txtIdiomasPresionarTecla
 
     private void btnBuscarIdiomaClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarIdiomaClic
-        // TODO add your handling code here:
+        this.controlador.btnBuscarClic(evt);
     }//GEN-LAST:event_btnBuscarIdiomaClic
 
     private void btnBorrarIdiomaClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarIdiomaClic
-        // TODO add your handling code here:
+        if(this.tablaIdiomas.getSelectedRow() >= 0){
+            this.controlador.btnBorrarClic(evt);   
+        }
     }//GEN-LAST:event_btnBorrarIdiomaClic
 
     private void VentanaObtenerFoco(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_VentanaObtenerFoco
-        // TODO add your handling code here:
+        this.controlador.ventanaObtenerFoco(evt);
     }//GEN-LAST:event_VentanaObtenerFoco
 
     /**
@@ -219,6 +219,30 @@ private IControladorIdiomas controlador;
 
         /* Create and display the dialog */
      
+    }
+    
+    public JTable getTablaIdiomas() {
+        return tablaIdiomas;
+    }
+    
+    public void idiomasCargados(){
+        if (this.tablaIdiomas.getRowCount() == 0){
+            this.btnBorrarIdioma.setEnabled(false);
+        }
+        else {
+            this.btnBorrarIdioma.setEnabled(true);
+            
+        }
+        
+    }
+    
+    public Idioma getIdioma(){
+        ModeloTablaIdiomas mti = (ModeloTablaIdiomas)this.tablaIdiomas.getModel();
+        return mti.verIdioma(this.tablaIdiomas.getSelectedRow());
+    }
+    
+    public String getBusquedaIdiomas() {
+        return this.txtBuscarIdioma.getText();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

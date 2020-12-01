@@ -1,14 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package principal.vistas;
 
 import interfaces.IControladorSalir;
-import principal.controladores.ControladorSalir;
 
-public class VentanaSalir extends javax.swing.JFrame {
+public class VentanaSalir extends javax.swing.JDialog {
     private IControladorSalir controlador;
     /**
-     * Creates new form VentanaSalir
+     * Creates new form VentanaSalirD
      */
-    public VentanaSalir(IControladorSalir controlador) {
+    public VentanaSalir(VentanaPrincipal padre, boolean modal, IControladorSalir controlador) {
+        super(padre, modal);
         initComponents();
         this.controlador = controlador;
     }
@@ -22,19 +27,14 @@ public class VentanaSalir extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnConfirmarSalir = new javax.swing.JButton();
-        btnCancelarSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnCancelarSalir = new javax.swing.JButton();
+        btnConfirmarSalir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Salir");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        btnConfirmarSalir.setText("Salir");
-        btnConfirmarSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmarSalirClic(evt);
-            }
-        });
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("¿Está seguro que desea salir?");
 
         btnCancelarSalir.setText("Cancelar");
         btnCancelarSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -43,7 +43,12 @@ public class VentanaSalir extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("¿Está seguro que desea salir?");
+        btnConfirmarSalir.setText("Salir");
+        btnConfirmarSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarSalirClic(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -51,17 +56,18 @@ public class VentanaSalir extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCancelarSalir)
                         .addGap(18, 18, 18)
-                        .addComponent(btnConfirmarSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnConfirmarSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -109,8 +115,9 @@ public class VentanaSalir extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        IControladorSalir controlador = new ControladorSalir();
+        //</editor-fold>
+
+        /* Create and display the dialog */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

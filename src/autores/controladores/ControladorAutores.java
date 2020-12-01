@@ -8,13 +8,14 @@ import interfaces.IControladorAutores;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
+import principal.vistas.VentanaPrincipal;
 
 public class ControladorAutores implements IControladorAutores {
     private VentanaAMAutores ventana;
     private GestorAutores ga = GestorAutores.crear();
     
-    public ControladorAutores() {
-        this.ventana = new VentanaAMAutores(this);
+    public ControladorAutores(VentanaPrincipal padre, boolean modal) {
+        this.ventana = new VentanaAMAutores(padre, modal, this);
         this.ventana.autoresCargados();
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
@@ -23,38 +24,28 @@ public class ControladorAutores implements IControladorAutores {
     
     @Override
     public void btnNuevoProfesorClic(ActionEvent evt) {
-        ControladorAMProfesor controlador = new ControladorAMProfesor("Nuevo Profesor", true, true);
-        this.ventana.setVisible(false);
-        this.ventana.dispose();
+        ControladorAMProfesor controlador = new ControladorAMProfesor("Nuevo Profesor", true, true, this.ventana, true);
     }
 
     @Override
     public void btnNuevoAlumnoClic(ActionEvent evt) {
-        ControladorAMAlumno controlador = new ControladorAMAlumno("Nuevo Alumno", true, true);
-        this.ventana.setVisible(false);
-        this.ventana.dispose();
+        ControladorAMAlumno controlador = new ControladorAMAlumno("Nuevo Alumno", true, true, this.ventana, true);
     }
 
     @Override
     public void btnModificarProfesorClic(ActionEvent evt) {
-        ControladorAMProfesor controlador = new ControladorAMProfesor("Modificar Profesor", false, false, this.ventana.verProfesor());
-        this.ventana.setVisible(false);
-        this.ventana.dispose();
+        ControladorAMProfesor controlador = new ControladorAMProfesor("Modificar Profesor", false, false, this.ventana.verProfesor(), this.ventana, true);
     }
 
     @Override
     public void btnModificarAlumnoClic(ActionEvent evt) {
-        ControladorAMAlumno controlador = new ControladorAMAlumno("Modificar Alumno", false, false, this.ventana.verAlumno());
-        this.ventana.setVisible(false);
-        this.ventana.dispose();
+        ControladorAMAlumno controlador = new ControladorAMAlumno("Modificar Alumno", false, false, this.ventana.verAlumno(), this.ventana, true);
     }
 
     @Override
     public void btnBorrarProfesorClic(ActionEvent evt) {
         ga.BorrarAutor(this.ventana.verDniProfesor());
         this.actualizar();
-        //ModeloTablaProfesores mtp = (ModeloTablaProfesores)this.ventana.getTablaProfesores().getModel();
-        //mtp.actualizar();
     }
 
     @Override
@@ -83,8 +74,7 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void ventanaObtenerFoco(WindowEvent evt) {
-     this.actualizar();
-
+        this.actualizar();
     }
 
     @Override

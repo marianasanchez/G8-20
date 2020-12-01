@@ -867,7 +867,7 @@ import tipos.modelos.GestorTipos;
         
 //</editor-fold>
 //}
-//<editor-fold defaultstate="collapsed" desc="Parcial N° 1">
+//<editor-fold defaultstate="collapsed" desc="Traajo Práctico N° 7">
 //Parcial N° 1
 //package principal.controladores;
 
@@ -890,17 +890,17 @@ public class ControladorPrincipal implements IControladorPrincipal{
     
     @Override
     public void btnAutoresClic(ActionEvent evt) {
-        ControladorAutores autores = new ControladorAutores();
+        ControladorAutores autores = new ControladorAutores(this.ventana, true);
     }
 
     @Override
     public void btnSalirClic(ActionEvent evt) {
-        ControladorSalir salir = new ControladorSalir();
+        ControladorSalir salir = new ControladorSalir(this.ventana, true);
     }
 
     @Override
     public void btnIdiomasClic(ActionEvent evt) {
-        ControladorIdiomas idiomas = new ControladorIdiomas();
+        ControladorIdiomas idiomas = new ControladorIdiomas(this.ventana, true);
     }
 }
 //</editor-fold>

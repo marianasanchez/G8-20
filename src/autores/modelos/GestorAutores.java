@@ -54,7 +54,7 @@ public class GestorAutores implements IGestorAutores{
 
     @Override
     public String nuevoAutor(int dni, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
-        if((apellidos != null) && (nombres != null) && (cx != null) && (dni != 0)&& (clave != null) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cx.isBlank())&& (!clave.isBlank())){
+        if((apellidos != null) && (nombres != null) && (clave != null) && (dni != 0) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!clave.isBlank())){
             if(!clave.equals(claveRepetida)){
                 return CLAVES_DISTINTAS;
             }
@@ -97,22 +97,25 @@ public class GestorAutores implements IGestorAutores{
 
     @Override
     public String modificarAutor(Autor autor, String apellidos, String nombres, String cx, String clave, String claveRepetida) {
-        if(autor instanceof Alumno){
-            if(clave.equals(claveRepetida)){
-                for(Autor a : autores){
-                    if(a.equals(autor)){
-                        a.asignarApellidos(apellidos);
-                        a.asignarNombres(nombres);
-                        ((Alumno)a).asignarCx(cx);
-                        a.asignarClave(clave);
-                        return MODIFICADO;
+        if((apellidos != null) && (nombres != null) && (cx != null) && (clave != null) && (!apellidos.isBlank()) && (!nombres.isBlank()) && (!cx.isBlank())&& (!clave.isBlank())){
+            if(autor instanceof Alumno){
+                if(clave.equals(claveRepetida)){
+                    for(Autor a : autores){
+                        if(a.equals(autor)){
+                            a.asignarApellidos(apellidos);
+                            a.asignarNombres(nombres);
+                            ((Alumno)a).asignarCx(cx);
+                            a.asignarClave(clave);
+                            return MODIFICADO;
+                        }
                     }
+                    return INEXISTENTE;
                 }
-                return INEXISTENTE;
+                return CLAVES_DISTINTAS;
             }
-            return CLAVES_DISTINTAS;
+            return NO_ALUMNO;
         }
-        return NO_ALUMNO;
+        return INVALIDO;
     }
     
     @Override

@@ -7,17 +7,13 @@ package idiomas.vistas;
 
 import interfaces.IControladorAIdioma;
 
-/**
- *
- * @author Carlos
- */
 public class VentanaAIdioma extends javax.swing.JDialog {
     private IControladorAIdioma controlador;
     /**
      * Creates new form VentanaAIdioma
      */
-    public VentanaAIdioma(IControladorAIdioma controlador) {
-//        super(idiomas, true);
+    public VentanaAIdioma(VentanaIdiomas padre, boolean modal, IControladorAIdioma controlador) {
+        super(padre, true);
         initComponents();
         this.controlador = controlador;
     }

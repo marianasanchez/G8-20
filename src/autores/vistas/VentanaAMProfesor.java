@@ -1,7 +1,7 @@
 package autores.vistas;
 
-import autores.modelos.Autor;
 import autores.modelos.Cargo;
+import autores.modelos.ModeloComboCargos;
 import autores.modelos.Profesor;
 import interfaces.IControladorAMProfesor;
 import java.util.ArrayList;
@@ -14,9 +14,11 @@ public class VentanaAMProfesor extends JDialog {
     /**
      * Creates new form VentanaSalir
      */
-    public VentanaAMProfesor(IControladorAMProfesor controlador) {
+    public VentanaAMProfesor(VentanaAMAutores padre, boolean modal, IControladorAMProfesor controlador) {
+        super(padre, modal);
         initComponents();
         this.controlador = controlador;
+        this.comboBoxCargoProfesor.setModel(new ModeloComboCargos());
     }
         
     /**
@@ -255,19 +257,17 @@ public class VentanaAMProfesor extends JDialog {
         this.txtNombresProfesor.setText(nombres);
     }
     
-//    public void setCargo(){
-//        Cargo cargo = Cargo.toCargo(this.comboBoxCargoProfesor.getSelectedItem().toString().toUpperCase());
-//        return cargo;
-//    }
-//    
-//    public void setClave(String clave){
-//        this.txtClaveProfesor.setPassword(clave);
-//    }
-//    
-//    public String setClaveRepetida() {
-//        String claveRepetida = new String(this.txtRepetirClaveProfesor.getPassword());
-//        return claveRepetida;
-//    }
+    public void setCargo(Cargo cargo){
+        this.comboBoxCargoProfesor.setSelectedItem(cargo);
+    }
+    
+    public void setClave(String clave){
+        this.txtClaveProfesor.setText(clave);
+    }
+    
+    public void setClaveRepetida(String clave) {
+        this.txtRepetirClaveProfesor.setText(clave);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarNuevoProfesor;
