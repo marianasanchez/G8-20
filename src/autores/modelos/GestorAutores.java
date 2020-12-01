@@ -13,7 +13,7 @@ import publicaciones.modelos.GestorPublicaciones;
 
 public class GestorAutores implements IGestorAutores{
     private List<Autor> autores = new ArrayList<>();
-    public static final String EXITO = "El nuevo 'Autor' fue creado con éxito";
+    public static final String EXITO = "El nuevo Autor fue creado con éxito";
     public static final String REPETIDO = "ERROR. El nuevo 'Autor' ya fue creado";
     public static final String INVALIDO = "ERROR. El autor ingresado es inválido";
     public static final String INSTANCIADO = "ERROR. Un objeto de esta clase ya ha sido creado";

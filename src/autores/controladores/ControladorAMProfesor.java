@@ -47,9 +47,17 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
         String mensaje;
         if(crear == true){
             mensaje = this.ga.nuevoAutor(this.ventana.getDni(), this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCargo(), this.ventana.getClave(), this.ventana.getClaveRepetida());
+            if(mensaje.equals("El nuevo Autor fue creado con éxito")){
+                this.ventana.setVisible(false);
+                this.ventana.dispose();
+            }
         }
         else {
             mensaje = this.ga.modificarAutor(autorAux, this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCargo(), this.ventana.getClave(), this.ventana.getClaveRepetida());
+            if(mensaje.equals("El 'Autor' fue modificado")){
+                this.ventana.setVisible(false);
+                this.ventana.dispose();
+            }
         }
         ControladorMensajeAutor cont = new ControladorMensajeAutor(this.ventana, true, mensaje);
     }
