@@ -63,7 +63,7 @@ public class ModeloTablaIdiomas extends AbstractTableModel {
         }
         else{
             for (Idioma i : this.idiomas ){
-                if(i.verNombre().contains(nombre) || i.verNombre().contains(nombre.toLowerCase()) || i.verNombre().contains(nombre.toUpperCase())){
+                if(i.verNombre().toLowerCase().contains(nombre.toLowerCase())){
                     this.auxIdiomas.add(i);
                 }
             }

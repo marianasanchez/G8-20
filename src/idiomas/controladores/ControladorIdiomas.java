@@ -52,6 +52,8 @@ public class ControladorIdiomas implements IControladorIdiomas{
 
     @Override
     public void ventanaObtenerFoco(WindowEvent evt) {
+        gi.leerArchivo();
+        gi.escribirArchivo();
         this.actualizar();
     }
 

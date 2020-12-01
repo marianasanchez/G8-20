@@ -23,9 +23,15 @@ private VentanaAIdioma ventana;
     }
     @Override
     public void btnGuardarClic(ActionEvent evt) {
- 
         String mensaje;
         mensaje = this.gi.nuevoIdioma(this.ventana.getNombre());
+        if(mensaje.equals("Se ha escrito el archivo exitosamente")){
+            this.ventana.setVisible(false);
+            this.ventana.dispose();
+        }
+        else {
+            this.ventana.limpiar();
+        }
         ControladorMensajeIdioma cont = new ControladorMensajeIdioma(this.ventana, true, mensaje);
     }
 

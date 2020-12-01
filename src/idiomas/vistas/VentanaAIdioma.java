@@ -158,4 +158,8 @@ public class VentanaAIdioma extends javax.swing.JDialog {
     public String getNombre() {
         return this.txtNuevoIdioma.getText();
     }
+    
+    public void limpiar(){
+        this.txtNuevoIdioma.setText("");
+    }
 }
