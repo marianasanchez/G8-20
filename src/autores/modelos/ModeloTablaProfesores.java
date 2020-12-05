@@ -5,7 +5,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class ModeloTablaProfesores extends AbstractTableModel {
-    private ArrayList<String> nombreColumnas = new ArrayList<>();
+    private List<String> nombreColumnas = new ArrayList<>();
     private List<Profesor> profesores = new ArrayList<>();
     private GestorAutores ga = GestorAutores.crear();
     private ArrayList<Profesor> auxProfesores = new ArrayList<>();
@@ -14,8 +14,6 @@ public class ModeloTablaProfesores extends AbstractTableModel {
         nombreColumnas.add("Apellidos");
         nombreColumnas.add("Nombres");
         nombreColumnas.add("Cargo");
-//        ga.nuevoAutor(12312, "duran", "bernardo", Cargo.ADG, "12345", "12345");
-//        ga.nuevoAutor(123412, "guzmanx", "Rodsi", Cargo.ADG, "1234s5", "1234s5");
         this.profesores = ga.verProfesores();
         this.actualizar();
     }

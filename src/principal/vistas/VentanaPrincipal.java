@@ -41,15 +41,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnLugares.setText("Lugares");
 
         btnIdiomas.setText("Idiomas");
-        btnIdiomas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIdiomasClic(evt);
-            }
-        });
 
         btnTipos.setText("Tipos");
 
         btnGrupos.setText("Grupos");
+        btnGrupos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGruposClicl(evt);
+            }
+        });
 
         btnAutores.setText("Autores");
         btnAutores.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +59,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         btnPublicaciones.setText("Publicaciones");
+        btnPublicaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPublicacionesClic(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -121,9 +126,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.controlador.btnAutoresClic(evt);
     }//GEN-LAST:event_btnAutoresClic
 
-    private void btnIdiomasClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIdiomasClic
-        this.controlador.btnIdiomasClic(evt);
-    }//GEN-LAST:event_btnIdiomasClic
+    private void btnGruposClicl(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGruposClicl
+        this.controlador.btnGruposClic(evt);
+    }//GEN-LAST:event_btnGruposClicl
+
+    private void btnPublicacionesClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPublicacionesClic
+        this.controlador.btnPublicacionesClic(evt);
+    }//GEN-LAST:event_btnPublicacionesClic
 
     /**
      * @param args the command line arguments

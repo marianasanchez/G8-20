@@ -6,13 +6,14 @@
 package principal.vistas;
 
 import interfaces.IControladorSalir;
+import javax.swing.JFrame;
 
 public class VentanaSalir extends javax.swing.JDialog {
     private IControladorSalir controlador;
     /**
      * Creates new form VentanaSalirD
      */
-    public VentanaSalir(VentanaPrincipal padre, boolean modal, IControladorSalir controlador) {
+    public VentanaSalir(JFrame padre, boolean modal, IControladorSalir controlador) {
         super(padre, modal);
         initComponents();
         this.controlador = controlador;
@@ -32,6 +33,7 @@ public class VentanaSalir extends javax.swing.JDialog {
         btnConfirmarSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Salir");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("¿Está seguro que desea salir?");

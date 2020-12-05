@@ -134,17 +134,15 @@ public class GestorPublicaciones implements IGestorPublicaciones {
         return publicaciones;
     }
 
-    @Override
-    public Publicacion verPublicacion(String titulo) {
-        for(Publicacion p : publicaciones){
-            if(p.verTitulo() == titulo){
-                return p;
-            }
-        }
-        return null;
-    }
-
- 
+//    @Override
+//    public Publicacion verPublicacion(String titulo) {
+//        for(Publicacion p : publicaciones){
+//            if(p.verTitulo() == titulo){
+//                return p;
+//            }
+//        }
+//        return null;
+//    }
 
     @Override
     public boolean existeEstaPublicacion(Publicacion publicacion) {
@@ -189,6 +187,4 @@ public class GestorPublicaciones implements IGestorPublicaciones {
         Collections.sort(busquedaPublicaciones);
         return busquedaPublicaciones;
     }
-    
-    
 }

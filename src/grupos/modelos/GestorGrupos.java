@@ -111,5 +111,21 @@ public class GestorGrupos implements IGestorGrupos{
         }
         return false;
     }
+
+    @Override
+    public String agregarMiembros(Grupo grupo, List<MiembroEnGrupo> miembros) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String quitarMiembros(Grupo grupo, List<MiembroEnGrupo> miembros) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String actualizarGrupos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
 }

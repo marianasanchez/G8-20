@@ -4,6 +4,7 @@ import static grupos.modelos.GestorGrupos.BORRADO_EXITO;
 import static grupos.modelos.GestorGrupos.BORRADO_INEXISTENTE;
 import static grupos.modelos.GestorGrupos.EXISTE_PUB;
 import grupos.modelos.Grupo;
+import grupos.modelos.MiembroEnGrupo;
 import interfaces.IGestorAutores;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -324,4 +325,16 @@ public class GestorAutores implements IGestorAutores{
             }
         }
     }
+
+    @Override
+    public String agregarGrupos(Autor autor, List<MiembroEnGrupo> grupos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String quitarGrupos(Autor autor, List<MiembroEnGrupo> grupos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }

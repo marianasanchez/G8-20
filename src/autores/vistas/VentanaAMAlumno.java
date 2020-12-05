@@ -1,11 +1,9 @@
 package autores.vistas;
 
 import autores.modelos.Alumno;
-import autores.modelos.Cargo;
 import interfaces.IControladorAMAlumno;
 import java.util.ArrayList;
 import javax.swing.JDialog;
-import javax.swing.JPasswordField;
 
 public class VentanaAMAlumno extends JDialog {
     ArrayList<Alumno> alumnos = new ArrayList<>();
@@ -14,7 +12,7 @@ public class VentanaAMAlumno extends JDialog {
     /**
      * Creates new form VentanaSalir
      */
-    public VentanaAMAlumno(VentanaAMAutores padre, boolean modal, IControladorAMAlumno controlador) {
+    public VentanaAMAlumno(JDialog padre, boolean modal, IControladorAMAlumno controlador) {
         super(padre, modal);
         initComponents();
         this.controlador = controlador;

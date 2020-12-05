@@ -8,13 +8,13 @@ import interfaces.IControladorAutores;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
-import principal.vistas.VentanaPrincipal;
+import javax.swing.JFrame;
 
 public class ControladorAutores implements IControladorAutores {
     private VentanaAMAutores ventana;
     private GestorAutores ga = GestorAutores.crear();
     
-    public ControladorAutores(VentanaPrincipal padre, boolean modal) {
+    public ControladorAutores(JFrame padre, boolean modal) {
         this.ventana = new VentanaAMAutores(padre, modal, this);
         this.ventana.autoresCargados();
         this.ventana.setLocationRelativeTo(null);

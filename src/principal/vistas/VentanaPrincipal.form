@@ -91,9 +91,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Idiomas"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIdiomasClic"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTipos">
       <Properties>
@@ -104,6 +101,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Grupos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGruposClicl"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAutores">
       <Properties>
@@ -117,6 +117,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Publicaciones"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPublicacionesClic"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSalir">
       <Properties>

@@ -14,7 +14,7 @@ public class VentanaAMProfesor extends JDialog {
     /**
      * Creates new form VentanaSalir
      */
-    public VentanaAMProfesor(VentanaAMAutores padre, boolean modal, IControladorAMProfesor controlador) {
+    public VentanaAMProfesor(JDialog padre, boolean modal, IControladorAMProfesor controlador) {
         super(padre, modal);
         initComponents();
         this.controlador = controlador;

@@ -4,10 +4,11 @@ import autores.modelos.Alumno;
 import autores.modelos.Autor;
 import autores.modelos.GestorAutores;
 import autores.vistas.VentanaAMAlumno;
-import autores.vistas.VentanaAMAutores;
 import interfaces.IControladorAMAlumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
+import javax.swing.JDialog;
 
 public class ControladorAMAlumno implements IControladorAMAlumno{
 
@@ -16,7 +17,7 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
     private boolean crear;
     private Autor autorAux;
     
-    public ControladorAMAlumno(String title, boolean dniEnabled, boolean crear, VentanaAMAutores padre, boolean modal) {
+    public ControladorAMAlumno(String title, boolean dniEnabled, boolean crear, JDialog padre, boolean modal) {
         this.crear = crear;
         this.ventana = new VentanaAMAlumno(padre, modal, this);
         this.ventana.setTitle(title);
@@ -25,7 +26,7 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
         this.ventana.setVisible(true);
     }
     
-    public ControladorAMAlumno(String title, boolean dniEnabled, boolean crear, Autor autor, VentanaAMAutores padre, boolean modal){
+    public ControladorAMAlumno(String title, boolean dniEnabled, boolean crear, Autor autor, JDialog padre, boolean modal){
         this.crear = crear;
         this.ventana = new VentanaAMAlumno(padre, modal, this);
         this.ventana.setTitle(title);
@@ -170,5 +171,10 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
                     break;
             }
         }
+    }
+
+    @Override
+    public void ventanaObtenerFoco(WindowEvent evt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

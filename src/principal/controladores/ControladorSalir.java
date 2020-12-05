@@ -3,13 +3,13 @@ package principal.controladores;
 import java.awt.event.ActionEvent;
 import principal.vistas.VentanaSalir;
 import interfaces.IControladorSalir;
-import principal.vistas.VentanaPrincipal;
+import javax.swing.JFrame;
 
 public class ControladorSalir implements IControladorSalir{
 
     private VentanaSalir ventana;
     
-    public ControladorSalir(VentanaPrincipal padre, boolean modal) {
+    public ControladorSalir(JFrame padre, boolean modal) {
         this.ventana = new VentanaSalir(padre, modal, this);
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
