@@ -24,7 +24,7 @@ public class ControladorGrupos implements IControladorGrupos{
     
     @Override
     public void btnNuevoClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    ControladorAMGrupo controlador = new ControladorAMGrupo("Nuevo Profesor", true, true, this.ventana, true);
     }
 
     @Override
@@ -40,7 +40,8 @@ public class ControladorGrupos implements IControladorGrupos{
 
     @Override
     public void btnVolverClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.ventana.setVisible(false);
+        this.ventana.dispose();
     }
 
     @Override
@@ -51,12 +52,25 @@ public class ControladorGrupos implements IControladorGrupos{
 
     @Override
     public void ventanaObtenerFoco(WindowEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.actualizar();
     }
 
     @Override
     public void txtNombrePresionarTecla(KeyEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                char c = evt.getKeyChar();
+        if (!Character.isLetter(c) || !Character.isDigit(c)) {
+            switch(c) {
+                case KeyEvent.VK_ENTER:    
+                   this.btnBuscarClic(null);
+                case KeyEvent.VK_BACK_SPACE:
+                case KeyEvent.VK_SPACE:
+                case KeyEvent.VK_DELETE:
+                    break;
+                default:                    
+                    evt.consume();
+                    break;
+            }
+        }
     }
     
     public void actualizar(){

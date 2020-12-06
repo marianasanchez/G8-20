@@ -5,18 +5,23 @@
  */
 package publicaciones.vistas;
 
+import interfaces.IControladorAMPublicacion;
+import javax.swing.JDialog;
+
 /**
  *
  * @author Carlos
  */
 public class VentanaAMPublicacion extends javax.swing.JDialog {
-
+    private IControladorAMPublicacion controlador;
     /**
      * Creates new form VentanaAMPublicaciones
      */
-    public VentanaAMPublicacion(java.awt.Frame parent, boolean modal) {
+    public VentanaAMPublicacion(JDialog parent, boolean modal, IControladorAMPublicacion controlador) {
         super(parent, modal);
         initComponents();
+        this.controlador = controlador;
+//        this.tablaGrupos.setModel(new ModeloTablaGrupos());
     }
 
     /**
@@ -320,18 +325,7 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaAMPublicacion dialog = new VentanaAMPublicacion(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

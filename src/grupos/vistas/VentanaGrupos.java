@@ -190,27 +190,27 @@ public class VentanaGrupos extends javax.swing.JDialog {
     }//GEN-LAST:event_btnBuscarClic
 
     private void btnNuevoClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoClic
-        // TODO add your handling code here:
+        this.controlador.btnNuevoClic(evt);
     }//GEN-LAST:event_btnNuevoClic
 
     private void btnModificarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClic
-        // TODO add your handling code here:
+        this.controlador.btnModificarClic(evt);
     }//GEN-LAST:event_btnModificarClic
 
     private void btnBorrarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarClic
-        // TODO add your handling code here:
+        this.controlador.btnBorrarClic(evt);
     }//GEN-LAST:event_btnBorrarClic
 
     private void btnVolverClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverClic
-        // TODO add your handling code here:
+        this.controlador.btnVolverClic(evt);
     }//GEN-LAST:event_btnVolverClic
 
     private void ventanaObtenerFoco(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_ventanaObtenerFoco
-        // TODO add your handling code here:
+        this.controlador.ventanaObtenerFoco(evt);
     }//GEN-LAST:event_ventanaObtenerFoco
 
     private void txtNombrePresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombrePresionarTecla
-        // TODO add your handling code here:
+        this.controlador.txtNombrePresionarTecla(evt);
     }//GEN-LAST:event_txtNombrePresionarTecla
 
     /**

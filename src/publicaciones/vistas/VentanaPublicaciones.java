@@ -2,6 +2,9 @@ package publicaciones.vistas;
 
 import interfaces.IControladorPublicaciones;
 import javax.swing.JFrame;
+import javax.swing.JTable;
+import publicaciones.modelos.ModeloTablaPublicaciones;
+import publicaciones.modelos.Publicacion;
 
 public class VentanaPublicaciones extends javax.swing.JDialog {
 
@@ -12,6 +15,7 @@ public class VentanaPublicaciones extends javax.swing.JDialog {
     public VentanaPublicaciones(JFrame padre, boolean modal, IControladorPublicaciones controlador) {
         super(padre, modal);
         initComponents();
+        this.tablaPublicaciones.setModel(new ModeloTablaPublicaciones());
         this.controlador = controlador;
     }
 
@@ -29,7 +33,7 @@ public class VentanaPublicaciones extends javax.swing.JDialog {
         txtBuscarPublicaciones = new javax.swing.JTextField();
         btnBuscarPublicaciones = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaPublicaciones = new javax.swing.JTable();
         btnNuevaPublicacion = new javax.swing.JButton();
         btnModificarPublicacion = new javax.swing.JButton();
         btnBorrarPublicacion = new javax.swing.JButton();
@@ -62,7 +66,7 @@ public class VentanaPublicaciones extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPublicaciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -73,7 +77,7 @@ public class VentanaPublicaciones extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaPublicaciones);
 
         btnNuevaPublicacion.setText("Nueva");
         btnNuevaPublicacion.addActionListener(new java.awt.event.ActionListener() {
@@ -170,31 +174,31 @@ public class VentanaPublicaciones extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModificarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClic
-        // TODO add your handling code here:
+        this.controlador.btnModificarClic(evt);
     }//GEN-LAST:event_btnModificarClic
 
     private void btnBorrarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarClic
-        // TODO add your handling code here:
+        this.controlador.btnBorrarClic(evt);
     }//GEN-LAST:event_btnBorrarClic
 
     private void btnNuevaClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaClic
-        // TODO add your handling code here:
+        this.controlador.btnNuevaClic(evt);
     }//GEN-LAST:event_btnNuevaClic
 
     private void btnVolverClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverClic
-        // TODO add your handling code here:
+        this.controlador.btnVolverClic(evt);
     }//GEN-LAST:event_btnVolverClic
 
     private void btnBuscarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClic
-        // TODO add your handling code here:
+        this.controlador.btnBuscarClic(evt);
     }//GEN-LAST:event_btnBuscarClic
 
     private void ventanaObtenerFoco(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_ventanaObtenerFoco
-        // TODO add your handling code here:
+        this.controlador.ventanaObtenerFoco(evt);
     }//GEN-LAST:event_ventanaObtenerFoco
 
     private void txtTituloPresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTituloPresionarTecla
-        // TODO add your handling code here:
+        this.controlador.txtTituloPresionarTecla(evt);
     }//GEN-LAST:event_txtTituloPresionarTecla
 
     /**
@@ -225,6 +229,30 @@ public class VentanaPublicaciones extends javax.swing.JDialog {
         //</editor-fold>
    
     }
+     public JTable getTablaPublicaciones(){
+        return this.tablaPublicaciones;
+    }
+    
+    public String getBusquedaPublicaciones(){
+        return this.txtBuscarPublicaciones.getText();
+    }
+    
+    public Publicacion getPublicacion() {
+        ModeloTablaPublicaciones mtp = (ModeloTablaPublicaciones)this.tablaPublicaciones.getModel();
+        return mtp.verPublicacion(this.tablaPublicaciones.getSelectedRow());
+    }
+    
+    public void publicacionesCargadas(){
+        if (this.tablaPublicaciones.getRowCount() == 0){
+            this.btnModificarPublicacion.setEnabled(false);
+            this.btnBorrarPublicacion.setEnabled(false);
+        }
+        else {
+            this.btnModificarPublicacion.setEnabled(true);
+            this.btnBorrarPublicacion.setEnabled(true);
+            
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrarPublicacion;
@@ -235,7 +263,12 @@ public class VentanaPublicaciones extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaPublicaciones;
     private javax.swing.JTextField txtBuscarPublicaciones;
     // End of variables declaration//GEN-END:variables
+
+//    public Publicacion verPublicacion() {
+//       ModeloTablaP mtp = (ModeloTablaProfesores)this.tablaProfesores.getModel();
+//       return mtp.verAutor(this.tablaProfesores.getSelectedRow());
+//    }
 }

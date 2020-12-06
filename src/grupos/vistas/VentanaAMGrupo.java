@@ -5,18 +5,22 @@
  */
 package grupos.vistas;
 
+import interfaces.IControladorAMGrupo;
+import javax.swing.JDialog;
+
 /**
  *
  * @author Carlos
  */
 public class VentanaAMGrupo extends javax.swing.JDialog {
-
+    private IControladorAMGrupo controlador;
     /**
      * Creates new form VentanaAGrupo
      */
-    public VentanaAMGrupo(java.awt.Frame parent, boolean modal) {
+    public VentanaAMGrupo(JDialog parent, boolean modal, IControladorAMGrupo controlador) {
         super(parent, modal);
         initComponents();
+        this.controlador = controlador;
     }
 
     /**
@@ -210,18 +214,7 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaAMGrupo dialog = new VentanaAMGrupo(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
