@@ -308,8 +308,8 @@ public class VentanaAMAutores extends javax.swing.JDialog {
 
     private void btnBorrarProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarProfesorClic
         if (this.tablaProfesores.getSelectedRow() >= 0) {
-        this.controlador.btnBorrarProfesorClic(evt);
-         }
+            this.controlador.btnBorrarProfesorClic(evt);
+        }
     }//GEN-LAST:event_btnBorrarProfesorClic
 
     private void btnNuevoProfesorClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProfesorClic
@@ -352,7 +352,7 @@ public class VentanaAMAutores extends javax.swing.JDialog {
 
     private void btnBorrarAlumnoClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarAlumnoClic
         if (this.tablaAlumnos.getSelectedRow() >= 0) {
-        this.controlador.btnBorrarAlumnoClic(evt);
+            this.controlador.btnBorrarAlumnoClic(evt);
         }
     }//GEN-LAST:event_btnBorrarAlumnoClic
 

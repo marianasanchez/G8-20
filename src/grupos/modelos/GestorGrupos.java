@@ -19,9 +19,9 @@ public class GestorGrupos implements IGestorGrupos{
     public static final String INSTANCIADO = "ERROR. Un objeto de esta clase ya ha sido creado";
     public static final String MODIFICADO = "El 'Grupo' fue modificado";
     public static final String INEXISTENTE = "ERROR. El 'Grupo' no existe";
-    public static final String BORRADO_EXITO = "Se ha borrado con éxito el tipo seleccionado";
-    public static final String BORRADO_INEXISTENTE = "No se encuentra el tipo seleccionado";
-    public static final String EXISTE_PUB = "ERROR. Existe una publicación asociada a ese tipo";
+    public static final String BORRADO_EXITO = "Se ha borrado con éxito el grupo seleccionado";
+    public static final String BORRADO_INEXISTENTE = "No se encuentra el grupo seleccionado";
+    public static final String EXISTE_PUB = "ERROR. Existe una publicación asociada a ese grupo";
     
     private static GestorGrupos instancia;
     
@@ -97,7 +97,7 @@ public class GestorGrupos implements IGestorGrupos{
     @Override
     public Grupo verGrupo(String nombre) {
         for (Grupo g : grupos){
-            if (g.verNombre() == nombre) {
+            if (g.verNombre().equals(nombre)) {
                 return g;
             }
         }

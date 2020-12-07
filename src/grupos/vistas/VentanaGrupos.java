@@ -194,11 +194,15 @@ public class VentanaGrupos extends javax.swing.JDialog {
     }//GEN-LAST:event_btnNuevoClic
 
     private void btnModificarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClic
-        this.controlador.btnModificarClic(evt);
+        if (this.tablaGrupos.getSelectedRow() >= 0){
+            this.controlador.btnModificarClic(evt);
+        }
     }//GEN-LAST:event_btnModificarClic
 
     private void btnBorrarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarClic
-        this.controlador.btnBorrarClic(evt);
+        if (this.tablaGrupos.getSelectedRow() >= 0){
+            this.controlador.btnBorrarClic(evt);
+        }
     }//GEN-LAST:event_btnBorrarClic
 
     private void btnVolverClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverClic

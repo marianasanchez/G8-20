@@ -50,8 +50,9 @@ public class GestorIdiomas implements IGestorIdiomas{
             if (!this.idiomas.contains(i)){
                this.idiomas.add(i);
                Collections.sort(idiomas);
-               String resultado = this.escribirArchivo();
-               return (resultado.equals(ESCRITURA_OK) ? OK : resultado);
+               return EXITO;
+//               String resultado = this.escribirArchivo();
+//               return (resultado.equals(ESCRITURA_OK) ? OK : resultado);
             }
             else {
                 return REPETIDO;

@@ -12,10 +12,11 @@ public class VentanaAMAlumno extends JDialog {
     /**
      * Creates new form VentanaSalir
      */
-    public VentanaAMAlumno(JDialog padre, boolean modal, IControladorAMAlumno controlador) {
+    public VentanaAMAlumno(JDialog padre, boolean modal, IControladorAMAlumno controlador, boolean tablaVisible) {
         super(padre, modal);
         initComponents();
         this.controlador = controlador;
+        this.tablaGruposAlumno.setVisible(tablaVisible);
     }
         
     /**
@@ -43,7 +44,7 @@ public class VentanaAMAlumno extends JDialog {
         btnCancelarNuevoProfesor = new javax.swing.JButton();
         txtCX = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tablaGruposAlumno = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -119,7 +120,7 @@ public class VentanaAMAlumno extends JDialog {
             }
         });
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tablaGruposAlumno.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -130,7 +131,7 @@ public class VentanaAMAlumno extends JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(tablaGruposAlumno);
 
         jLabel5.setText("Grupos:");
 
@@ -312,7 +313,7 @@ public class VentanaAMAlumno extends JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable4;
+    private javax.swing.JTable tablaGruposAlumno;
     private javax.swing.JTextField txtApellidosAlumno;
     private javax.swing.JTextField txtCX;
     private javax.swing.JPasswordField txtClaveAlumno;

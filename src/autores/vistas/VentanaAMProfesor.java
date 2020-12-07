@@ -14,11 +14,12 @@ public class VentanaAMProfesor extends JDialog {
     /**
      * Creates new form VentanaSalir
      */
-    public VentanaAMProfesor(JDialog padre, boolean modal, IControladorAMProfesor controlador) {
+    public VentanaAMProfesor(JDialog padre, boolean modal, IControladorAMProfesor controlador, boolean tablaVisible) {
         super(padre, modal);
         initComponents();
         this.controlador = controlador;
         this.comboBoxCargoProfesor.setModel(new ModeloComboCargos());
+        this.tablaGruposProfesor.setVisible(tablaVisible);
     }
         
     /**
@@ -52,7 +53,7 @@ public class VentanaAMProfesor extends JDialog {
         txtRepetirClaveProfesor = new javax.swing.JPasswordField();
         btnCancelarNuevoProfesor = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tablaGruposProfesor = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -163,7 +164,7 @@ public class VentanaAMProfesor extends JDialog {
             }
         });
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tablaGruposProfesor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -174,7 +175,7 @@ public class VentanaAMProfesor extends JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(tablaGruposProfesor);
 
         jLabel5.setText("Grupos:");
 
@@ -359,7 +360,7 @@ public class VentanaAMProfesor extends JDialog {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
+    private javax.swing.JTable tablaGruposProfesor;
     private javax.swing.JTextField txtApellidosProfesor;
     private javax.swing.JPasswordField txtClaveProfesor;
     private javax.swing.JTextField txtDNIProfesor;

@@ -5,6 +5,7 @@
  */
 package grupos.vistas;
 
+import grupos.modelos.Grupo;
 import interfaces.IControladorAMGrupo;
 import javax.swing.JDialog;
 
@@ -38,7 +39,7 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
         txtNombreGrupo = new javax.swing.JTextField();
         txtDescripcionGrupo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaMiembros = new javax.swing.JTable();
         btnModificarMiembros = new javax.swing.JButton();
         btnGuardarGrupo = new javax.swing.JButton();
         btnCancelarGrupo = new javax.swing.JButton();
@@ -70,7 +71,7 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaMiembros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -81,7 +82,7 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaMiembros);
 
         btnModificarMiembros.setText("Modificar");
         btnModificarMiembros.addActionListener(new java.awt.event.ActionListener() {
@@ -162,15 +163,15 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClic
-        // TODO add your handling code here:
+        this.controlador.btnGuardarClic(evt);
     }//GEN-LAST:event_btnGuardarClic
 
     private void btnCancelarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarClic
-        // TODO add your handling code here:
+        this.controlador.btnCancelarClic(evt);
     }//GEN-LAST:event_btnCancelarClic
 
     private void btnModificarMiembrosClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarMiembrosClic
-        // TODO add your handling code here:
+        this.controlador.btnModificarMiembrosClic(evt);
     }//GEN-LAST:event_btnModificarMiembrosClic
 
     private void txtNombrePresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombrePresionarTecla
@@ -216,6 +217,24 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
         /* Create and display the dialog */
         
     }
+    
+    public void modificarEnabled (boolean modificarEnabled, Grupo grupo){
+        this.btnModificarMiembros.setEnabled(modificarEnabled);
+        this.tablaMiembros.setVisible(modificarEnabled);
+        this.jLabel3.setVisible(modificarEnabled);
+        if(modificarEnabled){
+            this.txtNombreGrupo.setEnabled(false);
+            this.txtNombreGrupo.setText(grupo.verNombre());
+        }
+    }
+    
+    public String getNombre(){
+        return this.txtNombreGrupo.getText();
+    }
+    
+    public String getDescripcion(){
+        return this.txtDescripcionGrupo.getText();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarGrupo;
@@ -225,7 +244,7 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaMiembros;
     private javax.swing.JTextField txtDescripcionGrupo;
     private javax.swing.JTextField txtNombreGrupo;
     // End of variables declaration//GEN-END:variables

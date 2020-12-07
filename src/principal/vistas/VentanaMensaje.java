@@ -1,15 +1,14 @@
-package autores.vistas;
+package principal.vistas;
 
-import principal.vistas.*;
 import javax.swing.JDialog;
 import publicaciones.controladores.ControladorMensaje;
 
-public class VentanaMensajeAutor extends javax.swing.JDialog {
+public class VentanaMensaje extends javax.swing.JDialog {
     private ControladorMensaje controlador;
     /**
      * Creates new form VentanaMensajeAutor
      */
-    public VentanaMensajeAutor(JDialog padre, boolean modal, ControladorMensaje controlador) {
+    public VentanaMensaje(JDialog padre, boolean modal, ControladorMensaje controlador) {
         super(padre, modal);
         initComponents();
         this.controlador = controlador;
@@ -62,18 +61,14 @@ public class VentanaMensajeAutor extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaMensajeAutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMensaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaMensajeAutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMensaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaMensajeAutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMensaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaMensajeAutor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMensaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        //</editor-fold>
-
         //</editor-fold>
 
         //</editor-fold>

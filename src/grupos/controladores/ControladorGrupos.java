@@ -24,17 +24,17 @@ public class ControladorGrupos implements IControladorGrupos{
     
     @Override
     public void btnNuevoClic(ActionEvent evt) {
-    ControladorAMGrupo controlador = new ControladorAMGrupo("Nuevo Profesor", true, true, this.ventana, true);
+        ControladorAMGrupo controlador = new ControladorAMGrupo("Nuevo Grupo", false, this.ventana, true);
     }
 
     @Override
     public void btnModificarClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ControladorAMGrupo controlador = new ControladorAMGrupo("Modificar Grupo", true, this.ventana.getGrupo(), this.ventana, true);
     }
 
     @Override
     public void btnBorrarClic(ActionEvent evt) {
-        gg.borrarGrupo(this.ventana.getGrupo());
+        ControladorConfirmarBorrarGrupo controlador = new ControladorConfirmarBorrarGrupo(this.ventana, true, this.ventana.getGrupo().verNombre());
         this.actualizar();
     }
 
@@ -57,8 +57,8 @@ public class ControladorGrupos implements IControladorGrupos{
 
     @Override
     public void txtNombrePresionarTecla(KeyEvent evt) {
-                char c = evt.getKeyChar();
-        if (!Character.isLetter(c) || !Character.isDigit(c)) {
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isDigit(c)) {
             switch(c) {
                 case KeyEvent.VK_ENTER:    
                    this.btnBuscarClic(null);

@@ -1,13 +1,9 @@
 package autores.modelos;
 
-import static grupos.modelos.GestorGrupos.BORRADO_EXITO;
-import static grupos.modelos.GestorGrupos.BORRADO_INEXISTENTE;
-import static grupos.modelos.GestorGrupos.EXISTE_PUB;
 import grupos.modelos.Grupo;
 import grupos.modelos.MiembroEnGrupo;
 import interfaces.IGestorAutores;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import publicaciones.modelos.GestorPublicaciones;
@@ -23,6 +19,9 @@ public class GestorAutores implements IGestorAutores{
     public static final String CLAVES_DISTINTAS = "ERROR. Las claves no coinciden";
     public static final String NO_PROFESOR = "ERROR. El autor ingresado no es un profesor";
     public static final String NO_ALUMNO = "ERROR. El autor ingresado no es un alumno";
+    public static final String BORRADO_EXITO = "Se ha borrado con éxito el autor seleccionado";
+    public static final String BORRADO_INEXISTENTE = "No se encuentra el autor seleccionado";
+    public static final String EXISTE_PUB = "ERROR. Existe una publicación asociada a ese autor";
     
     private static GestorAutores instancia;
     
@@ -317,14 +316,14 @@ public class GestorAutores implements IGestorAutores{
         return false;
     }
 
-    public void BorrarAutor(int dni) {
-        for(Autor a : autores){
-            if(a.verDni() == dni){
-                autores.remove(a);
-                return ;
-            }
-        }
-    }
+//    public void BorrarAutor(int dni) {
+//        for(Autor a : autores){
+//            if(a.verDni() == dni){
+//                autores.remove(a);
+//                return ;
+//            }
+//        }
+//    }
 
     @Override
     public String agregarGrupos(Autor autor, List<MiembroEnGrupo> grupos) {

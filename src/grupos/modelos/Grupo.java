@@ -7,12 +7,13 @@ package grupos.modelos;
 
 import autores.modelos.Autor;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Grupo implements Comparable<Grupo> {
     private String nombre;
     private String descripcion;
-    private ArrayList<MiembroEnGrupo> miembrosEnGrupo = new ArrayList<>();
+    private List<MiembroEnGrupo> miembrosEnGrupo = new ArrayList<>();
 
     public Grupo(String nombre, String descripcion) {
         this.nombre = nombre;

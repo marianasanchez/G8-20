@@ -1,22 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package grupos.vistas;
 
-/**
- *
- * @author Carlos
- */
-public class VentanaModificarMiembros extends javax.swing.JDialog {
+import grupos.modelos.ModeloComboRol;
+import grupos.modelos.ModeloTablaModificarGrupo;
+import interfaces.IControladorModificarMiembros;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumn;
 
+public class VentanaModificarMiembros extends javax.swing.JDialog {
+    private IControladorModificarMiembros controlador;
     /**
      * Creates new form VentanaModificarMiembros
      */
-    public VentanaModificarMiembros(java.awt.Frame parent, boolean modal) {
+    public VentanaModificarMiembros(JDialog parent, boolean modal, IControladorModificarMiembros controlador) {
         super(parent, modal);
         initComponents();
+        this.controlador = controlador;
+        this.jTable1.setModel(new ModeloTablaModificarGrupo());
+        this.jTable1.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
     }
 
     /**
@@ -125,19 +130,19 @@ public class VentanaModificarMiembros extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTodosClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTodosClic
-        // TODO add your handling code here:
+        this.controlador.btnTodosClic(evt);
     }//GEN-LAST:event_btnTodosClic
 
     private void btnNingunoClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNingunoClic
-        // TODO add your handling code here:
+        this.controlador.btnNingunoClic(evt);
     }//GEN-LAST:event_btnNingunoClic
 
     private void btnAceptarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarClic
-        // TODO add your handling code here:
+        this.controlador.btnAceptarClic(evt);
     }//GEN-LAST:event_btnAceptarClic
 
     private void btnCancelarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarClic
-        // TODO add your handling code here:
+        this.controlador.btnCancelarClic(evt);
     }//GEN-LAST:event_btnCancelarClic
 
     /**
@@ -168,18 +173,23 @@ public class VentanaModificarMiembros extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaModificarMiembros dialog = new VentanaModificarMiembros(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+        
+    }
+    
+    public void setBox(JTable tabla, TableColumn columna){
+        JComboBox c = new JComboBox();
+        c.setModel(new ModeloComboRol());
+//        c.addItem("ADMINISTRADOR");
+//        c.addItem("COLABORADOR");
+        
+        columna.setCellEditor(new DefaultCellEditor(c));
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+        renderer.setToolTipText("Seleccione el rol");
+        columna.setCellRenderer(renderer);
+    }
+    
+    public JTable getTabla(){
+        return this.jTable1;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

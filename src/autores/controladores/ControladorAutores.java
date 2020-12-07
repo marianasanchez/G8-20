@@ -44,13 +44,13 @@ public class ControladorAutores implements IControladorAutores {
 
     @Override
     public void btnBorrarProfesorClic(ActionEvent evt) {
-        ga.BorrarAutor(this.ventana.verDniProfesor());
+        ControladorConfirmarBorrarAutor controlador = new ControladorConfirmarBorrarAutor(this.ventana, true, this.ventana.verDniProfesor());
         this.actualizar();
     }
 
     @Override
     public void btnBorrarAlumnoClic(ActionEvent evt) {
-        ga.BorrarAutor(this.ventana.verDniAlumno());
+        ControladorConfirmarBorrarAutor controlador = new ControladorConfirmarBorrarAutor(this.ventana, true, this.ventana.verDniAlumno());
         this.actualizar();
     }
 

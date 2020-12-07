@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import javax.swing.JDialog;
+import publicaciones.controladores.ControladorMensaje;
 
 /**
  *
@@ -24,45 +25,53 @@ class ControladorAMGrupo implements IControladorAMGrupo{
     private boolean crear;
     private Grupo grupoAux;
     
-    public ControladorAMGrupo(String title, boolean dniEnabled, boolean crear, JDialog padre, boolean modal) {
-        this.crear = crear;
+    public ControladorAMGrupo(String title, boolean modificarEnabled, JDialog padre, boolean modal) {
+        this.crear = !modificarEnabled;
         this.ventana = new VentanaAMGrupo(padre, modal, this);
         this.ventana.setTitle(title);
-//        this.ventana.dniEnabled(dniEnabled);
+        this.ventana.modificarEnabled(modificarEnabled, null);
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
     }
     
-    public ControladorAMGrupo(String title, boolean dniEnabled, boolean crear, Grupo grupo, JDialog padre, boolean modal){
-        this.crear = crear;
+    public ControladorAMGrupo(String title, boolean modificarEnabled, Grupo grupo, JDialog padre, boolean modal){
+        this.crear = !modificarEnabled;
         this.ventana = new VentanaAMGrupo(padre, modal, this);
         this.ventana.setTitle(title);
-//        this.ventana.dniEnabled(dniEnabled);
-//        this.ventana.setDni(String.valueOf(autor.verDni()));
-//        this.ventana.setApellidos(autor.verApellidos());
-//        this.ventana.setNombres(autor.verNombres());
-//        Profesor aux = (Profesor)autor;
-//        this.ventana.setCargo(aux.verCargo());
-//        this.ventana.setClave(autor.verClave());
-//        this.ventana.setClaveRepetida(autor.verClave());
-//        this.publicacionAux = autor;
+        this.ventana.modificarEnabled(modificarEnabled, grupo);
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
     }
 
     @Override
     public void btnGuardarClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String mensaje;
+        if(crear == true){
+            mensaje = this.gg.nuevoGrupo(this.ventana.getNombre(), this.ventana.getDescripcion());
+            if(mensaje.equals(gg.EXITO)){
+                this.ventana.setVisible(false);
+                this.ventana.dispose();
+            }
+        }
+        else {
+            mensaje = this.gg.modificarGrupo(gg.verGrupo(this.ventana.getNombre()), this.ventana.getDescripcion());
+            if(mensaje.equals(gg.MODIFICADO)){
+                this.ventana.setVisible(false);
+                this.ventana.dispose();
+            }
+        }
+        ControladorMensaje cont = new ControladorMensaje(this.ventana, true, mensaje);
     }
 
     @Override
     public void btnCancelarClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.ventana.setVisible(false);
+        this.ventana.dispose(); 
     }
 
     @Override
     public void btnModificarMiembrosClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ControladorModificarMiembros controlador = new ControladorModificarMiembros(this.ventana, true);
     }
 
     @Override

@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import javax.swing.JDialog;
+import publicaciones.controladores.ControladorMensaje;
 
 public class ControladorAMProfesor implements IControladorAMProfesor{
 
@@ -19,7 +20,7 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
     
     public ControladorAMProfesor(String title, boolean dniEnabled, boolean crear, JDialog padre, boolean modal) {
         this.crear = crear;
-        this.ventana = new VentanaAMProfesor(padre, modal, this);
+        this.ventana = new VentanaAMProfesor(padre, modal, this, false);
         this.ventana.setTitle(title);
         this.ventana.dniEnabled(dniEnabled);
         this.ventana.setLocationRelativeTo(null);
@@ -28,7 +29,7 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
     
     public ControladorAMProfesor(String title, boolean dniEnabled, boolean crear, Autor autor, JDialog padre, boolean modal){
         this.crear = crear;
-        this.ventana = new VentanaAMProfesor(padre, modal, this);
+        this.ventana = new VentanaAMProfesor(padre, modal, this, true);
         this.ventana.setTitle(title);
         this.ventana.dniEnabled(dniEnabled);
         this.ventana.setDni(String.valueOf(autor.verDni()));
@@ -48,19 +49,19 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
         String mensaje;
         if(crear == true){
             mensaje = this.ga.nuevoAutor(this.ventana.getDni(), this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCargo(), this.ventana.getClave(), this.ventana.getClaveRepetida());
-            if(mensaje.equals("El nuevo Autor fue creado con éxito")){
+            if(mensaje.equals(ga.EXITO)){
                 this.ventana.setVisible(false);
                 this.ventana.dispose();
             }
         }
         else {
             mensaje = this.ga.modificarAutor(autorAux, this.ventana.getApellidos(), this.ventana.getNombres(), this.ventana.getCargo(), this.ventana.getClave(), this.ventana.getClaveRepetida());
-            if(mensaje.equals("El 'Autor' fue modificado")){
+            if(mensaje.equals(ga.MODIFICADO)){
                 this.ventana.setVisible(false);
                 this.ventana.dispose();
             }
         }
-        ControladorMensajeAutor cont = new ControladorMensajeAutor(this.ventana, true, mensaje);
+        ControladorMensaje cont = new ControladorMensaje(this.ventana, true, mensaje);
     }
 
     @Override
