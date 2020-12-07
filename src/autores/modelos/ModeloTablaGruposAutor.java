@@ -1,19 +1,27 @@
 package autores.modelos;
 
+import grupos.modelos.GestorGrupos;
+import grupos.modelos.Grupo;
 import grupos.modelos.MiembroEnGrupo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class ModeloTablaGruposProfesor extends AbstractTableModel {
+public class ModeloTablaGruposAutor extends AbstractTableModel {
     private List<String> nombreColumnas = new ArrayList<>();
-    private List<MiembroEnGrupo> miembrosEnGrupos = new ArrayList<>();
-//    private GestorAutores ga = GestorAutores.crear();
+    private List<Grupo> grupos = new ArrayList<>();
+    private GestorAutores ga = GestorAutores.crear();
+    private GestorGrupos gg = GestorGrupos.crear();
+    private Autor autor;
 //    private List<Profesor> auxProfesores = new ArrayList<>();
     
-    public ModeloTablaGruposProfesor() {
+    public ModeloTablaGruposAutor(Autor autor) {
         nombreColumnas.add("Nombre");
         nombreColumnas.add("Rol");
+        if(autor != null){
+        this.autor = autor;
+        this.grupos = autor.mostrarGrupos();
+        }
 //        this.miembrosEnGrupos = ga.verProfesores();
 //        this.actualizar();
     }
@@ -25,15 +33,24 @@ public class ModeloTablaGruposProfesor extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return this.miembrosEnGrupos.size();
+//        if(this.autor.mostrarMiembroEnGrupos().isEmpty()){
+//            return 0;
+//        }
+        return this.grupos.size();
     }
 
     @Override
     public Object getValueAt(int fila, int columna) {
-        MiembroEnGrupo meg = this.miembrosEnGrupos.get(fila);
+        Grupo g = this.autor.mostrarGrupos().get(fila);
+        MiembroEnGrupo mgaux=null;
+        for (MiembroEnGrupo mg: autor.mostrarMiembroEnGrupos()){
+            if(g.equals(mg.verGrupo())){
+                mgaux=mg;
+            }
+        }
         switch(columna) {
-            case 0: return meg.verGrupo().verNombre();
-            default: return meg.verRol();
+            case 0: return g.verNombre();
+            default: return mgaux.verRol();
         }
     }
 

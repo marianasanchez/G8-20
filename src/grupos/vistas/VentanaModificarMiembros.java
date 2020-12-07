@@ -191,6 +191,8 @@ public class VentanaModificarMiembros extends javax.swing.JDialog {
     public JTable getTabla(){
         return this.jTable1;
     }
+    
+    public List 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;

@@ -114,12 +114,22 @@ public class GestorGrupos implements IGestorGrupos{
 
     @Override
     public String agregarMiembros(Grupo grupo, List<MiembroEnGrupo> miembros) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       for (MiembroEnGrupo meg: miembros){
+           if(grupo.equals(meg.verGrupo())){
+               grupo.agregarMiembro(meg.verAutor(), meg.verRol());
+           }
+       }
+       return "Miembros agregados con exito";
     }
 
     @Override
     public String quitarMiembros(Grupo grupo, List<MiembroEnGrupo> miembros) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  for (MiembroEnGrupo meg: miembros){
+           if(grupo.equals(meg.verGrupo())){
+               grupo.quitarMiembro(meg.verAutor());
+           }
+       }
+       return "Miembros quitados con exito";
     }
 
     @Override

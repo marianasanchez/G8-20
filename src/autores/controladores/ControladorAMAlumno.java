@@ -20,7 +20,7 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
     
     public ControladorAMAlumno(String title, boolean dniEnabled, boolean crear, JDialog padre, boolean modal) {
         this.crear = crear;
-        this.ventana = new VentanaAMAlumno(padre, modal, this, false);
+        this.ventana = new VentanaAMAlumno(padre, modal, this, false, null);
         this.ventana.setTitle(title);
         this.ventana.dniEnabled(dniEnabled);
         this.ventana.setLocationRelativeTo(null);
@@ -29,7 +29,7 @@ public class ControladorAMAlumno implements IControladorAMAlumno{
     
     public ControladorAMAlumno(String title, boolean dniEnabled, boolean crear, Autor autor, JDialog padre, boolean modal){
         this.crear = crear;
-        this.ventana = new VentanaAMAlumno(padre, modal, this, true);
+        this.ventana = new VentanaAMAlumno(padre, modal, this, true, autor);
         this.ventana.setTitle(title);
         this.ventana.dniEnabled(dniEnabled);
         this.ventana.setDni(String.valueOf(autor.verDni()));

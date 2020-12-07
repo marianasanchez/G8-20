@@ -71,7 +71,7 @@ class ControladorAMGrupo implements IControladorAMGrupo{
 
     @Override
     public void btnModificarMiembrosClic(ActionEvent evt) {
-        ControladorModificarMiembros controlador = new ControladorModificarMiembros(this.ventana, true);
+        ControladorModificarMiembros controlador = new ControladorModificarMiembros(this.ventana, true, gg.verGrupo(this.ventana.getNombre()));
     }
 
     @Override

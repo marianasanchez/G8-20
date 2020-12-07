@@ -118,6 +118,10 @@ import java.util.List;
         return grupos;
     }
     
+    public List<MiembroEnGrupo> mostrarMiembroEnGrupos(){
+        return miembroEnGrupos;
+    }
+    
     public boolean esSuperAdministrador() {
         for (MiembroEnGrupo meg : miembroEnGrupos) {
             if(meg.verGrupo().verNombre().equals("Super Administradores")){

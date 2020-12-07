@@ -1,7 +1,9 @@
 package autores.vistas;
 
+import autores.modelos.Autor;
 import autores.modelos.Cargo;
 import autores.modelos.ModeloComboCargos;
+import autores.modelos.ModeloTablaGruposAutor;
 import autores.modelos.Profesor;
 import interfaces.IControladorAMProfesor;
 import java.util.ArrayList;
@@ -14,12 +16,14 @@ public class VentanaAMProfesor extends JDialog {
     /**
      * Creates new form VentanaSalir
      */
-    public VentanaAMProfesor(JDialog padre, boolean modal, IControladorAMProfesor controlador, boolean tablaVisible) {
+    public VentanaAMProfesor(JDialog padre, boolean modal, IControladorAMProfesor controlador, boolean tablaVisible, Autor autor) {
         super(padre, modal);
         initComponents();
         this.controlador = controlador;
         this.comboBoxCargoProfesor.setModel(new ModeloComboCargos());
+        this.tablaGruposProfesor.setModel(new ModeloTablaGruposAutor(autor));
         this.tablaGruposProfesor.setVisible(tablaVisible);
+        
     }
         
     /**

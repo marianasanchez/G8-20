@@ -2,6 +2,7 @@ package autores.modelos;
 
 import grupos.modelos.Grupo;
 import grupos.modelos.MiembroEnGrupo;
+import grupos.modelos.Rol;
 import interfaces.IGestorAutores;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -327,12 +328,22 @@ public class GestorAutores implements IGestorAutores{
 
     @Override
     public String agregarGrupos(Autor autor, List<MiembroEnGrupo> grupos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         for (MiembroEnGrupo meg: grupos){
+           if(autor.equals(meg.verAutor())){
+               autor.agregarGrupo(meg.verGrupo(), meg.verRol());
+           }
+       }
+       return "Grupos agregados con exito";
     }
 
     @Override
     public String quitarGrupos(Autor autor, List<MiembroEnGrupo> grupos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                 for (MiembroEnGrupo meg: grupos){
+           if(autor.equals(meg.verAutor())){
+               autor.quitarGrupo(meg.verGrupo());
+           }
+       }
+       return "Grupos quitados con exito";
     }
     
     

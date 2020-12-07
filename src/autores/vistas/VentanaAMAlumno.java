@@ -1,6 +1,8 @@
 package autores.vistas;
 
 import autores.modelos.Alumno;
+import autores.modelos.Autor;
+import autores.modelos.ModeloTablaGruposAutor;
 import interfaces.IControladorAMAlumno;
 import java.util.ArrayList;
 import javax.swing.JDialog;
@@ -12,10 +14,11 @@ public class VentanaAMAlumno extends JDialog {
     /**
      * Creates new form VentanaSalir
      */
-    public VentanaAMAlumno(JDialog padre, boolean modal, IControladorAMAlumno controlador, boolean tablaVisible) {
+    public VentanaAMAlumno(JDialog padre, boolean modal, IControladorAMAlumno controlador, boolean tablaVisible,Autor autor) {
         super(padre, modal);
         initComponents();
         this.controlador = controlador;
+        this.tablaGruposAlumno.setModel(new ModeloTablaGruposAutor(autor));
         this.tablaGruposAlumno.setVisible(tablaVisible);
     }
         

@@ -1,6 +1,8 @@
 package grupos.controladores;
 
 import autores.modelos.GestorAutores;
+import grupos.modelos.GestorGrupos;
+import grupos.modelos.Grupo;
 import grupos.modelos.ModeloTablaModificarGrupo;
 import grupos.vistas.VentanaModificarMiembros;
 import interfaces.IControladorModificarMiembros;
@@ -12,9 +14,12 @@ class ControladorModificarMiembros implements IControladorModificarMiembros{
     
     private VentanaModificarMiembros ventana;
     private GestorAutores ga = GestorAutores.crear();
+    private GestorGrupos gg = GestorGrupos.crear();
+    private Grupo grupoaux;
     
-    public ControladorModificarMiembros(JDialog padre, boolean modal) {
+    public ControladorModificarMiembros(JDialog padre, boolean modal, Grupo grupo) {
         this.ventana = new VentanaModificarMiembros(padre, modal, this);
+        this.grupoaux = grupo;
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
         this.ventana.setBox(this.ventana.getTabla(), this.ventana.getTabla().getColumn(1));
@@ -37,7 +42,7 @@ class ControladorModificarMiembros implements IControladorModificarMiembros{
 
     @Override
     public void btnAceptarClic(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        gg.agregarMiembros(this.grupoaux, miembros);
     }
 
     @Override
