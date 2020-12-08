@@ -90,6 +90,8 @@ import java.util.List;
             }
             else if((meg.verGrupo().equals(grupo)) && (!meg.verRol().equals(rol))){
                 meg.asignarRol(rol);
+                grupo.agregarMiembro(this, rol);
+                return;
             }
         }
         miembroEnGrupos.add(new MiembroEnGrupo(this, grupo, rol));

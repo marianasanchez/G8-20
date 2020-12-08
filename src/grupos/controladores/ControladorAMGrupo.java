@@ -7,6 +7,7 @@ package grupos.controladores;
 
 import grupos.modelos.GestorGrupos;
 import grupos.modelos.Grupo;
+import grupos.modelos.ModeloTablaMiembrosGrupo;
 import grupos.vistas.VentanaAMGrupo;
 import interfaces.IControladorAMGrupo;
 import java.awt.event.ActionEvent;
@@ -86,7 +87,8 @@ class ControladorAMGrupo implements IControladorAMGrupo{
 
     @Override
     public void ventanaObtenerFoco(WindowEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ModeloTablaMiembrosGrupo mtmg = (ModeloTablaMiembrosGrupo)this.ventana.getTabla().getModel();
+        mtmg.actualizar();
     }
     
 }

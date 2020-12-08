@@ -11,14 +11,16 @@ public class ModeloTablaMiembrosGrupo extends AbstractTableModel {
     private List<Autor> autoresMiembros = new ArrayList<>();
     private GestorAutores ga = GestorAutores.crear();
     private GestorGrupos gg = GestorGrupos.crear();
+    private Grupo grupo;
     
     public ModeloTablaMiembrosGrupo(Grupo grupo) {
         nombreColumnas.add("Nombre");
         nombreColumnas.add("Rol");
+        this.grupo = grupo;
         if(grupo != null){
             this.autoresMiembros = gg.verMiembros(grupo);
         }
-//        this.actualizar();
+        this.actualizar();
     }
 
     @Override
@@ -36,7 +38,7 @@ public class ModeloTablaMiembrosGrupo extends AbstractTableModel {
         Autor a = this.autoresMiembros.get(fila);
         switch(columna) {
             case 0: return a.verNombres();
-            default: return null;
+            default: return a.verRol(a, grupo);
         }
     }
 
@@ -45,44 +47,15 @@ public class ModeloTablaMiembrosGrupo extends AbstractTableModel {
         return this.nombreColumnas.get(columna);
     }
     
-    
-    
-//    public Autor verAutor(int fila) {
-//        return this.profesores.get(fila);
-//    }
-//    
-//    public void BuscarProfesores(String apellido){
-//        this.auxProfesores.clear();
-//        this.profesores = ga.verProfesores();
-//        if (apellido.isBlank()){
-//           // this.profesores.clear();
-//            this.profesores = ga.verProfesores();
-//            this.fireTableDataChanged();
-//        }
-//        else{
-//            for (Autor a : this.profesores ){
-//                if(a.verApellidos().contains(apellido)){
-//                    this.auxProfesores.add((Profesor)a);
-//                }
-//            }
-//            this.profesores = this.auxProfesores;
-//            this.fireTableDataChanged();
-//        }
-//    }
-//    
-//    public void actualizar() {
-//        GestorAutores ga = GestorAutores.crear();
-//        this.profesores = ga.verProfesores();
-//        this.fireTableDataChanged();
-//    }
+    public void actualizar() {
+        if(grupo != null){
+            this.autoresMiembros = gg.verMiembros(grupo);
+        }
+        this.fireTableDataChanged();
+    }
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        if(columnIndex == 1){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return false;
     }
 }

@@ -80,6 +80,8 @@ public class Grupo implements Comparable<Grupo> {
             }
             else if((meg.verAutor().equals(autor)) && (!meg.verRol().equals(rol))){
                 meg.asignarRol(rol);
+                autor.agregarGrupo(this, rol);
+                return;
             }
         }
         miembrosEnGrupo.add(new MiembroEnGrupo(autor, this, rol));
@@ -137,4 +139,8 @@ public class Grupo implements Comparable<Grupo> {
     public List<MiembroEnGrupo> mostrarMiembroEnGrupos(){
         return miembrosEnGrupo;
     }
+    
+//    public void limpiarMiembros(){
+//        this.miembrosEnGrupo.clear();
+//    }
 }

@@ -115,8 +115,11 @@ public class GestorGrupos implements IGestorGrupos{
 
     @Override
     public String agregarMiembros(Grupo grupo, List<MiembroEnGrupo> miembros) {
+//        grupo.limpiarMiembros();
         for (MiembroEnGrupo meg: miembros){
-            grupo.agregarMiembro(meg.verAutor(), meg.verRol());
+            if(meg.verRol() != null){
+                grupo.agregarMiembro(meg.verAutor(), meg.verRol());
+            }
         }
         return "Miembros agregados con exito";
     }

@@ -9,6 +9,7 @@ import grupos.modelos.Grupo;
 import grupos.modelos.ModeloTablaMiembrosGrupo;
 import interfaces.IControladorAMGrupo;
 import javax.swing.JDialog;
+import javax.swing.JTable;
 
 /**
  *
@@ -185,7 +186,7 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
     }//GEN-LAST:event_txtDescripcionPresionarTecla
 
     private void ventanaObtenerFoco(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_ventanaObtenerFoco
-        // TODO add your handling code here:
+        this.controlador.ventanaObtenerFoco(evt);
     }//GEN-LAST:event_ventanaObtenerFoco
 
     /**
@@ -238,6 +239,10 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
         return this.txtDescripcionGrupo.getText();
     }
 
+    public JTable getTabla(){
+        return this.tablaMiembros;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarGrupo;
     private javax.swing.JButton btnGuardarGrupo;
