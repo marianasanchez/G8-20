@@ -85,8 +85,11 @@ import java.util.List;
 
     public void agregarGrupo (Grupo grupo, Rol rol) {
         for (MiembroEnGrupo meg : miembroEnGrupos) {
-            if(meg.verGrupo().equals(grupo)){
+            if((meg.verGrupo().equals(grupo)) && (meg.verRol().equals(rol))){
                 return;
+            }
+            else if((meg.verGrupo().equals(grupo)) && (!meg.verRol().equals(rol))){
+                meg.asignarRol(rol);
             }
         }
         miembroEnGrupos.add(new MiembroEnGrupo(this, grupo, rol));
@@ -97,6 +100,7 @@ import java.util.List;
         for (MiembroEnGrupo meg : miembroEnGrupos) {
             if(meg.verGrupo().equals(grupo)){
                 miembroEnGrupos.remove(meg);
+//                this.quitarGrupo(grupo);
                 grupo.quitarMiembro(this);
             }
         }
@@ -134,5 +138,33 @@ import java.util.List;
     public void mostrar() {
         System.out.println("[" + this.verDni()+"] "+ this.verApellidos() +", "+this.verNombres());
         this.verGrupos();
+    }
+    
+    public Rol verRol(Autor autor, Grupo grupo){
+        for(MiembroEnGrupo meg : miembroEnGrupos){
+            if(autor.equals(meg.verAutor()) && grupo.equals(meg.verGrupo())){
+                return meg.verRol();
+            }
+        }
+        return null;
+    }
+    
+    public void setRol(Autor autor, Grupo grupo, Rol rol){
+        System.out.println("SET ROL");
+        for(MiembroEnGrupo meg : miembroEnGrupos){
+            if(grupo.equals(meg.verGrupo())){
+                meg.asignarRol(rol);
+                System.out.println(meg.verAutor().verNombres());
+                System.out.println(meg.verGrupo().verNombre());
+                System.out.println(meg.verRol());
+            }
+        }
+    }
+    
+    public void setMiembroEnGrupos (List<MiembroEnGrupo> megs){
+        this.miembroEnGrupos.clear();
+        for(MiembroEnGrupo meg : megs){
+            this.miembroEnGrupos.add(meg);
+        }
     }
 }

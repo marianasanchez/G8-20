@@ -75,8 +75,11 @@ public class Grupo implements Comparable<Grupo> {
     
     public void agregarMiembro (Autor autor, Rol rol) {
         for (MiembroEnGrupo meg : miembrosEnGrupo) {
-            if(meg.verAutor().equals(autor)){
+            if((meg.verAutor().equals(autor)) && (meg.verRol().equals(rol))){
                 return;
+            }
+            else if((meg.verAutor().equals(autor)) && (!meg.verRol().equals(rol))){
+                meg.asignarRol(rol);
             }
         }
         miembrosEnGrupo.add(new MiembroEnGrupo(autor, this, rol));
@@ -87,6 +90,7 @@ public class Grupo implements Comparable<Grupo> {
         for (MiembroEnGrupo meg : miembrosEnGrupo) {
             if(meg.verAutor().equals(miembro)){
                 miembrosEnGrupo.remove(meg);
+//                this.quitarMiembro(miembro);
                 miembro.quitarGrupo(this);
             }
         }
@@ -128,5 +132,9 @@ public class Grupo implements Comparable<Grupo> {
     @Override
     public int compareTo(Grupo g) {
        return this.verNombre().compareTo(g.verNombre());
+    }
+    
+    public List<MiembroEnGrupo> mostrarMiembroEnGrupos(){
+        return miembrosEnGrupo;
     }
 }

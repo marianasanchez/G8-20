@@ -27,7 +27,7 @@ class ControladorAMGrupo implements IControladorAMGrupo{
     
     public ControladorAMGrupo(String title, boolean modificarEnabled, JDialog padre, boolean modal) {
         this.crear = !modificarEnabled;
-        this.ventana = new VentanaAMGrupo(padre, modal, this);
+        this.ventana = new VentanaAMGrupo(padre, modal, this, null);
         this.ventana.setTitle(title);
         this.ventana.modificarEnabled(modificarEnabled, null);
         this.ventana.setLocationRelativeTo(null);
@@ -36,7 +36,7 @@ class ControladorAMGrupo implements IControladorAMGrupo{
     
     public ControladorAMGrupo(String title, boolean modificarEnabled, Grupo grupo, JDialog padre, boolean modal){
         this.crear = !modificarEnabled;
-        this.ventana = new VentanaAMGrupo(padre, modal, this);
+        this.ventana = new VentanaAMGrupo(padre, modal, this, grupo);
         this.ventana.setTitle(title);
         this.ventana.modificarEnabled(modificarEnabled, grupo);
         this.ventana.setLocationRelativeTo(null);

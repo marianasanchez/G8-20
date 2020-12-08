@@ -6,16 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class ModeloTablaModificarGrupo extends AbstractTableModel {
+public class ModeloTablaMiembrosGrupo extends AbstractTableModel {
     private List<String> nombreColumnas = new ArrayList<>();
-    private List<Autor> autores = new ArrayList<>();
+    private List<Autor> autoresMiembros = new ArrayList<>();
     private GestorAutores ga = GestorAutores.crear();
-//    private List<Profesor> auxProfesores = new ArrayList<>();
+    private GestorGrupos gg = GestorGrupos.crear();
     
-    public ModeloTablaModificarGrupo() {
+    public ModeloTablaMiembrosGrupo(Grupo grupo) {
         nombreColumnas.add("Nombre");
         nombreColumnas.add("Rol");
-        this.autores = ga.verAutores();
+        if(grupo != null){
+            this.autoresMiembros = gg.verMiembros(grupo);
+        }
 //        this.actualizar();
     }
 
@@ -26,12 +28,12 @@ public class ModeloTablaModificarGrupo extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return this.autores.size();
+        return this.autoresMiembros.size();
     }
 
     @Override
     public Object getValueAt(int fila, int columna) {
-        Autor a = this.autores.get(fila);
+        Autor a = this.autoresMiembros.get(fila);
         switch(columna) {
             case 0: return a.verNombres();
             default: return null;

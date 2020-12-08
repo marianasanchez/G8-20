@@ -13,16 +13,14 @@ public class ModeloTablaGruposAutor extends AbstractTableModel {
     private GestorAutores ga = GestorAutores.crear();
     private GestorGrupos gg = GestorGrupos.crear();
     private Autor autor;
-//    private List<Profesor> auxProfesores = new ArrayList<>();
     
     public ModeloTablaGruposAutor(Autor autor) {
         nombreColumnas.add("Nombre");
         nombreColumnas.add("Rol");
         if(autor != null){
-        this.autor = autor;
-        this.grupos = autor.mostrarGrupos();
+            this.autor = autor;
+            this.grupos = autor.mostrarGrupos();
         }
-//        this.miembrosEnGrupos = ga.verProfesores();
 //        this.actualizar();
     }
 
@@ -33,9 +31,6 @@ public class ModeloTablaGruposAutor extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-//        if(this.autor.mostrarMiembroEnGrupos().isEmpty()){
-//            return 0;
-//        }
         return this.grupos.size();
     }
 

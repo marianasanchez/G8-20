@@ -1,17 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package grupos.modelos;
 
-/**
- *
- * @author rodrigo
- */
 public enum Rol {
-    ADMINISTRADOR,
-    COLABORADOR;
+    ADMINISTRADOR("Administrador"),
+    COLABORADOR("Colaborador");
+    
+    private String valor;
+    
+    private Rol(String valor){
+        this.valor = valor;
+    }
     
     public static Rol getADMINISTRADOR() {    
         return ADMINISTRADOR;
@@ -20,4 +17,20 @@ public enum Rol {
     public static Rol getCOLABORADOR() {
         return COLABORADOR;
     }
+
+    @Override
+    public String toString() {
+        return this.valor; //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static Rol toRol(String s) {
+        switch (s) {
+            case "ADMINISTRADOR":
+                return ADMINISTRADOR;
+            default:
+                return COLABORADOR;
+        }
+    }
+    
+    
 }

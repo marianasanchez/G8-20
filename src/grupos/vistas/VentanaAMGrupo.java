@@ -6,6 +6,7 @@
 package grupos.vistas;
 
 import grupos.modelos.Grupo;
+import grupos.modelos.ModeloTablaMiembrosGrupo;
 import interfaces.IControladorAMGrupo;
 import javax.swing.JDialog;
 
@@ -18,10 +19,11 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
     /**
      * Creates new form VentanaAGrupo
      */
-    public VentanaAMGrupo(JDialog parent, boolean modal, IControladorAMGrupo controlador) {
+    public VentanaAMGrupo(JDialog parent, boolean modal, IControladorAMGrupo controlador, Grupo grupo) {
         super(parent, modal);
         initComponents();
         this.controlador = controlador;
+        this.tablaMiembros.setModel(new ModeloTablaMiembrosGrupo(grupo));
     }
 
     /**

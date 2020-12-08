@@ -2,7 +2,10 @@
 package principal.controladores;
 
 import autores.controladores.ControladorAutores;
+import autores.modelos.Cargo;
+import autores.modelos.GestorAutores;
 import grupos.controladores.ControladorGrupos;
+import grupos.modelos.GestorGrupos;
 import idiomas.modelos.GestorIdiomas;
 import interfaces.IControladorPrincipal;
 import java.awt.event.ActionEvent;
@@ -20,8 +23,22 @@ public class ControladorPrincipal implements IControladorPrincipal{
     private GestorIdiomas gi = GestorIdiomas.crear();
     private GestorTipos gt = GestorTipos.crear();
     
+    
+    private GestorAutores ga = GestorAutores.crear();
+    private GestorGrupos gg = GestorGrupos.crear();
+    
     public ControladorPrincipal() {
         this.ventana = new VentanaPrincipal(this);
+        
+        System.out.println(ga.nuevoAutor(1, "Apellido1", "Nombre1", Cargo.ADG, "a", "a"));
+        System.out.println(ga.nuevoAutor(2, "Apellido2", "Nombre2", Cargo.TITULAR, "a", "a"));
+        System.out.println(ga.nuevoAutor(3, "Apellido3", "Nombre3", Cargo.ADJUNTO, "a", "a"));
+        System.out.println(ga.nuevoAutor(4, "Apellido4", "Nombre4", Cargo.JTP, "a", "a"));
+        System.out.println(ga.nuevoAutor(5, "Apellido5", "Nombre5", Cargo.ADG, "a", "a"));
+        
+        System.out.println(gg.nuevoGrupo("Grupo 1", "Descripcion 1"));
+        
+        
         
         System.out.println(gpc.nuevaPalabraClave("Hardware"));
         System.out.println(gpc.nuevaPalabraClave("Software"));

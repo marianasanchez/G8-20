@@ -1,8 +1,12 @@
 package grupos.vistas;
 
+import grupos.modelos.Grupo;
 import grupos.modelos.ModeloComboRol;
-import grupos.modelos.ModeloTablaModificarGrupo;
+import grupos.modelos.ModeloTablaModificarMiembrosGrupo;
+import grupos.modelos.Rol;
 import interfaces.IControladorModificarMiembros;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -13,15 +17,19 @@ import javax.swing.table.TableColumn;
 
 public class VentanaModificarMiembros extends javax.swing.JDialog {
     private IControladorModificarMiembros controlador;
+    private JComboBox comboRoles = new JComboBox();
     /**
      * Creates new form VentanaModificarMiembros
      */
-    public VentanaModificarMiembros(JDialog parent, boolean modal, IControladorModificarMiembros controlador) {
+    public VentanaModificarMiembros(JDialog parent, boolean modal, IControladorModificarMiembros controlador, Grupo grupo) {
         super(parent, modal);
         initComponents();
         this.controlador = controlador;
-        this.jTable1.setModel(new ModeloTablaModificarGrupo());
+        this.jTable1.setModel(new ModeloTablaModificarMiembrosGrupo(grupo));
         this.jTable1.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        comboRoles.setModel(new ModeloComboRol());
+        TableColumn colRol = this.jTable1.getColumnModel().getColumn(1);
+        colRol.setCellEditor(new DefaultCellEditor(comboRoles));
     }
 
     /**
@@ -176,23 +184,26 @@ public class VentanaModificarMiembros extends javax.swing.JDialog {
         
     }
     
-    public void setBox(JTable tabla, TableColumn columna){
-        JComboBox c = new JComboBox();
-        c.setModel(new ModeloComboRol());
-//        c.addItem("ADMINISTRADOR");
-//        c.addItem("COLABORADOR");
-        
-        columna.setCellEditor(new DefaultCellEditor(c));
-        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
-        renderer.setToolTipText("Seleccione el rol");
-        columna.setCellRenderer(renderer);
-    }
-    
     public JTable getTabla(){
         return this.jTable1;
     }
     
-    public List 
+    public void setRol(Rol rol){
+        this.comboRoles.setSelectedItem(rol);
+    }
+    
+    public Rol getRol(){
+        Rol rol = Rol.toRol(this.comboRoles.getSelectedItem().toString().toUpperCase());
+        return rol;
+    }
+    
+//    public List<Grupo> getGrupos(){
+//        int filas[] = this.jTable1.getSelectedRows();
+//        List<Grupo> grupos = new ArrayList<>();
+//        for(fila f : filas){
+//            grupos.add(jTable1.getSelectedRow())
+//        }
+//    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
