@@ -87,6 +87,7 @@ class ControladorAMPublicacion implements IControladorAMPublicacion {
 
     @Override
     public void btnGuardarClic(ActionEvent evt) {
+        String mensaje;
         if(crear == true){
             MiembroEnGrupo meg = new MiembroEnGrupo(ga.verAutores().get(0), gg.verGrupo(this.ventana.getGrupo()),ga.verAutores().get(0).verRol(ga.verAutores().get(0),gg.verGrupo(this.ventana.getGrupo())));
 
@@ -95,8 +96,12 @@ class ControladorAMPublicacion implements IControladorAMPublicacion {
             for (int fila : filasSeleccionadas){
                 palabrasClaves.add(gpc.verPalabrasClaves().get(fila));
             }
-
-            System.out.println(gp.nuevaPublicacion(this.ventana.getTitulo(), meg, this.ventana.getFecha(), gt.verTipo(this.ventana.getTipo()), gi.verIdioma(this.ventana.getIdioma()), gl.verLugar(this.ventana.getLugar()), palabrasClaves, this.ventana.getEnlace(), this.ventana.getResumen()));
+            mensaje = gp.nuevaPublicacion(this.ventana.getTitulo(), meg, this.ventana.getFecha(), gt.verTipo(this.ventana.getTipo()), gi.verIdioma(this.ventana.getIdioma()), gl.verLugar(this.ventana.getLugar()), palabrasClaves, this.ventana.getEnlace(), this.ventana.getResumen());
+            
+            if(mensaje.equals(gp.EXITO)){
+                this.ventana.setVisible(false);
+                this.ventana.dispose();
+            }
         }
         
         else {
@@ -107,9 +112,15 @@ class ControladorAMPublicacion implements IControladorAMPublicacion {
             for (int fila : filasSeleccionadas){
                 palabrasClaves.add(gpc.verPalabrasClaves().get(fila));
             }
-
-            System.out.println(gp.modificarPublicacion(this.publicacionAux, meg, this.ventana.getFecha(), gt.verTipo(this.ventana.getTipo()), gi.verIdioma(this.ventana.getIdioma()), gl.verLugar(this.ventana.getLugar()), palabrasClaves, this.ventana.getEnlace(), this.ventana.getResumen())); 
+            mensaje = gp.modificarPublicacion(this.publicacionAux, meg, this.ventana.getFecha(), gt.verTipo(this.ventana.getTipo()), gi.verIdioma(this.ventana.getIdioma()), gl.verLugar(this.ventana.getLugar()), palabrasClaves, this.ventana.getEnlace(), this.ventana.getResumen());
+            
+            if(mensaje.equals(gp.MODIFICADO)){
+                this.ventana.setVisible(false);
+                this.ventana.dispose();
+            }
         }
+        
+        ControladorMensaje controlador = new ControladorMensaje(this.ventana, true, mensaje);
     }
 
     @Override

@@ -30,11 +30,17 @@ public class ControladorPrincipal implements IControladorPrincipal{
     public ControladorPrincipal() {
         this.ventana = new VentanaPrincipal(this);
         
-        System.out.println(ga.nuevoAutor(1, "Apellido1", "Nombre1", Cargo.ADG, "a", "a"));
-        System.out.println(ga.nuevoAutor(2, "Apellido2", "Nombre2", Cargo.TITULAR, "a", "a"));
-        System.out.println(ga.nuevoAutor(3, "Apellido3", "Nombre3", Cargo.ADJUNTO, "a", "a"));
-        System.out.println(ga.nuevoAutor(4, "Apellido4", "Nombre4", Cargo.JTP, "a", "a"));
-        System.out.println(ga.nuevoAutor(5, "Apellido5", "Nombre5", Cargo.ADG, "a", "a"));
+        System.out.println(ga.nuevoAutor(1, "ApellidoUno", "NombreUno", Cargo.ADG, "a", "a"));
+        System.out.println(ga.nuevoAutor(2, "ApellidoDos", "NombreDos", Cargo.TITULAR, "a", "a"));
+        System.out.println(ga.nuevoAutor(3, "ApellidoTres", "NombreTres", Cargo.ADJUNTO, "a", "a"));
+        System.out.println(ga.nuevoAutor(4, "ApellidoCuatro", "NombreCuatro", Cargo.JTP, "a", "a"));
+        System.out.println(ga.nuevoAutor(5, "ApellidoCinco", "NombreCinco", Cargo.ADG, "a", "a"));
+        
+        System.out.println(ga.nuevoAutor(6, "ApellidoSeis", "NombreSeis", "6-6", "a", "a"));
+        System.out.println(ga.nuevoAutor(7, "ApellidoSiete", "NombreSiete", "7-7", "a", "a"));
+        System.out.println(ga.nuevoAutor(8, "ApellidoOcho", "NombreOcho", "8-8", "a", "a"));
+        System.out.println(ga.nuevoAutor(9, "ApellidoNueve", "NombreNueve", "9-9", "a", "a"));
+        System.out.println(ga.nuevoAutor(10, "ApellidoDiez", "NombreDiez", "10-10", "a", "a"));
         
         System.out.println(gg.nuevoGrupo("Grupo 1", "Descripcion 1"));
         

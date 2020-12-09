@@ -58,7 +58,7 @@ public class ModeloTablaProfesores extends AbstractTableModel {
         }
         else{
             for (Autor a : this.profesores ){
-                if(a.verApellidos().contains(apellido)){
+                if(a.verApellidos().toLowerCase().contains(apellido.toLowerCase())){
                     this.auxProfesores.add((Profesor)a);
                 }
             }

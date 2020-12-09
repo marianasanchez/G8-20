@@ -24,6 +24,7 @@ public class GestorPublicaciones implements IGestorPublicaciones {
     public static final String INSTANCIADO = "ERROR. Un objeto de esta clase ya ha sido creado";
     public static final String MODIFICADO = "La 'Publicacion' fue modificada";
     public static final String INEXISTENTE = "ERROR. La 'Publicacion' no existe";
+    public static final String BORRADO_EXITO = "Se ha borrado con éxito la publicacion seleccionada";
     private static GestorPublicaciones instancia;
     
     public static GestorPublicaciones crear () {
@@ -134,15 +135,15 @@ public class GestorPublicaciones implements IGestorPublicaciones {
         return publicaciones;
     }
 
-//    @Override
-//    public Publicacion verPublicacion(String titulo) {
-//        for(Publicacion p : publicaciones){
-//            if(p.verTitulo() == titulo){
-//                return p;
-//            }
-//        }
-//        return null;
-//    }
+
+    public Publicacion verPublicacion(String titulo) {
+        for(Publicacion p : publicaciones){
+            if(p.verTitulo() == titulo){
+                return p;
+            }
+        }
+        return null;
+    }
 
     @Override
     public boolean existeEstaPublicacion(Publicacion publicacion) {
@@ -167,9 +168,9 @@ public class GestorPublicaciones implements IGestorPublicaciones {
     @Override
     public String borrarPublicacion(Publicacion publicacion) {
         if (publicaciones.contains(publicacion)){
-            if(existeEstaPublicacion(publicacion)){
-                return EXISTE_PUB;
-            }
+//            if(existeEstaPublicacion(publicacion)){
+//                return EXISTE_PUB;
+//            }
             publicaciones.remove(publicacion);
             return BORRADO_EXITO;
         }

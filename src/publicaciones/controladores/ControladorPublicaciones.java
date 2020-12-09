@@ -34,7 +34,7 @@ public class ControladorPublicaciones implements IControladorPublicaciones{
 
     @Override
     public void btnBorrarClic(ActionEvent evt) {
-        gp.borrarPublicacion(this.ventana.getPublicacion());
+        ControladorConfirmarBorrarPublicacion controlador = new ControladorConfirmarBorrarPublicacion(this.ventana, true, this.ventana.getPublicacion().verTitulo());
         this.actualizar();
     }
 
@@ -58,7 +58,7 @@ public class ControladorPublicaciones implements IControladorPublicaciones{
     @Override
     public void txtTituloPresionarTecla(KeyEvent evt) {
         char c = evt.getKeyChar();
-        if (!Character.isLetter(c) || !Character.isDigit(c)) {
+        if (!Character.isLetter(c) && !Character.isDigit(c)) {
             switch(c) {
                 case KeyEvent.VK_ENTER:    
                    this.btnBuscarClic(null);

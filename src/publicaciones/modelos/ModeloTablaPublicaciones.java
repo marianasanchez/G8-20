@@ -42,7 +42,9 @@ public class ModeloTablaPublicaciones extends AbstractTableModel{
         Publicacion p = this.publicaciones.get(fila);
         switch(columna) {
             case 0: return p.verTitulo();
-            case 1: return p.verMiembroEnGrupo().verAutor().verApellidos();//mostrar apellido y nombre
+            case 1: 
+                String autor = p.verMiembroEnGrupo().verAutor().verApellidos() + ", " + p.verMiembroEnGrupo().verAutor().verNombres();
+                return autor;//mostrar apellido y nombre
             default: return p.verFechaPublicacion().getYear();//mostrar año
         }
     }
@@ -66,7 +68,7 @@ public class ModeloTablaPublicaciones extends AbstractTableModel{
         }
         else{
             for (Publicacion p : this.publicaciones ){
-                if(p.verTitulo().contains(titulo)){
+                if(p.verTitulo().toLowerCase().contains(titulo.toLowerCase())){
                     this.auxpublicaciones.add(p);
                 }
             }
