@@ -19,6 +19,10 @@ private GestorTipos gt = GestorTipos.crear();
         return (Tipo)this.getSelectedItem();
     }
     
+//    public void seleccionarTipo (Tipo tipo) {
+//        this.setSelectedItem(tipo);
+//    }
+    
     public void seleccionarTipo (Tipo tipo) {
         this.setSelectedItem(tipo);
     }

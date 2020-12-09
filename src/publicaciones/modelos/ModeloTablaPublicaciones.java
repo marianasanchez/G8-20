@@ -43,7 +43,7 @@ public class ModeloTablaPublicaciones extends AbstractTableModel{
         switch(columna) {
             case 0: return p.verTitulo();
             case 1: return p.verMiembroEnGrupo().verAutor().verApellidos();//mostrar apellido y nombre
-            default: return p.verFechaPublicacion();//mostrar año
+            default: return p.verFechaPublicacion().getYear();//mostrar año
         }
     }
 

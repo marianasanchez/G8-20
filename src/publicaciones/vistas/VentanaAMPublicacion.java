@@ -5,18 +5,21 @@
  */
 package publicaciones.vistas;
 
-import grupos.modelos.Grupo;
 import grupos.modelos.ModeloComboGrupos;
 import idiomas.modelos.ModeloComboIdiomas;
 import interfaces.IControladorAMPublicacion;
-import java.time.LocalDate;
-import java.util.Date;
-import javax.swing.JComboBox;
+import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import lugares.modelos.ModeloComboLugares;
+import palabrasclaves.modelos.PalabraClave;
 import publicaciones.modelos.ModeloTablaPalabrasClaves;
 import tipos.modelos.ModeloComboTipos;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import static java.time.temporal.TemporalQueries.localDate;
+import java.util.Date;
 
 /**
  *
@@ -27,7 +30,7 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
     /**
      * Creates new form VentanaAMPublicaciones
      */
-    public VentanaAMPublicacion(JDialog parent, boolean modal, IControladorAMPublicacion controlador) {
+    public VentanaAMPublicacion(JDialog parent, boolean modal, IControladorAMPublicacion controlador, boolean crear) {
         super(parent, modal);
         initComponents();
         this.controlador = controlador;
@@ -295,6 +298,7 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
     private void txtTituloPresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTituloPresionarTecla
         this.controlador.txtTituloPresionarTecla(evt);
     }//GEN-LAST:event_txtTituloPresionarTecla
+    
     public void setModelComboBox(){
 
         this.grupoComboBox.setModel(new ModeloComboGrupos());
@@ -306,9 +310,11 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
         this.idiomaComboBox.setModel(new ModeloComboIdiomas());
           
     }
+    
     public void verTxtEnlace(String direccion) {
-    this.txtEnlace.setText(direccion);
+        this.txtEnlace.setText(direccion);
     }
+    
     /**
      * @param args the command line arguments
      */
@@ -375,8 +381,10 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
     public String getTitulo(){
         return this.txtTituloPublicacion.getText();
     }
-    public Date getFecha(){
-        return this.jDateChooser1.getDate();
+    public LocalDate getFecha(){
+        Date fecha = this.jDateChooser1.getDate();
+        LocalDate fechaLocal = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return fechaLocal;
     }
     public String getGrupo(){
         return this.grupoComboBox.getSelectedItem().toString();
@@ -396,5 +404,56 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
     }
     public String getEnlace(){
         return this.txtEnlace.getText();
+    }
+
+    public void setTitulo(String verTitulo) {
+        this.txtTituloPublicacion.setText(verTitulo);
+    }
+
+    public void setFecha(LocalDate verFechaPublicacion) {
+        Date date = Date.from(verFechaPublicacion.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        this.jDateChooser1.setDate(date);
+    }
+
+    public void setEnlace(String verEnlace) {
+        this.txtEnlace.setText(verEnlace);
+    }
+
+    public void setLugar(String verLugar) {
+        this.lugarComboBox.setSelectedItem(verLugar);
+    }
+
+    public void setGrupo(String verGrupo) {
+        this.grupoComboBox.setSelectedItem(verGrupo);
+    }
+
+    public void setTipo(String verTipo) {
+        this.tipoComboBox.setSelectedItem(verTipo);
+    }
+
+    public void setIdioma(String verIdioma) {
+        this.idiomaComboBox.setSelectedItem(verIdioma);
+    }
+
+    public void setResumen(String verResumen) {
+        this.txtResumen.setText(verResumen);
+    }
+
+    public void setPalabrasClaves(List<PalabraClave> verPalabrasClaves) {
+        ModeloTablaPalabrasClaves mt = (ModeloTablaPalabrasClaves)this.jTable1.getModel();
+        ListSelectionModel modeloSeleccion = this.jTable1.getSelectionModel();
+        for(PalabraClave palabraClave : verPalabrasClaves) {
+            for(int fila = 0; fila < mt.getRowCount(); fila++) {
+                PalabraClave pc = mt.verPalabraClave(fila);
+                if (palabraClave.equals(pc)) {
+                    modeloSeleccion.addSelectionInterval(fila, fila);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void enableTitulo(boolean crear) {
+        this.txtTituloPublicacion.setEnabled(crear);
     }
 }

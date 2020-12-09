@@ -24,12 +24,12 @@ public class ControladorPublicaciones implements IControladorPublicaciones{
     
     @Override
     public void btnNuevaClic(ActionEvent evt) {
-       ControladorAMPublicacion controlador = new ControladorAMPublicacion("Nueva Publicacion", true, true, this.ventana, true);
+       ControladorAMPublicacion controlador = new ControladorAMPublicacion("Nueva Publicacion", true, this.ventana, true);
     }
 
     @Override
     public void btnModificarClic(ActionEvent evt) {
-//      ControladorAMPublicacion controlador = new ControladorAMPublicacion("Modificar Publicacion", false, false, this.ventana.verPublicacion(), this.ventana, true);
+        ControladorAMPublicacion controlador = new ControladorAMPublicacion("Modificar Publicacion", false, this.ventana, true, this.ventana.getPublicacion());
     }
 
     @Override

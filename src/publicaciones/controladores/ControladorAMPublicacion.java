@@ -18,7 +18,8 @@ import interfaces.IControladorPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
@@ -28,6 +29,7 @@ import lugares.modelos.GestorLugares;
 import lugares.modelos.Lugar;
 import lugares.modelos.ModeloComboLugares;
 import palabrasclaves.modelos.GestorPalabrasClaves;
+import palabrasclaves.modelos.PalabraClave;
 import publicaciones.modelos.GestorPublicaciones;
 import publicaciones.modelos.ModeloTablaPalabrasClaves;
 import publicaciones.modelos.Publicacion;
@@ -56,56 +58,58 @@ class ControladorAMPublicacion implements IControladorAMPublicacion {
     private Idioma idiomaaux;
     private Publicacion publicacionAux;
     
-    public ControladorAMPublicacion(String title, boolean dniEnabled, boolean crear, JDialog padre, boolean modal) {
-        this.crear = crear;
-        this.ventana = new VentanaAMPublicacion(padre, modal, this);
+    public ControladorAMPublicacion(String title, boolean crear, JDialog padre, boolean modal) {
+        this.crear=crear;
+        this.ventana = new VentanaAMPublicacion(padre, modal, this, crear);
         this.ventana.setTitle(title);
-//        this.ventana.dniEnabled(dniEnabled);
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
     }
     
-    public ControladorAMPublicacion(String title, boolean dniEnabled, boolean crear, Publicacion publicacion, JDialog padre, boolean modal){
-        this.crear = crear;
-        this.ventana = new VentanaAMPublicacion(padre, modal, this);
+    public ControladorAMPublicacion(String title, boolean crear, JDialog padre, boolean modal, Publicacion publicacion){
+        this.crear=crear;
+        this.publicacionAux = publicacion;
+        this.ventana = new VentanaAMPublicacion(padre, modal, this, crear);
         this.ventana.setTitle(title);
-//        this.ventana.dniEnabled(dniEnabled);
-//        this.ventana.setDni(String.valueOf(autor.verDni()));
-//        this.ventana.setApellidos(autor.verApellidos());
-//        this.ventana.setNombres(autor.verNombres());
-//        Profesor aux = (Profesor)autor;
-//        this.ventana.setCargo(aux.verCargo());
-//        this.ventana.setClave(autor.verClave());
-//        this.ventana.setClaveRepetida(autor.verClave());
-//        this.publicacionAux = autor;
+        this.ventana.setTitulo(publicacion.verTitulo());
+        this.ventana.enableTitulo(crear);
+        this.ventana.setFecha(publicacion.verFechaPublicacion());
+        this.ventana.setEnlace(publicacion.verEnlace());
+        this.ventana.setGrupo(publicacion.verMiembroEnGrupo().verGrupo().verNombre());
+        this.ventana.setLugar(publicacion.verLugar().verNombre());
+        this.ventana.setTipo(publicacion.verTipo().verNombre());
+        this.ventana.setIdioma(publicacion.verIdioma().verNombre());
+        this.ventana.setPalabrasClaves(publicacion.verPalabrasClaves());
+        this.ventana.setResumen(publicacion.verResumen());
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
     }
 
     @Override
     public void btnGuardarClic(ActionEvent evt) {
-//        for(Grupo grupo: gg.verGrupos()){
-//            if(this.ventana.getGrupo().equals(grupo.verNombre())){
-//                grupoaux=grupo;
-//            }
-//        }
-//        for(Lugar lugar: gg.verGrupos()){
-//            if(this.ventana.getGrupo().equals(grupo.verNombre())){
-//                grupoaux=grupo;
-//            }
-//        } 
-//        for(Grupo grupo: gg.verGrupos()){
-//            if(this.ventana.getGrupo().equals(grupo.verNombre())){
-//                grupoaux=grupo;
-//            }
-//        }
-//        for(Grupo grupo: gg.verGrupos()){
-//            if(this.ventana.getGrupo().equals(grupo.verNombre())){
-//                grupoaux=grupo;
-//            }
-//        }
-        MiembroEnGrupo meg = new MiembroEnGrupo(ga.verAutores().get(0),gg.verGrupo(this.ventana.getGrupo()),ga.verAutores().get(0).verRol(ga.verAutores().get(0),gg.verGrupo(this.ventana.getGrupo())));
-        System.out.println(gp.nuevaPublicacion(this.ventana.getTitulo(), meg, LocalDate.EPOCH, gt.verTipo(this.ventana.getTipo()), gi.verIdioma(this.ventana.getIdioma()), gl.verLugar(this.ventana.getLugar()), gpc.verPalabrasClaves(), this.ventana.getEnlace(), this.ventana.getResumen()));;
+        if(crear == true){
+            MiembroEnGrupo meg = new MiembroEnGrupo(ga.verAutores().get(0), gg.verGrupo(this.ventana.getGrupo()),ga.verAutores().get(0).verRol(ga.verAutores().get(0),gg.verGrupo(this.ventana.getGrupo())));
+
+            List<PalabraClave> palabrasClaves = new ArrayList<>();
+            int[] filasSeleccionadas = this.ventana.getTabla().getSelectedRows();
+            for (int fila : filasSeleccionadas){
+                palabrasClaves.add(gpc.verPalabrasClaves().get(fila));
+            }
+
+            System.out.println(gp.nuevaPublicacion(this.ventana.getTitulo(), meg, this.ventana.getFecha(), gt.verTipo(this.ventana.getTipo()), gi.verIdioma(this.ventana.getIdioma()), gl.verLugar(this.ventana.getLugar()), palabrasClaves, this.ventana.getEnlace(), this.ventana.getResumen()));
+        }
+        
+        else {
+           MiembroEnGrupo meg = new MiembroEnGrupo(ga.verAutores().get(0),gg.verGrupo(this.ventana.getGrupo()),ga.verAutores().get(0).verRol(ga.verAutores().get(0),gg.verGrupo(this.ventana.getGrupo())));
+
+            List<PalabraClave> palabrasClaves = new ArrayList<>();
+            int[] filasSeleccionadas = this.ventana.getTabla().getSelectedRows();
+            for (int fila : filasSeleccionadas){
+                palabrasClaves.add(gpc.verPalabrasClaves().get(fila));
+            }
+
+            System.out.println(gp.modificarPublicacion(this.publicacionAux, meg, this.ventana.getFecha(), gt.verTipo(this.ventana.getTipo()), gi.verIdioma(this.ventana.getIdioma()), gl.verLugar(this.ventana.getLugar()), palabrasClaves, this.ventana.getEnlace(), this.ventana.getResumen())); 
+        }
     }
 
     @Override
