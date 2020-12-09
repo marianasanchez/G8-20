@@ -1,5 +1,6 @@
 package grupos.vistas;
 
+import autores.modelos.Autor;
 import grupos.modelos.Grupo;
 import grupos.modelos.MiembroEnGrupo;
 import grupos.modelos.ModeloComboRol;
@@ -206,7 +207,19 @@ public class VentanaModificarMiembros extends javax.swing.JDialog {
 //            grupos.add(jTable1.getSelectedRow())
 //        }
 //    } 
-
+    public void setAutores(List<Autor> verAutores) {
+        ModeloTablaModificarMiembrosGrupo mtmg = (ModeloTablaModificarMiembrosGrupo)this.jTable1.getModel();
+        ListSelectionModel modeloSeleccion = this.jTable1.getSelectionModel();
+        for(Autor autor : verAutores) {
+            for(int fila = 0; fila < mtmg.getRowCount(); fila++) {
+                Autor a = mtmg.verAutor(fila);
+                if (autor.equals(a)) {
+                    modeloSeleccion.addSelectionInterval(fila, fila);
+                    break;
+                }
+            }
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;

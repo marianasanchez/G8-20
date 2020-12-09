@@ -104,6 +104,7 @@ import java.util.List;
                 miembroEnGrupos.remove(meg);
 //                this.quitarGrupo(grupo);
                 grupo.quitarMiembro(this);
+                return;
             }
         }
     }

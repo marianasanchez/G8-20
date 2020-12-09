@@ -226,6 +226,7 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
         this.tablaMiembros.setVisible(modificarEnabled);
         this.jLabel3.setVisible(modificarEnabled);
         if(modificarEnabled){
+            this.txtDescripcionGrupo.setText(grupo.verDescripcion());
             this.txtNombreGrupo.setEnabled(false);
             this.txtNombreGrupo.setText(grupo.verNombre());
         }

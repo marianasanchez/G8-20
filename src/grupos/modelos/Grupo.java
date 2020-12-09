@@ -94,6 +94,7 @@ public class Grupo implements Comparable<Grupo> {
                 miembrosEnGrupo.remove(meg);
 //                this.quitarMiembro(miembro);
                 miembro.quitarGrupo(this);
+                return;
             }
         }
     }
