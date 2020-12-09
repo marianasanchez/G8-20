@@ -5,8 +5,18 @@
  */
 package publicaciones.vistas;
 
+import grupos.modelos.Grupo;
+import grupos.modelos.ModeloComboGrupos;
+import idiomas.modelos.ModeloComboIdiomas;
 import interfaces.IControladorAMPublicacion;
+import java.time.LocalDate;
+import java.util.Date;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JTable;
+import lugares.modelos.ModeloComboLugares;
+import publicaciones.modelos.ModeloTablaPalabrasClaves;
+import tipos.modelos.ModeloComboTipos;
 
 /**
  *
@@ -21,7 +31,8 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.controlador = controlador;
-//        this.tablaGrupos.setModel(new ModeloTablaGrupos());
+        this.jTable1.setModel(new ModeloTablaPalabrasClaves());
+        this.setModelComboBox();
     }
 
     /**
@@ -63,8 +74,8 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
 
         jLabel1.setText("Título:");
 
-        txtTituloPublicacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtTituloPublicacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTituloPresionarTecla(evt);
             }
         });
@@ -91,11 +102,6 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
         grupoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lugarComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        lugarComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lugarComboBoxActionPerformed(evt);
-            }
-        });
 
         tipoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -266,34 +272,43 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lugarComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lugarComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lugarComboBoxActionPerformed
-
     private void btnGuardarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClic
-        // TODO add your handling code here:
+        this.controlador.btnGuardarClic(evt);
     }//GEN-LAST:event_btnGuardarClic
 
     private void btnCancelarClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarClic
-        // TODO add your handling code here:
+        this.controlador.btnCancelarClic(evt);
     }//GEN-LAST:event_btnCancelarClic
 
-    private void txtTituloPresionarTecla(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloPresionarTecla
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTituloPresionarTecla
-
     private void btnTodasLasPalabrasClavesClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTodasLasPalabrasClavesClic
-        // TODO add your handling code here:
+        this.controlador.btnTodasLasPalabrasClavesClic(evt);
     }//GEN-LAST:event_btnTodasLasPalabrasClavesClic
 
     private void btnNingunaPalabraClaveClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNingunaPalabraClaveClic
-        // TODO add your handling code here:
+        this.controlador.btnNingunaPalabraClaveClic(evt);
     }//GEN-LAST:event_btnNingunaPalabraClaveClic
 
     private void btnAbrirClic(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirClic
-        // TODO add your handling code here:
+        this.controlador.btnAbrirClic(evt);
     }//GEN-LAST:event_btnAbrirClic
 
+    private void txtTituloPresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTituloPresionarTecla
+        this.controlador.txtTituloPresionarTecla(evt);
+    }//GEN-LAST:event_txtTituloPresionarTecla
+    public void setModelComboBox(){
+
+        this.grupoComboBox.setModel(new ModeloComboGrupos());
+          
+        this.lugarComboBox.setModel(new ModeloComboLugares());
+       
+        this.tipoComboBox.setModel(new ModeloComboTipos());
+
+        this.idiomaComboBox.setModel(new ModeloComboIdiomas());
+          
+    }
+    public void verTxtEnlace(String direccion) {
+    this.txtEnlace.setText(direccion);
+    }
     /**
      * @param args the command line arguments
      */
@@ -353,4 +368,33 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
     private javax.swing.JTextArea txtResumen;
     private javax.swing.JTextField txtTituloPublicacion;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getTabla() {
+      return this.jTable1;
+    }
+    public String getTitulo(){
+        return this.txtTituloPublicacion.getText();
+    }
+    public Date getFecha(){
+        return this.jDateChooser1.getDate();
+    }
+    public String getGrupo(){
+        return this.grupoComboBox.getSelectedItem().toString();
+    }
+    public String getTipo(){
+        return this.tipoComboBox.getSelectedItem().toString();
+    }
+    public String getLugar(){
+        return this.lugarComboBox.getSelectedItem().toString();
+    }
+    public String getIdioma(){
+        return this.idiomaComboBox.getSelectedItem().toString();
+    }    
+    
+    public String getResumen(){
+        return this.txtResumen.getText();
+    }
+    public String getEnlace(){
+        return this.txtEnlace.getText();
+    }
 }

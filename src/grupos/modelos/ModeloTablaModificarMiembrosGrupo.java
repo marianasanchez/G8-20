@@ -112,5 +112,6 @@ public class ModeloTablaModificarMiembrosGrupo extends AbstractTableModel {
     public void aceptar(){
         //gg.quitarMiembros(grupo, megsAux);
         gg.agregarMiembros(grupo, megsAux);
+//      List<MiembroEnGrupo> agregar,List<MiembroEnGrupo> quitar
     }
 }

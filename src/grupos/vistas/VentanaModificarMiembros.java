@@ -1,11 +1,13 @@
 package grupos.vistas;
 
 import grupos.modelos.Grupo;
+import grupos.modelos.MiembroEnGrupo;
 import grupos.modelos.ModeloComboRol;
 import grupos.modelos.ModeloTablaModificarMiembrosGrupo;
 import grupos.modelos.Rol;
 import interfaces.IControladorModificarMiembros;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;

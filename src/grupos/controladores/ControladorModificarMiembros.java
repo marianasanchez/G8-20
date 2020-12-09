@@ -3,10 +3,13 @@ package grupos.controladores;
 import autores.modelos.GestorAutores;
 import grupos.modelos.GestorGrupos;
 import grupos.modelos.Grupo;
+import grupos.modelos.MiembroEnGrupo;
 import grupos.modelos.ModeloTablaModificarMiembrosGrupo;
 import grupos.vistas.VentanaModificarMiembros;
 import interfaces.IControladorModificarMiembros;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.ListSelectionModel;
 
@@ -54,5 +57,27 @@ class ControladorModificarMiembros implements IControladorModificarMiembros{
         this.ventana.setVisible(false);
         this.ventana.dispose();
     }
-    
+//        public List <MiembroEnGrupo> seleccionados(){
+//        List <MiembroEnGrupo> seleccionados = new ArrayList<>();
+////        filas = Arrays.asList(this.jTable1.getSelectedRows());
+//        int [] filasseleccionadas = this.ventana.getTabla().getSelectedRows();
+//        for(int i=0; i< filasseleccionadas.length; i++){
+//            Rol rol = this.ventana.getTabla().getValueAt(i, 1);
+//            seleccionados.add(new MiembroEnGrupo(this.ventana.getTabla().getRow()));
+//        }
+//    }
+//    public void ventanaObtenerFoco(){
+//        ListSelectionModel modeloSeleccion = this.ventana.getTabla().getSelectionModel();
+//        for(Autor autor : this.grupoaux.) {
+//            for(int fila = 0; fila < mt.getRowCount(); fila++) {
+//                PalabraClave pc = mt.verPalabraClave(fila);
+//
+//
+//                if (palabraClave.equals(pc)) {
+//                    modeloSeleccion.addSelectionInterval(fila, fila);
+//                    break;
+//                    }
+//                }
+//            }
+//    }
 }
