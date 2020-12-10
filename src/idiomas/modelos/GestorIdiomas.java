@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import publicaciones.modelos.GestorPublicaciones;
-import tipos.modelos.Tipo;
 
 public class GestorIdiomas implements IGestorIdiomas{
     private List<Idioma> idiomas = new ArrayList<> ();
@@ -37,13 +36,9 @@ public class GestorIdiomas implements IGestorIdiomas{
         if (instancia == null){
             instancia = new GestorIdiomas();
         }
-//        else{
-//            System.out.println(INSTANCIADO);
-//        }
         return instancia;
     }
     
-
     public String nuevoIdioma(String nombre) {
         if ((nombre != null) && (!nombre.isBlank())){
             Idioma i = new Idioma(nombre);
@@ -51,8 +46,6 @@ public class GestorIdiomas implements IGestorIdiomas{
                this.idiomas.add(i);
                Collections.sort(idiomas);
                return EXITO;
-//               String resultado = this.escribirArchivo();
-//               return (resultado.equals(ESCRITURA_OK) ? OK : resultado);
             }
             else {
                 return REPETIDO;
@@ -68,7 +61,6 @@ public class GestorIdiomas implements IGestorIdiomas{
         return idiomas;
     }
 
-    
     public Idioma verIdioma(String nombre) {
         for (Idioma i : idiomas){
             if (i.verNombre() == nombre){
@@ -151,7 +143,6 @@ public class GestorIdiomas implements IGestorIdiomas{
                 while((cadena = br.readLine()) != null) {
                     String[] vectorIdiomas = cadena.split(Character.toString(SEPARADOR));
                     String nombre = vectorIdiomas[0];
-//                    Idioma i = new Idioma(nombre);
                     this.nuevoIdioma(nombre);
                 }
                 return LECTURA_OK;

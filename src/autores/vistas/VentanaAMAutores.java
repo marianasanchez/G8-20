@@ -387,12 +387,9 @@ public class VentanaAMAutores extends javax.swing.JDialog {
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
-
-        
+        /* Create and display the dialog */ 
     }
     
-
     public JTable getTablaProfesores() {
         return tablaProfesores;
     }
@@ -415,7 +412,6 @@ public class VentanaAMAutores extends javax.swing.JDialog {
             this.btnModificarAlumno.setEnabled(true);
             this.btnBorrarAlumno.setEnabled(true);
         }
-        
     }
     
     public Autor verProfesor() {
@@ -431,8 +427,6 @@ public class VentanaAMAutores extends javax.swing.JDialog {
        ModeloTablaAlumnos mtp = (ModeloTablaAlumnos)this.tablaAlumnos.getModel();
        return mtp.verAutor(this.tablaAlumnos.getSelectedRow());
     }
-    
-
     
     public JTable getTablaAlumnos() {
         return tablaAlumnos;

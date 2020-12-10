@@ -161,6 +161,4 @@ public class ControladorAMProfesor implements IControladorAMProfesor{
     public void ventanaObtenerFoco(WindowEvent evt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
 }

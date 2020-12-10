@@ -33,5 +33,4 @@ public class ControladorConfirmarBorrarAutor implements IControladorConfirmarBor
         this.ventana.setVisible(false);
         this.ventana.dispose();
     }
-    
 }

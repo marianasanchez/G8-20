@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package palabrasclaves.modelos;
 
 import java.util.Objects;
@@ -59,8 +54,4 @@ public class PalabraClave implements Comparable<PalabraClave>{
     public int compareTo(PalabraClave pc) {
         return this.verNombre().compareTo(pc.verNombre());
     }
-
-    
-    
-    
 }

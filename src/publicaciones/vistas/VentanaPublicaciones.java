@@ -271,8 +271,4 @@ public class VentanaPublicaciones extends javax.swing.JDialog {
     private javax.swing.JTextField txtBuscarPublicaciones;
     // End of variables declaration//GEN-END:variables
 
-//    public Publicacion verPublicacion() {
-//       ModeloTablaP mtp = (ModeloTablaProfesores)this.tablaProfesores.getModel();
-//       return mtp.verAutor(this.tablaProfesores.getSelectedRow());
-//    }
 }

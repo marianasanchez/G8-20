@@ -22,9 +22,6 @@ public class GestorPalabrasClaves implements IGestorPalabrasClaves{
         if (instancia == null){
             instancia = new GestorPalabrasClaves();
         }
-//        else {
-//            System.out.println(INSTANCIADO);            
-//        }
         return instancia;
     }
 
@@ -87,12 +84,10 @@ public class GestorPalabrasClaves implements IGestorPalabrasClaves{
     @Override
     public PalabraClave verPalabraClave(String nombre) {
         for (PalabraClave pc : palabrasClaves){
-            if (pc.verNombre() == nombre){
+            if (pc.verNombre().equals(nombre)){
                 return pc;
             }
         }
         return null;
     }
-    
-    
 }

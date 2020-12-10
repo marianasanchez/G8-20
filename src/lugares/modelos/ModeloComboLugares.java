@@ -1,8 +1,5 @@
 package lugares.modelos;
 
-import idiomas.modelos.*;
-import grupos.modelos.*;
-import autores.modelos.*;
 import javax.swing.DefaultComboBoxModel;
 
 public class ModeloComboLugares extends DefaultComboBoxModel{

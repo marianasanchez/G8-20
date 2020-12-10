@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package grupos.modelos;
 
 import autores.modelos.Autor;
@@ -40,13 +35,6 @@ public class Grupo implements Comparable<Grupo> {
     public void asignarDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-//    @Override
-//    public int hashCode() {
-//        int hash = 5;
-//        hash = 17 * hash + Objects.hashCode(this.nombre);
-//        return hash;
-//    }
 
     @Override
     public boolean equals(Object obj) {
@@ -92,7 +80,6 @@ public class Grupo implements Comparable<Grupo> {
         for (MiembroEnGrupo meg : miembrosEnGrupo) {
             if(meg.verAutor().equals(miembro)){
                 miembrosEnGrupo.remove(meg);
-//                this.quitarMiembro(miembro);
                 miembro.quitarGrupo(this);
                 return;
             }
@@ -140,8 +127,4 @@ public class Grupo implements Comparable<Grupo> {
     public List<MiembroEnGrupo> mostrarMiembroEnGrupos(){
         return miembrosEnGrupo;
     }
-    
-//    public void limpiarMiembros(){
-//        this.miembrosEnGrupo.clear();
-//    }
 }

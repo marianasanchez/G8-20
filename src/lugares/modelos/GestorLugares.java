@@ -7,7 +7,7 @@ import java.util.List;
 import publicaciones.modelos.GestorPublicaciones;
 
 public class GestorLugares implements IGestorLugares{
-     private List<Lugar> lugares = new ArrayList<> ();
+    private List<Lugar> lugares = new ArrayList<> ();
     public static final String EXITO = "El nuevo 'Lugar' fue creado con éxito";
     public static final String REPETIDO = "ERROR. El nuevo 'Lugar' ya fue creado";
     public static final String INVALIDO = "ERROR. El nombre ingresado es inválido";
@@ -22,13 +22,9 @@ public class GestorLugares implements IGestorLugares{
         if (instancia == null){
             instancia = new GestorLugares();
         }
-//        else{
-//            System.out.println(INSTANCIADO);
-//        }
         return instancia;
     }
     
-
     public String nuevoLugar(String nombre) {
         if ((nombre != null) && (!nombre.isBlank())){
             Lugar l = new Lugar(nombre);
@@ -45,12 +41,10 @@ public class GestorLugares implements IGestorLugares{
         }
     }
 
- 
     public List<Lugar> verLugares() {
         Collections.sort(lugares);
         return lugares;
     }
-
 
     public Lugar verLugar(String nombre) {
         for (Lugar l : lugares){
@@ -93,5 +87,4 @@ public class GestorLugares implements IGestorLugares{
         }
         return false;
     }
-    
 }

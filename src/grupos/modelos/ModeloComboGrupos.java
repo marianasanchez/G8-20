@@ -1,6 +1,5 @@
 package grupos.modelos;
 
-import autores.modelos.*;
 import javax.swing.DefaultComboBoxModel;
 
 public class ModeloComboGrupos extends DefaultComboBoxModel{

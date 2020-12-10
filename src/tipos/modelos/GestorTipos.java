@@ -23,9 +23,6 @@ public class GestorTipos implements IGestorTipos{
         if (instancia == null){
             instancia = new GestorTipos();
         }
-//        else{
-//            System.out.println(INSTANCIADO);
-//        }
         return instancia;
     }
     
@@ -94,5 +91,4 @@ public class GestorTipos implements IGestorTipos{
         }
         return false;
     }
-    
 }

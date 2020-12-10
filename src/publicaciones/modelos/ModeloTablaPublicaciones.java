@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package publicaciones.modelos;
 
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *
- * @author Carlos
- */
 public class ModeloTablaPublicaciones extends AbstractTableModel{
     private List<String> nombreColumnas = new ArrayList<>();
     private List<Publicacion> publicaciones = new ArrayList<>();

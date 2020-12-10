@@ -2,7 +2,6 @@ package autores.modelos;
 
 import grupos.modelos.Grupo;
 import grupos.modelos.MiembroEnGrupo;
-import grupos.modelos.Rol;
 import interfaces.IGestorAutores;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -317,15 +316,6 @@ public class GestorAutores implements IGestorAutores{
         return false;
     }
 
-//    public void BorrarAutor(int dni) {
-//        for(Autor a : autores){
-//            if(a.verDni() == dni){
-//                autores.remove(a);
-//                return ;
-//            }
-//        }
-//    }
-
     @Override
     public String agregarGrupos(Autor autor, List<MiembroEnGrupo> grupos) {
          for (MiembroEnGrupo meg: grupos){
@@ -345,6 +335,4 @@ public class GestorAutores implements IGestorAutores{
        }
        return "Grupos quitados con exito";
     }
-    
-    
 }

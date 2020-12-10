@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package idiomas.modelos;
 
 import java.util.Objects;
@@ -59,6 +54,4 @@ public class Idioma implements Comparable<Idioma> {
     public int compareTo(Idioma i) {
        return this.verNombre().compareTo(i.verNombre());
     }
-    
-    
 }

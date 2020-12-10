@@ -1,6 +1,5 @@
 package autores.vistas;
 
-import principal.vistas.*;
 import javax.swing.JDialog;
 import publicaciones.controladores.ControladorMensaje;
 

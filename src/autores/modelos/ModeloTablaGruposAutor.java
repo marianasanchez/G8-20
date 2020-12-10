@@ -21,7 +21,6 @@ public class ModeloTablaGruposAutor extends AbstractTableModel {
             this.autor = autor;
             this.grupos = autor.mostrarGrupos();
         }
-//        this.actualizar();
     }
 
     @Override
@@ -53,33 +52,4 @@ public class ModeloTablaGruposAutor extends AbstractTableModel {
     public String getColumnName(int columna) {
         return this.nombreColumnas.get(columna);
     }
-    
-//    public Autor verAutor(int fila) {
-//        return this.profesores.get(fila);
-//    }
-//    
-//    public void BuscarProfesores(String apellido){
-//        this.auxProfesores.clear();
-//        this.profesores = ga.verProfesores();
-//        if (apellido.isBlank()){
-//           // this.profesores.clear();
-//            this.profesores = ga.verProfesores();
-//            this.fireTableDataChanged();
-//        }
-//        else{
-//            for (Autor a : this.profesores ){
-//                if(a.verApellidos().contains(apellido)){
-//                    this.auxProfesores.add((Profesor)a);
-//                }
-//            }
-//            this.profesores = this.auxProfesores;
-//            this.fireTableDataChanged();
-//        }
-//    }
-//    
-//    public void actualizar() {
-//        GestorAutores ga = GestorAutores.crear();
-//        this.profesores = ga.verProfesores();
-//        this.fireTableDataChanged();
-//    }
 }

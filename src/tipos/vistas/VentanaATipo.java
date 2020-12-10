@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tipos.vistas;
 
 import java.awt.Dialog;
@@ -21,8 +16,6 @@ public class VentanaATipo extends JDialog {
         super(ventanaPadre, true);
         initComponents();
     }
-    
-
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -92,7 +85,6 @@ public class VentanaATipo extends JDialog {
             t.Mostrar();
         }
     }//GEN-LAST:event_btnGuardarClic
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;

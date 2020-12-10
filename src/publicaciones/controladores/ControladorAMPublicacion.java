@@ -1,18 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package publicaciones.controladores;
 
 import autores.modelos.GestorAutores;
 import grupos.modelos.GestorGrupos;
 import grupos.modelos.Grupo;
 import grupos.modelos.MiembroEnGrupo;
-import grupos.modelos.ModeloComboGrupos;
 import idiomas.modelos.GestorIdiomas;
 import idiomas.modelos.Idioma;
-import idiomas.modelos.ModeloComboIdiomas;
 import interfaces.IControladorAMPublicacion;
 import interfaces.IControladorPrincipal;
 import java.awt.event.ActionEvent;
@@ -20,14 +13,12 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
 import lugares.modelos.GestorLugares;
 import lugares.modelos.Lugar;
-import lugares.modelos.ModeloComboLugares;
 import palabrasclaves.modelos.GestorPalabrasClaves;
 import palabrasclaves.modelos.PalabraClave;
 import publicaciones.modelos.GestorPublicaciones;
@@ -35,13 +26,8 @@ import publicaciones.modelos.ModeloTablaPalabrasClaves;
 import publicaciones.modelos.Publicacion;
 import publicaciones.vistas.VentanaAMPublicacion;
 import tipos.modelos.GestorTipos;
-import tipos.modelos.ModeloComboTipos;
 import tipos.modelos.Tipo;
 
-/**
- *
- * @author Carlos
- */
 class ControladorAMPublicacion implements IControladorAMPublicacion {
     private VentanaAMPublicacion ventana;
     private GestorPublicaciones gp = GestorPublicaciones.crear();
@@ -52,10 +38,6 @@ class ControladorAMPublicacion implements IControladorAMPublicacion {
     private GestorAutores ga = GestorAutores.crear();
     private GestorPalabrasClaves gpc = GestorPalabrasClaves.crear();
     private boolean crear;
-    private Grupo grupoaux;
-    private Lugar lugaraux;
-    private Tipo tipoaux;
-    private Idioma idiomaaux;
     private Publicacion publicacionAux;
     
     public ControladorAMPublicacion(String title, boolean crear, JDialog padre, boolean modal) {
@@ -191,6 +173,4 @@ class ControladorAMPublicacion implements IControladorAMPublicacion {
             this.ventana.verTxtEnlace(selectedFile.getAbsolutePath());
         }        
     }
-    
-
 }

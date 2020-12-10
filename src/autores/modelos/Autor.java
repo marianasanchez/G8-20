@@ -51,12 +51,6 @@ import java.util.List;
     public void asignarClave(String clave) {
         this.clave = clave;
     }
-    
-//    @Override
-//    public int hashCode() {
-//        int hash = 7;
-//        return hash;
-//    }
 
     @Override
     public boolean equals(Object obj) {
@@ -102,7 +96,6 @@ import java.util.List;
         for (MiembroEnGrupo meg : miembroEnGrupos) {
             if(meg.verGrupo().equals(grupo)){
                 miembroEnGrupos.remove(meg);
-//                this.quitarGrupo(grupo);
                 grupo.quitarMiembro(this);
                 return;
             }

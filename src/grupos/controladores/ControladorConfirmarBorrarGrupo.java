@@ -1,14 +1,10 @@
 package grupos.controladores;
 
-import autores.controladores.*;
-import autores.modelos.GestorAutores;
-import autores.vistas.VentanaConfirmarBorrarAutor;
 import grupos.modelos.GestorGrupos;
 import grupos.vistas.VentanaConfirmarBorrarGrupo;
 import java.awt.event.ActionEvent;
 import javax.swing.JDialog;
 import publicaciones.controladores.ControladorMensaje;
-import interfaces.IControladorConfirmarBorrarAutor;
 import interfaces.IControladorConfirmarBorrarGrupo;
 
 public class ControladorConfirmarBorrarGrupo implements IControladorConfirmarBorrarGrupo{
@@ -37,5 +33,4 @@ public class ControladorConfirmarBorrarGrupo implements IControladorConfirmarBor
         this.ventana.setVisible(false);
         this.ventana.dispose();
     }
-    
 }

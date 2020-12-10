@@ -78,5 +78,4 @@ public class ControladorPublicaciones implements IControladorPublicaciones{
         mtp.actualizar();
         this.ventana.publicacionesCargadas();
     }
-    
 }

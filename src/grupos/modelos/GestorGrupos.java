@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package grupos.modelos;
 
 import autores.modelos.Autor;
@@ -30,9 +25,6 @@ public class GestorGrupos implements IGestorGrupos{
         if (instancia == null){
             instancia = new GestorGrupos();
         }
-//        else {
-//            System.out.println(INSTANCIADO);            
-//        }
         return instancia;
     }
 
@@ -115,7 +107,6 @@ public class GestorGrupos implements IGestorGrupos{
 
     @Override
     public String agregarMiembros(Grupo grupo, List<MiembroEnGrupo> miembros) {
-//        grupo.limpiarMiembros();
         for (MiembroEnGrupo meg: miembros){
             if(meg.verRol() != null){
                 grupo.agregarMiembro(meg.verAutor(), meg.verRol());

@@ -9,7 +9,6 @@ import grupos.vistas.VentanaModificarMiembros;
 import interfaces.IControladorModificarMiembros;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.ListSelectionModel;
@@ -27,8 +26,6 @@ class ControladorModificarMiembros implements IControladorModificarMiembros{
         this.ventana.setAutores(gg.verMiembros(grupo));
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
-//        this.ventana.setBox(this.ventana.getTabla(), this.ventana.getTabla().getColumn(1));
-//        this.actualizar();
     }
     
     @Override
@@ -47,7 +44,6 @@ class ControladorModificarMiembros implements IControladorModificarMiembros{
 
     @Override
     public void btnAceptarClic(ActionEvent evt) {
-        //gg.agregarMiembros(this.grupoaux, miembros);
         ModeloTablaModificarMiembrosGrupo mtmg = (ModeloTablaModificarMiembrosGrupo)this.ventana.getTabla().getModel();
         List<MiembroEnGrupo> miembrosSeleccionados = new ArrayList<>();
         List<MiembroEnGrupo> miembrosSinSeleccion = new ArrayList<>();
@@ -56,12 +52,6 @@ class ControladorModificarMiembros implements IControladorModificarMiembros{
             miembrosSeleccionados.add(mtmg.aceptar().get(fila));
         }
         gg.agregarMiembros(grupoaux, miembrosSeleccionados);
-//        for(int i=0; i<mtmg.aceptar().size(); i++){
-//            if(!(Arrays.asList(filasSeleccionadas).contains(i))){
-//                 miembrosSinSeleccion.add(mtmg.aceptar().get(i));
-//                 System.out.println("La fila "+i+"No esta seleccionado");
-//            }   
-//        }
         int b=0;
         for(int i = 0; i < mtmg.aceptar().size(); i++){
             for(int j = 0; j < filasSeleccionadas.length; j++){
@@ -80,7 +70,6 @@ class ControladorModificarMiembros implements IControladorModificarMiembros{
         gg.quitarMiembros(grupoaux, miembrosSinSeleccion);
         this.ventana.setVisible(false);
         this.ventana.dispose();
-        
     }
 
     @Override
@@ -88,27 +77,4 @@ class ControladorModificarMiembros implements IControladorModificarMiembros{
         this.ventana.setVisible(false);
         this.ventana.dispose();
     }
-//        public List <MiembroEnGrupo> seleccionados(){
-//        List <MiembroEnGrupo> seleccionados = new ArrayList<>();
-////        filas = Arrays.asList(this.jTable1.getSelectedRows());
-//        int [] filasseleccionadas = this.ventana.getTabla().getSelectedRows();
-//        for(int i=0; i< filasseleccionadas.length; i++){
-//            Rol rol = this.ventana.getTabla().getValueAt(i, 1);
-//            seleccionados.add(new MiembroEnGrupo(this.ventana.getTabla().getRow()));
-//        }
-//    }
-//    public void ventanaObtenerFoco(){
-//        ListSelectionModel modeloSeleccion = this.ventana.getTabla().getSelectionModel();
-//        for(Autor autor : this.grupoaux.) {
-//            for(int fila = 0; fila < mt.getRowCount(); fila++) {
-//                PalabraClave pc = mt.verPalabraClave(fila);
-//
-//
-//                if (palabraClave.equals(pc)) {
-//                    modeloSeleccion.addSelectionInterval(fila, fila);
-//                    break;
-//                    }
-//                }
-//            }
-//    }
 }

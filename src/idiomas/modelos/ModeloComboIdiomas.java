@@ -1,7 +1,5 @@
 package idiomas.modelos;
 
-import grupos.modelos.*;
-import autores.modelos.*;
 import javax.swing.DefaultComboBoxModel;
 
 public class ModeloComboIdiomas extends DefaultComboBoxModel{

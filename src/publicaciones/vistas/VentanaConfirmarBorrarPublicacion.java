@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package publicaciones.vistas;
 
 import autores.vistas.*;
@@ -10,10 +5,6 @@ import interfaces.IControladorConfirmarBorrarAutor;
 import interfaces.IControladorConfirmarBorrarPublicacion;
 import javax.swing.JDialog;
 
-/**
- *
- * @author rodrigo
- */
 public class VentanaConfirmarBorrarPublicacion extends javax.swing.JDialog {
     
     IControladorConfirmarBorrarPublicacion controlador;

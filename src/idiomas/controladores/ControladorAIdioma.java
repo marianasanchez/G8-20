@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package idiomas.controladores;
 
 import idiomas.modelos.GestorIdiomas;
@@ -13,8 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
 public class ControladorAIdioma implements IControladorAIdioma {
-private GestorIdiomas gi = GestorIdiomas.crear();
-private VentanaAIdioma ventana;
+    private GestorIdiomas gi = GestorIdiomas.crear();
+    private VentanaAIdioma ventana;
 
     public ControladorAIdioma (VentanaIdiomas padre, boolean modal) {
         this.ventana = new VentanaAIdioma(padre, modal, this);
@@ -57,6 +52,5 @@ private VentanaAIdioma ventana;
                     break;
             }
         }
-    }
-    
+    } 
 }

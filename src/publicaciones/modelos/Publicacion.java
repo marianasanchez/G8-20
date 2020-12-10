@@ -105,13 +105,6 @@ public class Publicacion implements Comparable<Publicacion>{
         this.miembroEnGrupo = miembroEnGrupo;
     }
 
-//    @Override
-//    public int hashCode() {
-//        int hash = 5;
-//        hash = 97 * hash + Objects.hashCode(this.titulo);
-//        return hash;
-//    }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -153,5 +146,4 @@ public class Publicacion implements Comparable<Publicacion>{
     public int compareTo(Publicacion p) {
         return this.verTitulo().compareTo(p.verTitulo());
     }
-    
 }

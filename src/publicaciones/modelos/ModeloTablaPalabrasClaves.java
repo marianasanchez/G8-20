@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package publicaciones.modelos;
 
 import java.util.List;
@@ -11,10 +6,6 @@ import javax.swing.table.AbstractTableModel;
 import palabrasclaves.modelos.GestorPalabrasClaves;
 import palabrasclaves.modelos.PalabraClave;
 
-/**
- *
- * @author Carlos
- */
 public class ModeloTablaPalabrasClaves extends AbstractTableModel{
     private List<String> nombreColumnas = new ArrayList<>();
     private List<PalabraClave> palabrasclaves = new ArrayList<>();
@@ -42,7 +33,6 @@ public class ModeloTablaPalabrasClaves extends AbstractTableModel{
     public Object getValueAt(int fila, int columna) {
         PalabraClave p = this.palabrasclaves.get(fila);
         return p.verNombre();
-
     }
 
     @Override
@@ -53,8 +43,6 @@ public class ModeloTablaPalabrasClaves extends AbstractTableModel{
     public PalabraClave verPalabraClave(int fila) {
         return this.palabrasclaves.get(fila);
     }
-    
-
     
     public void actualizar() {
         GestorPalabrasClaves gpc = GestorPalabrasClaves.crear();

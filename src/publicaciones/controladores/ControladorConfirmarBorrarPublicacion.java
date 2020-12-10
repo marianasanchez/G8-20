@@ -1,12 +1,7 @@
 package publicaciones.controladores;
 
-import autores.controladores.*;
-import autores.modelos.GestorAutores;
-import autores.vistas.VentanaConfirmarBorrarAutor;
 import java.awt.event.ActionEvent;
 import javax.swing.JDialog;
-import publicaciones.controladores.ControladorMensaje;
-import interfaces.IControladorConfirmarBorrarAutor;
 import interfaces.IControladorConfirmarBorrarPublicacion;
 import publicaciones.modelos.GestorPublicaciones;
 import publicaciones.vistas.VentanaConfirmarBorrarPublicacion;
@@ -37,5 +32,4 @@ public class ControladorConfirmarBorrarPublicacion implements IControladorConfir
         this.ventana.setVisible(false);
         this.ventana.dispose();
     }
-    
 }

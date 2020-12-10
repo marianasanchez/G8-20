@@ -1,7 +1,6 @@
 package grupos.modelos;
 
 import autores.modelos.*;
-import grupos.modelos.MiembroEnGrupo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -22,7 +21,6 @@ public class ModeloTablaModificarMiembrosGrupo extends AbstractTableModel {
             megsAux.add(new MiembroEnGrupo(ga.verAutor(a.verDni()), grupo, a.verRol(a, grupo)));
         }
         this.grupo = grupo;
-//        this.actualizar();
     }
 
     @Override
@@ -55,15 +53,7 @@ public class ModeloTablaModificarMiembrosGrupo extends AbstractTableModel {
         return this.nombreColumnas.get(columna);
     }
     
-    
-    
-//    public Autor verAutor(int fila) {
-//        return this.profesores.get(fila);
-//    }
-//    
-
     public void actualizar() {
-//        this.autores = ga.verAutores();
         this.fireTableDataChanged();
     }
 
@@ -92,9 +82,6 @@ public class ModeloTablaModificarMiembrosGrupo extends AbstractTableModel {
                 break;
             default:
                 megAux.asignarRol((Rol)aValue);
-                for(MiembroEnGrupo meg : megsAux){
-                    System.out.println(meg.verRol());
-                }
                 this.actualizar();
                 break;
         }
@@ -110,12 +97,9 @@ public class ModeloTablaModificarMiembrosGrupo extends AbstractTableModel {
     }
     
     public List <MiembroEnGrupo> aceptar(){
-        //gg.quitarMiembros(grupo, megsAux);
-        
-//        gg.agregarMiembros(grupo, megsAux);
         return megsAux;
-//      List<MiembroEnGrupo> agregar,List<MiembroEnGrupo> quitar
     }
+    
     public Autor verAutor(int fila){
         return this.autores.get(fila);
     }

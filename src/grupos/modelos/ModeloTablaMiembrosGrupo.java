@@ -1,7 +1,6 @@
 package grupos.modelos;
 
 import autores.modelos.*;
-import grupos.modelos.MiembroEnGrupo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;

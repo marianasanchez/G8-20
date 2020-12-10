@@ -2,20 +2,16 @@ package grupos.vistas;
 
 import autores.modelos.Autor;
 import grupos.modelos.Grupo;
-import grupos.modelos.MiembroEnGrupo;
 import grupos.modelos.ModeloComboRol;
 import grupos.modelos.ModeloTablaModificarMiembrosGrupo;
 import grupos.modelos.Rol;
 import interfaces.IControladorModificarMiembros;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 
 public class VentanaModificarMiembros extends javax.swing.JDialog {
@@ -200,13 +196,6 @@ public class VentanaModificarMiembros extends javax.swing.JDialog {
         return rol;
     }
     
-//    public List<Grupo> getGrupos(){
-//        int filas[] = this.jTable1.getSelectedRows();
-//        List<Grupo> grupos = new ArrayList<>();
-//        for(fila f : filas){
-//            grupos.add(jTable1.getSelectedRow())
-//        }
-//    } 
     public void setAutores(List<Autor> verAutores) {
         ModeloTablaModificarMiembrosGrupo mtmg = (ModeloTablaModificarMiembrosGrupo)this.jTable1.getModel();
         ListSelectionModel modeloSeleccion = this.jTable1.getSelectionModel();

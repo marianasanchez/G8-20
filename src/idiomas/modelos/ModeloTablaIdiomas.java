@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package idiomas.modelos;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *
- * @author Carlos
- */
 public class ModeloTablaIdiomas extends AbstractTableModel {
     private List<String> nombreColumnas = new ArrayList<>();
     private List<Idioma> idiomas = new ArrayList<>();
@@ -20,9 +11,6 @@ public class ModeloTablaIdiomas extends AbstractTableModel {
     private List<Idioma> auxIdiomas = new ArrayList<>();
     public ModeloTablaIdiomas() {
         nombreColumnas.add("Idiomas");
-
-//        ga.nuevoAutor(12, "duran", "bernardo", "14-0385-9", "12345", "12345");
-//        ga.nuevoAutor(13, "guzmanx", "Rodsi", "14-0385-7", "1234s5", "1234s5");
         this.idiomas = gi.verIdiomas();
         this.actualizar();
     }

@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import principal.vistas.VentanaSalir;
 import interfaces.IControladorSalir;
 import javax.swing.JFrame;
-import publicaciones.controladores.ControladorMensaje;
 
 public class ControladorSalir implements IControladorSalir{
 

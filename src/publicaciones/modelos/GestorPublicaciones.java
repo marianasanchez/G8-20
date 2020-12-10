@@ -1,9 +1,7 @@
 package publicaciones.modelos;
 
 import autores.modelos.Autor;
-import static grupos.modelos.GestorGrupos.BORRADO_EXITO;
 import static grupos.modelos.GestorGrupos.BORRADO_INEXISTENTE;
-import static grupos.modelos.GestorGrupos.EXISTE_PUB;
 import grupos.modelos.MiembroEnGrupo;
 import idiomas.modelos.Idioma;
 import interfaces.IGestorPublicaciones;
@@ -31,29 +29,23 @@ public class GestorPublicaciones implements IGestorPublicaciones {
         if (instancia == null){
             instancia = new GestorPublicaciones();
         }
-//        else{
-//            System.out.println(INSTANCIADO);
-//        }
         return instancia;
     }
     
     @Override
     public String nuevaPublicacion(String titulo, MiembroEnGrupo miembroEnGrupo, LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, List<PalabraClave> palabrasClaves, String enlace, String resumen){
-            if((titulo != null) && (miembroEnGrupo != null) && (fechaPublicacion != null) && (tipo != null)&& (lugar != null)&& (palabrasClaves != null)&& (enlace != null)&& (resumen != null) && (!titulo.isBlank()) && (!fechaPublicacion.toString().isBlank()) && (!palabrasClaves.toString().isBlank())&& (!miembroEnGrupo.verGrupo().toString().isBlank())&& (!enlace.isBlank())&& (!resumen.isBlank())){
-
-            
-               Publicacion p = new Publicacion(titulo, miembroEnGrupo, fechaPublicacion, tipo, idioma, lugar, palabrasClaves, enlace, resumen);
-               if(!this.publicaciones.contains(p)){
-                   this.publicaciones.add(p);
-                   return EXITO;
-               }
-               else{
-                   return REPETIDO;
-               }
-            }
-        
-        return INVALIDO;
-       }
+        if((titulo != null) && (miembroEnGrupo != null) && (fechaPublicacion != null) && (tipo != null)&& (lugar != null)&& (palabrasClaves != null)&& (enlace != null)&& (resumen != null) && (!titulo.isBlank()) && (!fechaPublicacion.toString().isBlank()) && (!palabrasClaves.toString().isBlank())&& (!miembroEnGrupo.verGrupo().toString().isBlank())&& (!enlace.isBlank())&& (!resumen.isBlank())){
+           Publicacion p = new Publicacion(titulo, miembroEnGrupo, fechaPublicacion, tipo, idioma, lugar, palabrasClaves, enlace, resumen);
+           if(!this.publicaciones.contains(p)){
+               this.publicaciones.add(p);
+               return EXITO;
+           }
+           else{
+               return REPETIDO;
+           }
+        }
+    return INVALIDO;
+    }
 
    @Override
     public String modificarPublicacion(Publicacion publicacion, MiembroEnGrupo miembroEnGrupo,LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, List<PalabraClave> palabrasClaves, String enlace, String resumen){
@@ -75,20 +67,19 @@ public class GestorPublicaciones implements IGestorPublicaciones {
         return INEXISTENTE;
     }
  
- @Override
- public boolean hayPublicacionesConEstaPalabraClave(PalabraClave palabraClave){
-         for(Publicacion p  : publicaciones){
-             for(PalabraClave pc: p.verPalabrasClaves()){
+    @Override
+    public boolean hayPublicacionesConEstaPalabraClave(PalabraClave palabraClave){
+        for(Publicacion p  : publicaciones){
+            for(PalabraClave pc: p.verPalabrasClaves()){
                 if(pc == palabraClave ){
-                        return true;
+                    return true;
                 }
-        
-              }
-        }
-         return false;
- }
- 
 
+            }
+        }
+        return false;
+    }
+ 
     @Override
     public boolean hayPublicacionesConEsteLugar(Lugar lugar) {
         for(Publicacion p  : publicaciones){
@@ -135,7 +126,6 @@ public class GestorPublicaciones implements IGestorPublicaciones {
         return publicaciones;
     }
 
-
     public Publicacion verPublicacion(String titulo) {
         for(Publicacion p : publicaciones){
             if(p.verTitulo() == titulo){
@@ -155,22 +145,9 @@ public class GestorPublicaciones implements IGestorPublicaciones {
         return false;
     }
 
-//    @Override
-//    public String nuevaPublicacion(String titulo, MiembroEnGrupo miembroEnGrupo, LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, List<PalabraClave> palabrasClaves, String enlace, String resumen) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    @Override
-//    public String modificarPublicacion(Publicacion publicacion, MiembroEnGrupo miembroEnGrupo, LocalDate fechaPublicacion, Tipo tipo, Idioma idioma, Lugar lugar, List<PalabraClave> palabrasClaves, String enlace, String resumen) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-
     @Override
     public String borrarPublicacion(Publicacion publicacion) {
         if (publicaciones.contains(publicacion)){
-//            if(existeEstaPublicacion(publicacion)){
-//                return EXISTE_PUB;
-//            }
             publicaciones.remove(publicacion);
             return BORRADO_EXITO;
         }

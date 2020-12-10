@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package grupos.controladores;
 
 import grupos.modelos.GestorGrupos;
@@ -16,15 +11,10 @@ import java.awt.event.WindowEvent;
 import javax.swing.JDialog;
 import publicaciones.controladores.ControladorMensaje;
 
-/**
- *
- * @author Carlos
- */
 class ControladorAMGrupo implements IControladorAMGrupo{
     private VentanaAMGrupo ventana;
     private GestorGrupos gg = GestorGrupos.crear();
     private boolean crear;
-    private Grupo grupoAux;
     
     public ControladorAMGrupo(String title, boolean modificarEnabled, JDialog padre, boolean modal) {
         this.crear = !modificarEnabled;
@@ -90,5 +80,4 @@ class ControladorAMGrupo implements IControladorAMGrupo{
         ModeloTablaMiembrosGrupo mtmg = (ModeloTablaMiembrosGrupo)this.ventana.getTabla().getModel();
         mtmg.actualizar();
     }
-    
 }

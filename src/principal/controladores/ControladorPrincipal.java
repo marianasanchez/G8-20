@@ -1,4 +1,3 @@
-//<editor-fold defaultstate="collapsed" desc="Parcial N° 2">
 package principal.controladores;
 
 import autores.controladores.ControladorAutores;
@@ -23,28 +22,8 @@ public class ControladorPrincipal implements IControladorPrincipal{
     private GestorIdiomas gi = GestorIdiomas.crear();
     private GestorTipos gt = GestorTipos.crear();
     
-    
-    private GestorAutores ga = GestorAutores.crear();
-    private GestorGrupos gg = GestorGrupos.crear();
-    
     public ControladorPrincipal() {
         this.ventana = new VentanaPrincipal(this);
-        
-        System.out.println(ga.nuevoAutor(1, "ApellidoUno", "NombreUno", Cargo.ADG, "a", "a"));
-        System.out.println(ga.nuevoAutor(2, "ApellidoDos", "NombreDos", Cargo.TITULAR, "a", "a"));
-        System.out.println(ga.nuevoAutor(3, "ApellidoTres", "NombreTres", Cargo.ADJUNTO, "a", "a"));
-        System.out.println(ga.nuevoAutor(4, "ApellidoCuatro", "NombreCuatro", Cargo.JTP, "a", "a"));
-        System.out.println(ga.nuevoAutor(5, "ApellidoCinco", "NombreCinco", Cargo.ADG, "a", "a"));
-        
-        System.out.println(ga.nuevoAutor(6, "ApellidoSeis", "NombreSeis", "6-6", "a", "a"));
-        System.out.println(ga.nuevoAutor(7, "ApellidoSiete", "NombreSiete", "7-7", "a", "a"));
-        System.out.println(ga.nuevoAutor(8, "ApellidoOcho", "NombreOcho", "8-8", "a", "a"));
-        System.out.println(ga.nuevoAutor(9, "ApellidoNueve", "NombreNueve", "9-9", "a", "a"));
-        System.out.println(ga.nuevoAutor(10, "ApellidoDiez", "NombreDiez", "10-10", "a", "a"));
-        
-        System.out.println(gg.nuevoGrupo("Grupo 1", "Descripcion 1"));
-        
-        
         
         System.out.println(gpc.nuevaPalabraClave("Hardware"));
         System.out.println(gpc.nuevaPalabraClave("Software"));
@@ -63,7 +42,6 @@ public class ControladorPrincipal implements IControladorPrincipal{
         System.out.println(gi.nuevoIdioma("Alemán"));
         System.out.println(gi.nuevoIdioma("Francés"));
         System.out.println(gi.nuevoIdioma("Portugues"));
-        System.out.println(gi.verIdiomas());
         
         System.out.println(gt.nuevoTipo("Tesis"));
         System.out.println(gt.nuevoTipo("Informe"));
@@ -116,9 +94,4 @@ public class ControladorPrincipal implements IControladorPrincipal{
     public void btnTiposClic(ActionEvent evt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
-
-    
 }
-//</editor-fold>
