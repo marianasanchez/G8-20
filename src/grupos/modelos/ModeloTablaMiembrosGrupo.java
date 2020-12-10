@@ -36,7 +36,9 @@ public class ModeloTablaMiembrosGrupo extends AbstractTableModel {
     public Object getValueAt(int fila, int columna) {
         Autor a = this.autoresMiembros.get(fila);
         switch(columna) {
-            case 0: return a.verNombres();
+            case 0: 
+                String autor = a.verApellidos() + ", " + a.verNombres();
+                return autor;
             default: return a.verRol(a, grupo);
         }
     }

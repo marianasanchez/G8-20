@@ -169,11 +169,11 @@ public class VentanaAMGrupo extends javax.swing.JDialog {
     }//GEN-LAST:event_btnModificarMiembrosClic
 
     private void txtNombrePresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombrePresionarTecla
-        // TODO add your handling code here:
+        this.controlador.txtNombrePresionarTecla(evt);
     }//GEN-LAST:event_txtNombrePresionarTecla
 
     private void txtDescripcionPresionarTecla(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescripcionPresionarTecla
-        // TODO add your handling code here:
+        this.controlador.txtDescripcionPresionarTecla(evt);
     }//GEN-LAST:event_txtDescripcionPresionarTecla
 
     private void ventanaObtenerFoco(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_ventanaObtenerFoco

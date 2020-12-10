@@ -37,7 +37,9 @@ public class ModeloTablaModificarMiembrosGrupo extends AbstractTableModel {
     public Object getValueAt(int fila, int columna) {
         Autor a = this.autores.get(fila);
         switch(columna) {
-            case 0: return a.verNombres();
+            case 0: 
+                String autor = a.verApellidos() + ", " + a.verNombres();
+                return autor;
             default: 
                 for(MiembroEnGrupo meg : megsAux){
                     if(a.equals(meg.verAutor())){

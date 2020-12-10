@@ -2,10 +2,8 @@ package publicaciones.controladores;
 
 import autores.modelos.GestorAutores;
 import grupos.modelos.GestorGrupos;
-import grupos.modelos.Grupo;
 import grupos.modelos.MiembroEnGrupo;
 import idiomas.modelos.GestorIdiomas;
-import idiomas.modelos.Idioma;
 import interfaces.IControladorAMPublicacion;
 import interfaces.IControladorPrincipal;
 import java.awt.event.ActionEvent;
@@ -18,7 +16,6 @@ import javax.swing.JFileChooser;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
 import lugares.modelos.GestorLugares;
-import lugares.modelos.Lugar;
 import palabrasclaves.modelos.GestorPalabrasClaves;
 import palabrasclaves.modelos.PalabraClave;
 import publicaciones.modelos.GestorPublicaciones;
@@ -26,7 +23,6 @@ import publicaciones.modelos.ModeloTablaPalabrasClaves;
 import publicaciones.modelos.Publicacion;
 import publicaciones.vistas.VentanaAMPublicacion;
 import tipos.modelos.GestorTipos;
-import tipos.modelos.Tipo;
 
 class ControladorAMPublicacion implements IControladorAMPublicacion {
     private VentanaAMPublicacion ventana;
@@ -44,6 +40,7 @@ class ControladorAMPublicacion implements IControladorAMPublicacion {
         this.crear=crear;
         this.ventana = new VentanaAMPublicacion(padre, modal, this, crear);
         this.ventana.setTitle(title);
+        this.ventana.setModelComboBox(ga.verProfesores().get(0));
         this.ventana.setLocationRelativeTo(null);
         this.ventana.setVisible(true);
     }
@@ -53,6 +50,7 @@ class ControladorAMPublicacion implements IControladorAMPublicacion {
         this.publicacionAux = publicacion;
         this.ventana = new VentanaAMPublicacion(padre, modal, this, crear);
         this.ventana.setTitle(title);
+        this.ventana.setModelComboBox(ga.verProfesores().get(0));
         this.ventana.setTitulo(publicacion.verTitulo());
         this.ventana.enableTitulo(crear);
         this.ventana.setFecha(publicacion.verFechaPublicacion());
@@ -71,7 +69,7 @@ class ControladorAMPublicacion implements IControladorAMPublicacion {
     public void btnGuardarClic(ActionEvent evt) {
         String mensaje;
         if(crear == true){
-            MiembroEnGrupo meg = new MiembroEnGrupo(ga.verAutores().get(0), gg.verGrupo(this.ventana.getGrupo()),ga.verAutores().get(0).verRol(ga.verAutores().get(0),gg.verGrupo(this.ventana.getGrupo())));
+            MiembroEnGrupo meg = new MiembroEnGrupo(ga.verProfesores().get(0), gg.verGrupo(this.ventana.getGrupo()),ga.verAutores().get(0).verRol(ga.verAutores().get(0),gg.verGrupo(this.ventana.getGrupo())));
 
             List<PalabraClave> palabrasClaves = new ArrayList<>();
             int[] filasSeleccionadas = this.ventana.getTabla().getSelectedRows();
@@ -113,7 +111,7 @@ class ControladorAMPublicacion implements IControladorAMPublicacion {
 
     @Override
     public void txtTituloPresionarTecla(KeyEvent evt) {
-                char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isLetter(c) && !Character.isDigit(c)) {
             switch(c) {
                 case KeyEvent.VK_ENTER:    

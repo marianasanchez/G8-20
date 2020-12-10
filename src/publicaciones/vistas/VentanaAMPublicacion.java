@@ -1,5 +1,6 @@
 package publicaciones.vistas;
 
+import autores.modelos.Autor;
 import grupos.modelos.ModeloComboGrupos;
 import idiomas.modelos.ModeloComboIdiomas;
 import interfaces.IControladorAMPublicacion;
@@ -25,7 +26,7 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
         initComponents();
         this.controlador = controlador;
         this.jTable1.setModel(new ModeloTablaPalabrasClaves());
-        this.setModelComboBox();
+        //this.setModelComboBox();
     }
 
     /**
@@ -289,9 +290,9 @@ public class VentanaAMPublicacion extends javax.swing.JDialog {
         this.controlador.txtTituloPresionarTecla(evt);
     }//GEN-LAST:event_txtTituloPresionarTecla
     
-    public void setModelComboBox(){
+    public void setModelComboBox(Autor autor){
 
-        this.grupoComboBox.setModel(new ModeloComboGrupos());
+        this.grupoComboBox.setModel(new ModeloComboGrupos(autor));
           
         this.lugarComboBox.setModel(new ModeloComboLugares());
        

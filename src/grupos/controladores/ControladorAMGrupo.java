@@ -67,12 +67,38 @@ class ControladorAMGrupo implements IControladorAMGrupo{
 
     @Override
     public void txtNombrePresionarTecla(KeyEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isDigit(c)) {
+            switch(c) {
+                case KeyEvent.VK_ENTER:    
+                   this.btnGuardarClic(null);
+                case KeyEvent.VK_BACK_SPACE:
+                case KeyEvent.VK_SPACE:
+                case KeyEvent.VK_DELETE:
+                    break;
+                default:                    
+                    evt.consume();
+                    break;
+            }
+        }
     }
 
     @Override
     public void txtDescripcionPresionarTecla(KeyEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) && !Character.isDigit(c)) {
+            switch(c) {
+                case KeyEvent.VK_ENTER:    
+                   this.btnGuardarClic(null);
+                case KeyEvent.VK_BACK_SPACE:
+                case KeyEvent.VK_SPACE:
+                case KeyEvent.VK_DELETE:
+                    break;
+                default:                    
+                    evt.consume();
+                    break;
+            }
+        }
     }
 
     @Override
